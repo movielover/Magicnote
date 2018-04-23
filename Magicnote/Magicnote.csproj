@@ -42,7 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Convictions.cs" />
+    <Compile Include="Domain\DBManager.cs" />
+    <Compile Include="Domain\LegalArea.cs" />
+    <Compile Include="Domain\Note.cs" />
     <Compile Include="Domain\Paragraf.cs" />
+    <Compile Include="Domain\SubLegalArea.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
