@@ -8,5 +8,6 @@ namespace Magicnote.Domain
 {
     class Convictions
     {
+
     }
 }
