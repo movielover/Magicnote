@@ -77,6 +77,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="SQL\dbo.Conviction.sql" />
+    <Content Include="SQL\dbo.MainArea.sql" />
+    <Content Include="SQL\dbo.Note.sql" />
+    <Content Include="SQL\dbo.Paragraf.sql" />
+    <Content Include="SQL\dbo.SubArea.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
