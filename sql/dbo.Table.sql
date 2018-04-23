@@ -1,0 +1,30 @@
+﻿GO
+CREATE TABLE [dbo].[MainArea]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
+
+GO
+CREATE TABLE [dbo].[SubArea]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
+
+GO
+CREATE TABLE [dbo].[Paragraf]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
+
+GO
+CREATE TABLE [dbo].[Note]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
+
+GO
+CREATE TABLE [dbo].[Conviction]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
+
