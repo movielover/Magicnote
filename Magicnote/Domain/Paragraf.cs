@@ -2,10 +2,15 @@
 {
     public class Paragraf
     {
-        public int Number { get; set; }
+        public int ParagrafNumber { get; set; }
 
         public string Headline { get; set; }
 
         public string Lawtext { get; set; }
+
+        public void UpdateParagraf()
+        {
+
+        }
     }
 }
