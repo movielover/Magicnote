@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Magicnote.Domain
 {
@@ -10,8 +11,11 @@ namespace Magicnote.Domain
 
         public List<SubLegalArea> SubLegalAreas { get; set; }
 
-
-        public void NavigationList()
+        public List<string> SelectionList(string main)
+        {
+            throw new Exception();
+        }
+        public void Select(string paragraf)
         {
 
         }

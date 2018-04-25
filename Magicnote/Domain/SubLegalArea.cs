@@ -1,34 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Magicnote.Domain
 {
     public class SubLegalArea : IArea
     {
-        //List<Paragraf> subAreas = new List<Paragraf>();
-        List<string> Paragraf = new List<string>();
+        public Paragraph Paragraph { get; set; }
+
+        public List<Paragraph> Paragraphs { get; set; }
 
 
-        public List<string> SelectionList(string Main)
+        public List<string> SelectionList(string main)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                Paragraf.Add("list" + i);
-            }
-
-            // DBHandler.GetSubAreas(Main);
-            // foreach area in DBsubarea
-            //{
-            //subAreas.Add(DBM subarea)
-            //}
-            //return List<SubLegalArea>;
-            return Paragraf;
+            throw new Exception();
         }
-        public void Select(String paragraf)
+
+        public void Select(string paragraf)
         {
+            Paragraph p = new Paragraph();
+
+            p.ParagraphList(paragraf);
 
         }
     }

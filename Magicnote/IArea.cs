@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Magicnote
 {
-    interface IArea
+    public interface IArea
     {
-        List<IArea> SelectionList(string t);
+        List<string> SelectionList(string t);
 
-        void select();
-        
+        void Select(string t);
+
     }
 }
