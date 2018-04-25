@@ -5,41 +5,22 @@ namespace Magicnote.Domain
 {
     public class SubLegalArea : IArea
     {
-        private readonly List<string> _paragraf = new List<string>();
+        public Paragraph Paragraph { get; set; }
+
+        public List<Paragraph> Paragraphs { get; set; }
 
 
         public List<string> SelectionList(string main)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                _paragraf.Add("list" + i);
-            }
-
-            // DBHandler.GetSubAreas(Main);
-            // foreach area in DBsubarea
-            //{
-            //subAreas.Add(DBM subarea)
-            //}
-            //return List<SubLegalArea>;
-            return _paragraf;
+            throw new Exception();
         }
 
-        public void Select()
+        public void Select(string paragraf)
         {
-            throw new NotImplementedException();
-        }
+            Paragraph p = new Paragraph();
 
-        public void Select(String paragraf)
-        {
-            Paragraph P = new Paragraph();
+            p.ParagraphList(paragraf);
 
-            P.ParagraphList(paragraf);
-            
-        }
-
-        List<IArea> IArea.SelectionList(string t)
-        {
-            throw new NotImplementedException();
         }
     }
 }
