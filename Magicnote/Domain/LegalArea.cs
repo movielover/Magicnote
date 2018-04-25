@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace Magicnote.Domain
 {
-    public class SubLegalArea : IArea
+    class LegalArea: IArea
     {
-        //List<Paragraf> subAreas = new List<Paragraf>();
-        List<string> Paragraf = new List<string>();
 
+        //List<SubLegalArea> subAreas = new List<SubLegalArea>();
+        List<string> subAreas = new List<string>();
+        
 
         public List<string> SelectionList(string Main)
         {
             for (int i = 0; i < 10; i++)
             {
-                Paragraf.Add("list" + i);
+                subAreas.Add("list" + i);
             }
 
             // DBHandler.GetSubAreas(Main);
@@ -25,11 +26,12 @@ namespace Magicnote.Domain
             //subAreas.Add(DBM subarea)
             //}
             //return List<SubLegalArea>;
-            return Paragraf;
+            return subAreas;
         }
-        public void Select(String paragraf)
-        {
 
+        public void select(string Main)
+        {
+            SubLegalArea.SelectionList();
         }
     }
 }
