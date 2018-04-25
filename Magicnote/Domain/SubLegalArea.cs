@@ -29,7 +29,10 @@ namespace Magicnote.Domain
         }
         public void Select(String paragraf)
         {
+            Paragraph P = new Paragraph();
 
+            P.ParagraphList(paragraf);
+            
         }
     }
 }

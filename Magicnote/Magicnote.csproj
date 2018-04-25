@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayTester.cs" />
     <Compile Include="Domain\Convictions.cs" />
     <Compile Include="Domain\DbManager.cs" />
     <Compile Include="Domain\MainLegalArea.cs" />

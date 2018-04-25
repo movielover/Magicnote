@@ -8,9 +8,9 @@ namespace Magicnote
 {
     interface IArea
     {
-        List<IArea> SelectionList(string t);
+        List<string> SelectionList(string t);
 
-        void select();
+        void Select(string t);
         
     }
 }
