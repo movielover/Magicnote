@@ -12,18 +12,19 @@ namespace Magicnote.Domain
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-        public List<Paragraf> GetParagrafs(int number)
+        public List<Paragraph> GetParagraphs(int number)
         {
             using (SqlConnection connection = new SqlConnection(Conn("Database")))
             {
                 connection.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetParagrafs", connection)
+                SqlCommand cmd = new SqlCommand("SP_GetParagraphs", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
                 cmd.ExecuteNonQuery();
+                
             }
         }
     }
