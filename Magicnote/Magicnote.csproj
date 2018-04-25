@@ -63,6 +63,7 @@
     <Compile Include="Domain\Note.cs" />
     <Compile Include="Domain\Paragraf.cs" />
     <Compile Include="Domain\SubLegalArea.cs" />
+    <Compile Include="IArea.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
