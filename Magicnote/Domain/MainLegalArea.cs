@@ -2,12 +2,18 @@
 
 namespace Magicnote.Domain
 {
-    public class SubLegalArea
+    public class MainLegalArea
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public List<Paragraf> Paragrafs { get; set; }
+        public List<SubLegalArea> SubLegalAreas { get; set; }
+
+
+        public void NavigationList()
+        {
+
+        }
     }
 }
