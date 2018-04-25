@@ -12,7 +12,7 @@ namespace Magicnote.Domain
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-        public List<Paragraf> GetParagraphs(int number)
+        public List<Paragraph> GetParagraphs(int number)
         {
             using (SqlConnection connection = new SqlConnection(Conn("Database")))
             {
