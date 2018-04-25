@@ -8,6 +8,6 @@ namespace Magicnote.Domain
 
         public string Name { get; set; }
 
-        public List<Paragraf> Paragrafs { get; set; }
+        public List<Paragraph> Paragraphs { get; set; }
     }
 }
