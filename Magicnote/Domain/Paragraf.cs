@@ -20,7 +20,7 @@ namespace Magicnote.Domain
         {
             List<string> ListOfParagrafs = new List<string>();
 
-            foreach(Paragraf in SubLegalArea)
+            foreach(object Paragraf in SubLegalArea)
             {
                 ListOfParagrafs.Add(MenuNode());
             }
