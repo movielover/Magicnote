@@ -12,6 +12,63 @@ namespace Magicnote.Domain
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
+        public List<MainLegalArea> GetMainAreas(int number)
+        {
+            MainLegalArea mainLegalArea = new MainLegalArea();
+            using (SqlConnection connection = new SqlConnection(Conn("Database")))
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_GetMainLegalAreas", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (!reader.HasRows)
+                {
+                    return mainLegalArea.MainLegalAreas;
+                }
+                while (reader.Read())
+                {
+                    mainLegalArea = new MainLegalArea
+                    {
+                        Name = (string)reader["Name"]
+                    };
+
+                    mainLegalArea.MainLegalAreas.Add(mainLegalArea);
+                }
+            }
+            return mainLegalArea.MainLegalAreas;
+        }
+
+        public List<SubLegalArea> GetSubAreas(int number)
+        {
+            MainLegalArea mainLegalArea = new MainLegalArea();
+            using (SqlConnection connection = new SqlConnection(Conn("Database")))
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_GetSubLegalAreas", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (!reader.HasRows)
+                {
+                    return mainLegalArea.SubLegalAreas;
+                }
+                while (reader.Read())
+                {
+                    SubLegalArea subLegalArea = new SubLegalArea
+                    {
+                        Name = (string)reader["Name"]
+                    };
+
+                    mainLegalArea.SubLegalAreas.Add(subLegalArea);
+                }
+            }
+            return mainLegalArea.SubLegalAreas;
+        }
         public List<Paragraph> GetParagraphs(int number)
         {
             SubLegalArea subLegalArea = new SubLegalArea();
@@ -41,66 +98,6 @@ namespace Magicnote.Domain
                 }
             }
             return subLegalArea.Paragraphs;
-        }
-
-        public List<Paragraph> GetMainAreas(int number)
-        {
-            List<Paragraph> paragraphs = new List<Paragraph>();
-            using (SqlConnection connection = new SqlConnection(Conn("Database")))
-            {
-                connection.Open();
-
-                SqlCommand cmd = new SqlCommand("SP_GetParagraphs", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
-                {
-                    return paragraphs;
-                }
-                while (reader.Read())
-                {
-                    Paragraph paragraph = new Paragraph
-                    {
-                        ParagraphNumber = (int) reader["ParagraphNumber"],
-                        Headline = reader["Headline"] as string,
-                        Lawtext = (string) reader["Lawtext"]
-                    };
-
-                    paragraphs.Add(paragraph);
-                }
-            }
-            return paragraphs;
-        }
-
-        public List<SubLegalArea> GetSubAreas(int number)
-        {
-            MainLegalArea mainLegalArea = new MainLegalArea();
-            using (SqlConnection connection = new SqlConnection(Conn("Database")))
-            {
-                connection.Open();
-
-                SqlCommand cmd = new SqlCommand("SP_GetSubArea", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
-                {
-                    return mainLegalArea.SubLegalAreas;
-                }
-                while (reader.Read())
-                {
-                    SubLegalArea subLegalArea = new SubLegalArea
-                    {
-                        Paragraph = (Paragraph) reader["ParagraphNumber"],
-                    };
-
-                    mainLegalArea.SubLegalAreas.Add(subLegalArea);
-                }
-            }
-            return mainLegalArea.SubLegalAreas;
         }
     }
 }
