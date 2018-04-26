@@ -7,17 +7,32 @@ namespace Magicnote.Domain
     {
         public int Id { get; set; }
 
-        public string Title { get; set; }
-
-        public List<MainLegalArea> MainLegalAreas { get; set; }
+        public string Name { get; set; }
 
         public List<SubLegalArea> SubLegalAreas { get; set; }
 
-        public List<string> SelectionList(string main)
+
+        public void NavigationList()
         {
-            throw new Exception();
+
         }
-        public void Select(string paragraf)
+
+        MainLegalArea Main = new MainLegalArea();
+       
+        List<string> AreaNames = new List<string>();
+
+
+        public List<string> SelectionList(string Main)
+        {
+            foreach (object MainLegalArea in Main)
+            {
+                AreaNames.Add(Name);
+            }
+
+           
+            return AreaNames;
+        }
+        public void Select(String SubAreas)
         {
 
         }
