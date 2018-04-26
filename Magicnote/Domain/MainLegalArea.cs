@@ -9,6 +9,8 @@ namespace Magicnote.Domain
 
         public string Name { get; set; }
 
+        public List<MainLegalArea> MainLegalAreas { get; set; }
+
         public List<SubLegalArea> SubLegalAreas { get; set; }
 
         public List<string> SelectionList(string main)
