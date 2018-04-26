@@ -8,24 +8,31 @@ namespace Magicnote.Domain
 {
     public class SubLegalArea : IArea
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public List<Paragraph> Paragraphs { get; set; }
+
         //List<Paragraf> subAreas = new List<Paragraf>();
         List<string> Paragraf = new List<string>();
+
+        SubLegalArea Sub = new SubLegalArea();
+
+        List<string> ParagraphNames = new List<string>();
+        
 
 
         public List<string> SelectionList(string Main)
         {
-            for (int i = 0; i < 10; i++)
+            
+
+            foreach (object SubLegalArea in Sub)
             {
-                Paragraf.Add("list" + i);
+                ParagraphNames.Add(Sub.Name);
             }
 
-            // DBHandler.GetSubAreas(Main);
-            // foreach area in DBsubarea
-            //{
-            //subAreas.Add(DBM subarea)
-            //}
-            //return List<SubLegalArea>;
-            return Paragraf;
+            return ParagraphNames;
         }
         public void Select(String paragraf)
         {
