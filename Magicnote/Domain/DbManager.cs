@@ -32,7 +32,7 @@ namespace Magicnote.Domain
                 {
                     mainLegalArea = new MainLegalArea
                     {
-                        Name = (string)reader["Name"]
+                        Title = (string)reader["MA_Title"]
                     };
 
                     mainLegalArea.MainLegalAreas.Add(mainLegalArea);
@@ -61,7 +61,7 @@ namespace Magicnote.Domain
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        Name = (string)reader["Name"]
+                        Title = (string)reader["SA_Title"]
                     };
 
                     mainLegalArea.SubLegalAreas.Add(subLegalArea);
