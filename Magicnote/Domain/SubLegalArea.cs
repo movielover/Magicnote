@@ -5,6 +5,8 @@ namespace Magicnote.Domain
 {
     public class SubLegalArea : IArea
     {
+        public string Title { get; set; }
+
         public Paragraph Paragraph { get; set; }
 
         public List<Paragraph> Paragraphs { get; set; }
