@@ -19,7 +19,7 @@ namespace Magicnote.Domain
 
         MainLegalArea Main = new MainLegalArea();
        
-        List<string> AreaNames = new List<string>();
+        public List<string> AreaNames = new List<string>();
 
 
         public List<string> SelectionList(string Main)

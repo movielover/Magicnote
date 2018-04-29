@@ -20,12 +20,12 @@ namespace Magicnote.Domain
         SubLegalArea Sub = new SubLegalArea();
 
         List<string> ParagraphNames = new List<string>();
-        
+
 
 
         public List<string> SelectionList(string Main)
         {
-            
+
 
             foreach (object SubLegalArea in Sub)
             {
@@ -39,7 +39,7 @@ namespace Magicnote.Domain
             Paragraph P = new Paragraph();
 
             P.ParagraphList(paragraf);
-            
+
         }
     }
 }
