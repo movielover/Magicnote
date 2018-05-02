@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Magicnote.Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Magicnote.ViewModel
 {
     public class MainViewModel
     {
+        public DbManager DbManager;
 
+        public List<MainLegalArea> MainLegalAreas { get; set; }
+
+        public MainViewModel()
+        {
+            DbManager.SetMainAreas();
+            MainLegalAreas = DbManager.MainLegalArea.MainLegalAreas;
+
+        }
     }
 }
