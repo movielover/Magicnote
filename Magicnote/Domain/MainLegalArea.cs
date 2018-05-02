@@ -22,17 +22,6 @@ namespace Magicnote.Domain
        
         List<string> AreaNames = new List<string>();
 
-
-        public List<string> SelectionList(string Main)
-        {
-            foreach (object MainLegalArea in Main)
-            {
-                AreaNames.Add(Name);
-            }
-
-           
-            return AreaNames;
-        }
         public void Select(String SubAreas)
         {
 
