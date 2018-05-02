@@ -14,12 +14,12 @@ namespace Magicnote.Domain
 
         public List<Paragraph> Paragraphs { get; set; }
 
-        //List<Paragraf> subAreas = new List<Paragraf>();
-        List<string> Paragraf = new List<string>();
+        List<Paragraph> subAreas = new List<Paragraph>();
+        List<string> _paragra = new List<string>();
 
         SubLegalArea Sub = new SubLegalArea();
 
-        List<string> ParagraphNames = new List<string>();
+        private List<string> ParagraphNames = new List<string>();
         
 
 
@@ -41,5 +41,7 @@ namespace Magicnote.Domain
             P.ParagraphList(paragraf);
             
         }
+
+        
     }
 }
