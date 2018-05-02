@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Magicnote.Domain
 {
@@ -9,22 +8,13 @@ namespace Magicnote.Domain
 
         public string Title { get; set; }
 
-        public List<MainLegalArea> MainLegalAreas { get; set; }
+        public List<MainLegalArea> MainLegalAreas = new List<MainLegalArea>();
 
         public List<SubLegalArea> SubLegalAreas { get; set; }
 
-        public List<string> SelectionList(string main)
+        public List<MainLegalArea> GetMainLegalAreas()
         {
-            throw new Exception();
-        }
-
-        MainLegalArea Main = new MainLegalArea();
-       
-        List<string> AreaNames = new List<string>();
-
-        public void Select(String SubAreas)
-        {
-
+            return MainLegalAreas;
         }
     }
 }

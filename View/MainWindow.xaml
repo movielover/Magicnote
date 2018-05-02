@@ -3,30 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Border Name="ParagrafArea" Height="100" Width="793" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
-            
-
-        </Border>
-        <Border Name="NoteArea" Height="350" Width="600" Margin="0,100,0,0" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
-            <!--<TextBox Height="Auto" Width="Auto" Margin="0,0,0,0" TextWrapping="Wrap" SpellCheck.IsEnabled="True" 
-                     AcceptsReturn="True" AcceptsTab="True"  AllowDrop="True" AutoWordSelection="True" 
-                     VerticalScrollBarVisibility="Auto"/>-->
-            <RichTextBox> 
-                <FlowDocument></FlowDocument></RichTextBox>
-        </Border>
-        <Border Name="JudgeArea" Height="350" Width="193" Margin="600,100,0,0" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
-            <TextBox Height="Auto" Width="Auto" Margin="0,0,0,0" TextWrapping="Wrap" SpellCheck.IsEnabled="True" 
-                     AcceptsReturn="True" AcceptsTab="True"  AllowDrop="True" AutoWordSelection="True" />
-        </Border>
-        <Border Name="ImageArea" Height="120" Width="600" Margin="0,450,0,0" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
-            <Button Height="120" Width="600" Margin="0,0,0,0" Background="White" Click="ButtonImage_OnClick">
-                <Image Name="ImageBox" Height="119" Width="594" Margin="0,0,0,0"/>
-            </Button>
-        </Border>
-        <Border Name="ReferenceArea" Height="121" Width="193" Margin="600,450,0,-0.333" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <ListView ItemsSource="{Binding MainLegalAreas}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Title}"></Label>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
