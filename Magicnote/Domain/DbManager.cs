@@ -7,14 +7,14 @@ namespace Magicnote.Domain
 {
     public class DbManager
     {
+        public MainLegalArea MainLegalArea = new MainLegalArea();
         public static string Conn(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-        public List<MainLegalArea> GetMainAreas(int number)
+        public void SetMainAreas()
         {
-            MainLegalArea mainLegalArea = new MainLegalArea();
             using (SqlConnection connection = new SqlConnection(Conn("Database")))
             {
                 connection.Open();
@@ -24,21 +24,16 @@ namespace Magicnote.Domain
                     CommandType = CommandType.StoredProcedure
                 };
                 SqlDataReader reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
-                {
-                    return mainLegalArea.MainLegalAreas;
-                }
                 while (reader.Read())
                 {
-                    mainLegalArea = new MainLegalArea
+                    MainLegalArea = new MainLegalArea
                     {
                         Title = (string)reader["MA_Title"]
                     };
 
-                    mainLegalArea.MainLegalAreas.Add(mainLegalArea);
+                    MainLegalArea.MainLegalAreas.Add(MainLegalArea);
                 }
             }
-            return mainLegalArea.MainLegalAreas;
         }
 
         public List<SubLegalArea> GetSubAreas(int number)
