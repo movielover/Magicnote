@@ -26,7 +26,7 @@ namespace Magicnote.Domain
         public List<string> SelectionList(string Main)
         {
             
-
+            
             foreach (object SubLegalArea in Sub)
             {
                 ParagraphNames.Add(Sub.Name);
