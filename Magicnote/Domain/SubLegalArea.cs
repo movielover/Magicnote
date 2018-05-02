@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Magicnote.Domain
 {
@@ -10,38 +7,42 @@ namespace Magicnote.Domain
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         public List<Paragraph> Paragraphs { get; set; }
 
         List<Paragraph> subAreas = new List<Paragraph>();
         List<string> _paragra = new List<string>();
 
-        SubLegalArea Sub = new SubLegalArea();
+        SubLegalArea subLegalArea = new SubLegalArea();
 
         private List<string> ParagraphNames = new List<string>();
-        
 
 
-        public List<string> SelectionList(string Main)
+        public List<string> SelectionList(string main)
         {
-            
-            
-            foreach (object SubLegalArea in Sub)
-            {
-                ParagraphNames.Add(Sub.Name);
-            }
-
-            return ParagraphNames;
+            throw new Exception();
         }
+
+        //public List<string> SelectionList(string Main)
+        //{
+
+
+        //    foreach (object SubLegalArea in subLegalArea)
+        //    {
+        //        ParagraphNames.Add(subLegalArea.Title);
+        //    }
+
+        //    return ParagraphNames;
+        //}
         public void Select(String paragraf)
         {
             Paragraph P = new Paragraph();
 
             P.ParagraphList(paragraf);
-            
+
         }
 
-        
+
     }
 }
