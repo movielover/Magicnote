@@ -1,43 +1,40 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Magicnote.Domain
 {
-    //skal ændres
-    public class SubLegalArea : IArea, IEnumerable
+    public class SubLegalArea : IArea
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
-
-        public List<Paragraph> Paragraphs { get; set; }
         public string Title { get; set; }
 
-        //List<Paragraf> subAreas = new List<Paragraf>();
-        List<string> Paragraf = new List<string>();
+        public List<Paragraph> Paragraphs { get; set; }
 
-        SubLegalArea Sub = new SubLegalArea();
+        List<Paragraph> subAreas = new List<Paragraph>();
+        List<string> _paragra = new List<string>();
 
-        List<string> ParagraphNames = new List<string>();
+        SubLegalArea subLegalArea = new SubLegalArea();
+
+        private List<string> ParagraphNames = new List<string>();
 
 
-
-        public List<string> SelectionList(string Main)
+        public List<string> SelectionList(string main)
         {
-
-
-            foreach (object SubLegalArea in Sub)
-            {
-                ParagraphNames.Add(Sub.Name);
-            }
-
-            return ParagraphNames;
+            throw new Exception();
         }
+
+        //public List<string> SelectionList(string Main)
+        //{
+
+
+        //    foreach (object SubLegalArea in subLegalArea)
+        //    {
+        //        ParagraphNames.Add(subLegalArea.Title);
+        //    }
+
+        //    return ParagraphNames;
+        //}
         public void Select(String paragraf)
         {
             Paragraph P = new Paragraph();
@@ -46,10 +43,6 @@ namespace Magicnote.Domain
 
         }
 
-        //skal ændres
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

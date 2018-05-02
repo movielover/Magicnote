@@ -71,6 +71,8 @@
     <Compile Include="IArea.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MenuItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
