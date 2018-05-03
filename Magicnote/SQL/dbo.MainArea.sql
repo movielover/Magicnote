@@ -1,5 +1,0 @@
-﻿CREATE TABLE [dbo].[MainArea] (
-	[Id] INT NOT NULL,
-	[Number] INT NULL,
-	PRIMARY KEY CLUSTERED ([Id] ASC)
-);
