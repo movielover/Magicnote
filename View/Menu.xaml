@@ -11,10 +11,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Title}">
-
                     </Label>
                 </DataTemplate>
-
             </ListView.ItemTemplate>
         </ListView>
 
