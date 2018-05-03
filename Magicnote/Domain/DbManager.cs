@@ -22,14 +22,11 @@ namespace Magicnote.Domain
                     CommandType = CommandType.StoredProcedure
                 };
                 SqlDataReader reader = cmd.ExecuteReader();
-                //if (!reader.HasRows)
-                //{
-                //    return mainLegalAreas;
-                //}
                 while (reader.Read())
                 {
                     MainLegalArea = new MainLegalArea
                     {
+                        Id = (int)reader["PK_MA_ID"],
                         Title = (string)reader["MA_Title"]
                     };
                     mainLegalAreas.Add(MainLegalArea);
