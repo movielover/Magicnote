@@ -32,7 +32,7 @@ namespace Magicnote.Domain
                     {
                         Title = (string)reader["MA_Title"]
                     };
-                    MainLegalArea.MainLegalAreas.Add(MainLegalArea);
+                    mainLegalAreas.Add(MainLegalArea);
                 }
                 return mainLegalAreas;
             }
