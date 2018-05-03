@@ -62,10 +62,8 @@ END
 CREATE PROCEDURE [dbo].[SP_GetSubLegalAreas]
 	@FK_MA_ID int
 AS BEGIN
-	SELECT SA_Title
+	SELECT PK_SA_ID, SA_Title
 	FROM SubArea
 	WHERE FK_MA_ID = @FK_MA_ID
 	ORDER BY SA_Title ASC
 END
-
-EXEC SP_GetMainLegalAreas

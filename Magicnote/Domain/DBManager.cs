@@ -37,7 +37,7 @@ namespace Magicnote.Domain
 
         public List<SubLegalArea> GetSubAreas(int number)
         {
-            MainLegalArea mainLegalArea = new MainLegalArea();
+            List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -49,19 +49,20 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    return mainLegalArea.SubLegalAreas;
+                    return subLegalAreas;
                 }
                 while (reader.Read())
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
+                        Id = (int)reader["PK_SA_ID"],
                         Title = (string)reader["SA_Title"]
                     };
 
-                    mainLegalArea.SubLegalAreas.Add(subLegalArea);
+                    subLegalAreas.Add(subLegalArea);
                 }
             }
-            return mainLegalArea.SubLegalAreas;
+            return subLegalAreas;
         }
         public List<Paragraph> GetParagraphs(int number)
         {
