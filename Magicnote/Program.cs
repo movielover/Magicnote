@@ -1,14 +1,25 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using Magicnote.Domain;
+using System;
+using System.Collections.Generic;
 
 namespace Magicnote
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            
+            Run();
+        }
+
+        private static void Run()
+        {
+            DbManager dbManager = new DbManager();
+
+            dbManager.SetMainAreas();
+
+            List<MainLegalArea> mainLegalAreas = dbManager.MainLegalArea.MainLegalAreas;
+
+            Console.WriteLine(mainLegalAreas);
         }
     }
 }
