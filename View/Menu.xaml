@@ -10,15 +10,15 @@
         <ListView ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Titel}">
+                    <Label Content="{Binding Title}">
                     </Label>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding SubLegalArea}" HorizontalAlignment="Left" Height="391" Margin="352,85,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="ListView_SelectionChanged">
+        <ListView ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="391" Margin="352,85,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Titel}"/>
+                    <Label Content="{Binding Title}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

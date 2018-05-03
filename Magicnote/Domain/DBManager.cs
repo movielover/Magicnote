@@ -46,6 +46,7 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.Add(new SqlParameter("@FK_MA_ID", number));
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
@@ -66,7 +67,7 @@ namespace Magicnote.Domain
         }
         public List<Paragraph> GetParagraphs(int number)
         {
-            SubLegalArea subLegalArea = new SubLegalArea();
+            List<Paragraph> paragraphs = new List<Paragraph>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -78,7 +79,7 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    return subLegalArea.Paragraphs;
+                    return paragraphs;
                 }
                 while (reader.Read())
                 {
@@ -89,10 +90,10 @@ namespace Magicnote.Domain
                         Lawtext = (string) reader["Lawtext"]
                     };
 
-                    subLegalArea.Paragraphs.Add(paragraph);
+                    paragraphs.Add(paragraph);
                 }
             }
-            return subLegalArea.Paragraphs;
+            return paragraphs;
         }
     }
 }
