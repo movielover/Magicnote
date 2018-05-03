@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Magicnote.ViewModel;
 
 namespace View
 {
@@ -22,9 +23,15 @@ namespace View
         public Menu()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
