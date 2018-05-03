@@ -10,7 +10,7 @@ namespace Magicnote.Domain
     {
         internal MainLegalArea MainLegalArea = new MainLegalArea();
         private const string ConnectionString =
-            "Server=EALSQL1.eal.local; Database=DB2017_B21; User Id=USER_B21; Password=SesamLukOp_21;";
+            "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
         public void SetMainAreas()
         {
@@ -18,7 +18,7 @@ namespace Magicnote.Domain
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetMainLegalAreas", conn)
+                SqlCommand cmd = new SqlCommand("dbo.SP_GetMainLegalAreas", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
