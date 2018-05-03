@@ -7,7 +7,7 @@ namespace Magicnote.ViewModel
     {
         public DbManager DbManager;
 
-        public List<MainLegalArea> MainLegalAreas { get; set; }
+        public List<MainLegalArea> MainLegalAreas { get; }
 
         public MainViewModel()
         {
