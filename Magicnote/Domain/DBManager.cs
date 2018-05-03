@@ -1,25 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
 
 namespace Magicnote.Domain
 {
     public class DbManager
     {
-        public MainLegalArea MainLegalArea = new MainLegalArea();
-        public static string Conn(string name)
-        {
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
-        }
+        internal MainLegalArea MainLegalArea = new MainLegalArea();
+        private const string ConnectionString =
+            "Server=EALSQL1.eal.local; Database=DB2017_B21; User Id=USER_B21; Password=SesamLukOp_21;";
 
         public void SetMainAreas()
         {
-            using (SqlConnection connection = new SqlConnection(Conn("Database")))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                connection.Open();
+                conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetMainLegalAreas", connection)
+                SqlCommand cmd = new SqlCommand("SP_GetMainLegalAreas", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -39,11 +38,11 @@ namespace Magicnote.Domain
         public List<SubLegalArea> GetSubAreas(int number)
         {
             MainLegalArea mainLegalArea = new MainLegalArea();
-            using (SqlConnection connection = new SqlConnection(Conn("Database")))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                connection.Open();
+                conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetSubLegalAreas", connection)
+                SqlCommand cmd = new SqlCommand("SP_GetSubLegalAreas", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -67,11 +66,11 @@ namespace Magicnote.Domain
         public List<Paragraph> GetParagraphs(int number)
         {
             SubLegalArea subLegalArea = new SubLegalArea();
-            using (SqlConnection connection = new SqlConnection(Conn("Database")))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                connection.Open();
+                conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetParagraphs", connection)
+                SqlCommand cmd = new SqlCommand("SP_GetParagraphs", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };

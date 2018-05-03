@@ -11,6 +11,7 @@ namespace Magicnote.ViewModel
 
         public MainViewModel()
         {
+            DbManager = new DbManager();
             DbManager.SetMainAreas();
             MainLegalAreas = DbManager.MainLegalArea.MainLegalAreas;
 
