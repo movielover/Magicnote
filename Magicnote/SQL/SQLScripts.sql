@@ -42,7 +42,6 @@ CREATE TABLE [dbo].[SubAreaParagraph] (
     CONSTRAINT [FK_SubAreaParagraph_SubArea] FOREIGN KEY ([FK_SA_ID]) REFERENCES [dbo].[SubArea] ([PK_SA_ID]),
     CONSTRAINT [FK_SubAreaParagraph_Paragraph] FOREIGN KEY ([FK_P_ID]) REFERENCES [dbo].[Paragraph] ([PK_P_ID])
 );
-GO
 
 CREATE PROCEDURE [dbo].[SP_GetMainLegalAreas]
 AS BEGIN
@@ -50,7 +49,6 @@ AS BEGIN
 	FROM MainArea
 	ORDER BY MA_Title ASC
 END
-GO
 
 CREATE PROCEDURE [dbo].[SP_GetParagraphs]
 	@FK_SA_ID int
@@ -60,7 +58,7 @@ AS BEGIN
 	WHERE FK_SA_ID = @FK_SA_ID
 	ORDER BY ParagraphNumber ASC
 END
-GO
+
 CREATE PROCEDURE [dbo].[SP_GetSubLegalAreas]
 	@FK_MA_ID int
 AS BEGIN
@@ -69,4 +67,5 @@ AS BEGIN
 	WHERE FK_MA_ID = @FK_MA_ID
 	ORDER BY SA_Title ASC
 END
-EXEC dbo.SP_GetMainLegalAreas
+
+EXEC SP_GetMainLegalAreas

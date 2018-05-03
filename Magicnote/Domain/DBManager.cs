@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq.Expressions;
 
 namespace Magicnote.Domain
 {
@@ -12,8 +10,9 @@ namespace Magicnote.Domain
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
-        public void SetMainAreas()
+        public List<MainLegalArea> GetMainLegalAreas()
         {
+            List<MainLegalArea> mainLegalAreas = new List<MainLegalArea>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -23,15 +22,19 @@ namespace Magicnote.Domain
                     CommandType = CommandType.StoredProcedure
                 };
                 SqlDataReader reader = cmd.ExecuteReader();
+                //if (!reader.HasRows)
+                //{
+                //    return mainLegalAreas;
+                //}
                 while (reader.Read())
                 {
                     MainLegalArea = new MainLegalArea
                     {
                         Title = (string)reader["MA_Title"]
                     };
-
                     MainLegalArea.MainLegalAreas.Add(MainLegalArea);
                 }
+                return mainLegalAreas;
             }
         }
 
