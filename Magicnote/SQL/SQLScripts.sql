@@ -60,12 +60,14 @@ AS BEGIN
 END
 
 CREATE PROCEDURE [dbo].[SP_GetSubLegalAreas]
-	@FK_MA_ID int
+	@MA_Title char
 AS BEGIN
 	SELECT SA_Title
 	FROM SubArea
-	WHERE FK_MA_ID = @FK_MA_ID
+	JOIN MainArea ON @MA_Title = MA_Title
 	ORDER BY SA_Title ASC
 END
 
 EXEC SP_GetMainLegalAreas
+
+EXEC SP_GetSubLegalAreas "EU-ret"
