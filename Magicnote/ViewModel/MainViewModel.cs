@@ -15,5 +15,6 @@ namespace Magicnote.ViewModel
             MainLegalAreas = DbManager.GetMainLegalAreas();
 
         }
+        
     }
 }
