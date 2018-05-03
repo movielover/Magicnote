@@ -15,14 +15,12 @@ namespace Magicnote
         {
             DbManager dbManager = new DbManager();
 
-            dbManager.GetMainLegalAreas();
-
             List<MainLegalArea> mainLegalAreas = dbManager.GetMainLegalAreas();
 
-            Console.WriteLine(
-                $"Capacity: {mainLegalAreas.Capacity}\n" +
-                $"Count: {mainLegalAreas.Count}\n"
-                );
+            foreach (MainLegalArea mainLegalArea in mainLegalAreas)
+            {
+                Console.WriteLine(mainLegalArea.Title);
+            }
         }
     }
 }
