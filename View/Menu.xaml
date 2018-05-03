@@ -10,11 +10,9 @@
         <ListView ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Title}">
-
+                    <Label Content="{Binding Titel}">
                     </Label>
                 </DataTemplate>
-
             </ListView.ItemTemplate>
         </ListView>
 
