@@ -19,15 +19,11 @@ namespace View
             DataContext = new MainViewModel();
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
-
-        private void UIElement_OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LabelSubArea(object sender, MouseButtonEventArgs e)
         {
-            Label label = (Label) sender;
-            int subAreaId = Convert.ToInt32(label.Tag);
+            Label label = (Label)sender;
+            int subAreaId = Convert.ToInt16(label.Tag);
             mainViewModel.GetSubLegalArea(subAreaId);
         }
     }

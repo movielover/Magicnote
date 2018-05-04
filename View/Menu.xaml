@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Menu" Height="600" Width="800">
     <Grid>
-        <ListView ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="ListView_SelectionChanged" PreviewMouseLeftButtonDown="UIElement_OnPreviewMouseLeftButtonDown">
+        <ListView ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Title}">
@@ -15,10 +15,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="397" Margin="352,81,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="ListView_SelectionChanged" PreviewMouseLeftButtonDown="UIElement_OnPreviewMouseLeftButtonDown">
+        <ListView ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="397" Margin="352,81,0,0" VerticalAlignment="Top" Width="191"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Title}" Tag="{Binding Id}"/>
+                    <Label Content="{Binding Title}" Tag="{Binding Id}" MouseLeftButtonDown="LabelSubArea"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
