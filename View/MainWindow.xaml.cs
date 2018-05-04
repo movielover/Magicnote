@@ -33,8 +33,8 @@ namespace View
 
         private void GetToMenu_Click(object sender, RoutedEventArgs e)
         {
-            ParagraphView paragraphView = new ParagraphView();
-            paragraphView.Show();
+            Menu menu = new Menu();
+            menu.Show();
             this.Close();
         }
 

@@ -1,0 +1,31 @@
+﻿<Window x:Class="View.CreateParagraph"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View"
+        mc:Ignorable="d"
+        Title="CreateParagraph" Height="600" Width="800">
+    <Grid Margin="0,0,-0.4,0.4">
+        <Label Content="Opret Note til Paragraf" HorizontalAlignment="Center" Margin="329,10,326,0" VerticalAlignment="Top" Height="33" Width="139"/>
+        <TextBox HorizontalAlignment="Left" Height="32" Margin="74,342,0,0" TextWrapping="Wrap" Text="Indtast Overskrift" VerticalAlignment="Top" Width="332"/>
+        <TextBox HorizontalAlignment="Left" Height="153" Margin="74,393,0,0" TextWrapping="Wrap" Text="Indtast Lovtekst" VerticalAlignment="Top" Width="503"/>
+        <ComboBox Text="test" Margin="64,108,504,434" ItemsSource="{Binding MainLegalAreas}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="False"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox Text="Vælg Under område" Margin="64,164,504,379" ItemsSource="{Binding MainLegalAreas}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="False" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="32" Margin="74,288,0,0" TextWrapping="Wrap" Text="Indtast § Nr." VerticalAlignment="Top" Width="332"/>
+        
+        
+    </Grid>
+</Window>

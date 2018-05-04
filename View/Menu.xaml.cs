@@ -12,7 +12,7 @@ namespace View
     /// </summary>
     public partial class Menu : Window
     {
-        MainViewModel mainViewModel = new MainViewModel();
+        readonly MainViewModel _mainViewModel = new MainViewModel();
         public Menu()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace View
         {
             Label label = (Label)sender;
             int subAreaId = Convert.ToInt16(label.Tag);
-            mainViewModel.GetSubLegalArea(subAreaId);
+            _mainViewModel.GetSubLegalArea(subAreaId);
         }
     }
 }
