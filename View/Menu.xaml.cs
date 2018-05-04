@@ -1,5 +1,5 @@
-﻿using System;
-using Magicnote.ViewModel;
+﻿using Magicnote.ViewModel;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,21 +10,31 @@ namespace View
     /// <summary>
     /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class Menu
     {
-        readonly MainViewModel _mainViewModel = new MainViewModel();
+        private readonly MainViewModel _mainViewModel = new MainViewModel();
         public Menu()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new MainViewModel();
         }
 
+        private void Label_MainArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Label label = (Label) sender;
+            int subAreaId = Convert.ToInt32(label.Tag);
+            _mainViewModel.GetSubLegalArea(subAreaId);
+        }
 
-        private void LabelSubArea(object sender, MouseButtonEventArgs e)
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             Label label = (Label)sender;
             int subAreaId = Convert.ToInt16(label.Tag);
             _mainViewModel.GetSubLegalArea(subAreaId);
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
     }
 }
