@@ -10,9 +10,9 @@ namespace View
     /// <summary>
     /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class Menu
     {
-        MainViewModel mainViewModel = new MainViewModel();
+        private readonly MainViewModel _mainViewModel = new MainViewModel();
         public Menu()
         {
             InitializeComponent();
@@ -24,14 +24,14 @@ namespace View
         {
             Label label = (Label) sender;
             int subAreaId = Convert.ToInt32(label.Tag);
-            mainViewModel.GetSubLegalArea(subAreaId);
+            _mainViewModel.GetSubLegalArea(subAreaId);
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }
