@@ -2,7 +2,7 @@
 
 namespace Magicnote.Domain
 {
-    public class Paragraf
+    public class Paragraph
     {
         public int Number { get; set; }
 
