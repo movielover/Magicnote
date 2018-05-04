@@ -1,14 +1,5 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Magicnote;
-using Magicnote.ViewModel;
+﻿using Magicnote.ViewModel;
+using System.Windows;
 
 namespace View
 {
@@ -20,21 +11,22 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new MainViewModel();
         }
 
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {
-            CreateNoteView note = new CreateNoteView();
-            note.Show();
+            CreateNoteView createNoteView = new CreateNoteView();
+            createNoteView.Show();
             this.Close();
         }
 
 
         private void GetToMenu_Click(object sender, RoutedEventArgs e)
         {
-            ParagraphView paragraphView = new ParagraphView();
-            paragraphView.Show();
+            Menu menu = new Menu();
+            menu.Show();
             this.Close();
         }
 

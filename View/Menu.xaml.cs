@@ -1,5 +1,5 @@
-﻿using System;
-using Magicnote.ViewModel;
+﻿using Magicnote.ViewModel;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,19 +16,22 @@ namespace View
         public Menu()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new MainViewModel();
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void UIElement_OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Label_MainArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Label label = (Label) sender;
             int subAreaId = Convert.ToInt32(label.Tag);
             mainViewModel.GetSubLegalArea(subAreaId);
+        }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }
