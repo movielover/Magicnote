@@ -7,14 +7,17 @@ namespace Magicnote.ViewModel
     {
         public DbManager DbManager;
 
-        public List<MainLegalArea> MainLegalAreas { get; set; }
+        public List<MainLegalArea> MainLegalAreas { get; }
+        public List<SubLegalArea> SubLegalAreas { get; }
 
         public MainViewModel()
         {
             DbManager = new DbManager();
-            DbManager.SetMainAreas();
-            MainLegalAreas = DbManager.MainLegalArea.MainLegalAreas;
+            MainLegalAreas = DbManager.GetMainLegalAreas();
+            //tallet skal rettes så det symbolisere den aktuelle værdi af valget brugeren tager.
+            SubLegalAreas = DbManager.GetSubAreas(1);
 
         }
+
     }
 }
