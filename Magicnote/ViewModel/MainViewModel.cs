@@ -18,7 +18,7 @@ namespace Magicnote.ViewModel
         }
         public void GetSubLegalArea(int number)
         {
-            SubLegalAreas = DbManager.GetSubAreas(number); 
+            SubLegalAreas = DbManager.GetSubAreas(number);
         }
 
         public void GetParagraph(int paragraphId)

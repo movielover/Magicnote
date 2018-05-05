@@ -41,6 +41,6 @@ namespace View
             _mainViewModel.GetParagraph(paragraphId);
         }
 
-        
+
     }
 }
