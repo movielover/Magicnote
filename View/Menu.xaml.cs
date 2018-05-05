@@ -36,5 +36,14 @@ namespace View
             mainWindow.Show();
             Close();
         }
+
+        private void Label_SubArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Label label = (Label)sender;
+            int paragraphId = Convert.ToInt32(label.Tag);
+            _mainViewModel.GetParagraph(paragraphId);
+        }
+
+        
     }
 }

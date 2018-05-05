@@ -1,4 +1,5 @@
 ﻿using Magicnote.Domain;
+using System;
 using System.Collections.Generic;
 
 namespace Magicnote.ViewModel
@@ -20,5 +21,9 @@ namespace Magicnote.ViewModel
             SubLegalAreas = DbManager.GetSubAreas(number); 
         }
 
+        public void GetParagraph(int paragraphId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
