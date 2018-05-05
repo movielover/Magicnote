@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Text="Vælg Under område" Margin="64,164,504,379" ItemsSource="{Binding MainLegalAreas}">
+        <ComboBox Text="Vælg Under område" Margin="64,164,504,379" ItemsSource="{Binding SubLegalAreas}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="False" />
