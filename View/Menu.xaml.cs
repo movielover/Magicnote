@@ -1,8 +1,13 @@
 ﻿using Magicnote.ViewModel;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
+using DevExpress.Mvvm.Native;
+using Magicnote.Domain;
 
 
 namespace View
@@ -12,7 +17,7 @@ namespace View
     /// </summary>
     public partial class Menu
     {
-        private readonly MainViewModel _mainViewModel = new MainViewModel();
+        //private readonly MainViewModel _mainViewModel = new MainViewModel();
         public Menu()
         {
             InitializeComponent();
@@ -24,14 +29,12 @@ namespace View
         {
             Label label = (Label) sender;
             int subAreaId = Convert.ToInt32(label.Tag);
-            _mainViewModel.GetSubLegalArea(subAreaId);
+            MainViewModel.GetSubLegalArea(subAreaId);
+
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            Label label = (Label)sender;
-            int subAreaId = Convert.ToInt16(label.Tag);
-            _mainViewModel.GetSubLegalArea(subAreaId);
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
@@ -39,11 +42,12 @@ namespace View
 
         private void Label_SubArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Label label = (Label)sender;
+            Label label = (Label) sender;
             int paragraphId = Convert.ToInt32(label.Tag);
-            _mainViewModel.GetParagraph(paragraphId);
+            MainViewModel.GetParagraph(paragraphId);
         }
 
-        
+
     }
 }
+

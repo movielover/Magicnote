@@ -10,7 +10,7 @@
         <ListView ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Title}" Tag="{Binding Id}" MouseLeftButtonDown="Label_MainArea_OnMouseLeftButtonDown">
+                    <Label Content="{Binding Title,  Mode=TwoWay}" Tag="{Binding Id}" MouseLeftButtonDown="Label_MainArea_OnMouseLeftButtonDown">
                     </Label>
                 </DataTemplate>
             </ListView.ItemTemplate>
