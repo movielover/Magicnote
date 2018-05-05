@@ -9,12 +9,12 @@
         <ListView ItemsSource="{Binding MainLegalAreas, Mode=OneWay}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Title}" Tag="{Binding Id}" MouseLeftButtonDown="Label_MainArea_OnMouseLeftButtonDown">
+                    <Label Content="{Binding Title,  Mode=TwoWay}" Tag="{Binding Id}" MouseLeftButtonDown="Label_MainArea_OnMouseLeftButtonDown">
                     </Label>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding SubLegalAreas, Mode=OneWay}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
+        <ListView ItemsSource="{Binding SubLegalAreas, Mode=TwoWay}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Title}" Tag="{Binding Id}" MouseLeftButtonDown="Label_SubArea_OnMouseLeftButtonDown"/>

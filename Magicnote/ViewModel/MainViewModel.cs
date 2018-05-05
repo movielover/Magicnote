@@ -15,13 +15,11 @@ namespace Magicnote.ViewModel
         {
             DbManager = new DbManager();
             MainLegalAreas = DbManager.GetMainLegalAreas();
-            SubLegalAreas = DbManager.SubLegal;
         }
 
         public void GetSubLegalArea(int number)
         {
-            DbManager.GetSubAreas(number);
-            //SubLegalAreas = DbManager.subLegal;
+            SubLegalAreas = DbManager.GetSubAreas(number);
         }
 
         public void GetParagraph(int paragraphId)
