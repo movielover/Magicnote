@@ -29,9 +29,6 @@ namespace View
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            Label label = (Label)sender;
-            int subAreaId = Convert.ToInt16(label.Tag);
-            _mainViewModel.GetSubLegalArea(subAreaId);
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
