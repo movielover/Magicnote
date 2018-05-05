@@ -1,4 +1,5 @@
 ﻿using Magicnote.Domain;
+using System;
 using System.Collections.Generic;
 
 namespace Magicnote.ViewModel
@@ -14,16 +15,15 @@ namespace Magicnote.ViewModel
         {
             DbManager = new DbManager();
             MainLegalAreas = DbManager.GetMainLegalAreas();
-            //tallet skal rettes så det symbolisere den aktuelle værdi af valget brugeren tager.
-            //SubLegalAreas = DbManager.GetSubAreas(1);
-            
-
         }
         public void GetSubLegalArea(int number)
         {
-            SubLegalAreas = DbManager.GetSubAreas(number);
-            
+            SubLegalAreas = DbManager.GetSubAreas(number); 
         }
 
+        public void GetParagraph(int paragraphId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
