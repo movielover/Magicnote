@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModel="clr-namespace:Magicnote.ViewModel;assembly=Magicnote"
         mc:Ignorable="d"
         Title="Menu" Height="600" Width="800">
     <Grid>
-        <ListView ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
+        <ListView ItemsSource="{Binding MainLegalAreas, Mode=TwoWay}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Title,  Mode=TwoWay}" Tag="{Binding Id}" MouseLeftButtonDown="Label_MainArea_OnMouseLeftButtonDown">
@@ -15,7 +14,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
+        <ListView ItemsSource="{Binding SubLegalAreas, Mode=TwoWay}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Title}" Tag="{Binding Id}" MouseLeftButtonDown="Label_SubArea_OnMouseLeftButtonDown"/>
