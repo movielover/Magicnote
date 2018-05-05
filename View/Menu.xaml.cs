@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 
+
 namespace View
 {
     /// <summary>
@@ -40,7 +41,5 @@ namespace View
             int paragraphId = Convert.ToInt32(label.Tag);
             _mainViewModel.GetParagraph(paragraphId);
         }
-
-        
     }
 }
