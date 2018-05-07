@@ -76,6 +76,7 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", number));
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
