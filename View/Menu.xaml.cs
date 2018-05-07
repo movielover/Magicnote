@@ -38,6 +38,7 @@ namespace View
             Button button = (Button)sender;
             int subAreaId = Convert.ToInt32(button.Tag);
             _mainViewModel.GetSubLegalArea(subAreaId);
+            Sub_List_View.Items.Refresh();
         }
 
         //private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
