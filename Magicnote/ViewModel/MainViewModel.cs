@@ -1,11 +1,13 @@
 ﻿using Magicnote.Domain;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Web.Profile;
 
 namespace Magicnote.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        
         public List<Paragraph> Paragraphs;
         private List<SubLegalArea> _subLegalAreas;
         public DbManager DbManager;
@@ -15,6 +17,7 @@ namespace Magicnote.ViewModel
         public List<Note> Note { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
         public List<SubLegalArea> SubLegalAreas
+        
         {
             get
             {
