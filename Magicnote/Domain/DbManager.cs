@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -104,7 +103,7 @@ namespace Magicnote.Domain
 
         public List<Note> GetNote(int number)
         {
-            List<Note> Note = new List<Note>();
+            List<Note> notes = new List<Note>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -117,15 +116,15 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Note note = new Note()
+                    Note noteNew = new Note
                     {
-                        NoteText = (string) reader["NoteText"],
-                        NoteDate = (DateTime) reader["NoteDate"]
+                        NoteText = (string)reader["NoteText"],
+                        NoteDate = (DateTime)reader["NoteDate"]
                     };
-                    Note.Add(note);
+                    notes.Add(noteNew);
                 }
 
-                return Note;
+                return notes;
             }
         }
 
