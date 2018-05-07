@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace Magicnote.Domain
 {
@@ -29,8 +30,8 @@ namespace Magicnote.Domain
                 {
                     MainLegalArea = new MainLegalArea
                     {
-                        Id = (int) reader["PK_MA_ID"],
-                        Title = (string) reader["MA_Title"]
+                        Id = (int)reader["PK_MA_ID"],
+                        Title = (string)reader["MA_Title"]
                     };
                     mainLegalAreas.Add(MainLegalArea);
                 }
@@ -60,8 +61,8 @@ namespace Magicnote.Domain
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        Id = (int) reader["PK_SA_ID"],
-                        Title = (string) reader["SA_Title"]
+                        Id = (int)reader["PK_SA_ID"],
+                        Title = (string)reader["SA_Title"]
                     };
 
                     subLegalAreas.Add(subLegalArea);
@@ -92,9 +93,9 @@ namespace Magicnote.Domain
                 {
                     Paragraph paragraph = new Paragraph
                     {
-                        ParagraphNumber = (int) reader["ParagraphNumber"],
+                        ParagraphNumber = (int)reader["ParagraphNumber"],
                         Headline = reader["Headline"] as string,
-                        Lawtext = (string) reader["Lawtext"]
+                        Lawtext = (string)reader["Lawtext"]
                     };
 
                     paragraphs.Add(paragraph);
@@ -121,8 +122,8 @@ namespace Magicnote.Domain
                 {
                     Note Note = new Note()
                     {
-                        NoteText = (string) reader["NoteText"],
-                        NoteDate = (DateTime) reader["NoteDate"]
+                        NoteText = (string)reader["NoteText"],
+                        NoteDate = (DateTime)reader["NoteDate"]
                     };
                     _note.Add(note);
                 }
@@ -131,3 +132,4 @@ namespace Magicnote.Domain
             }
         }
     }
+}

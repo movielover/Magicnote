@@ -1,6 +1,7 @@
 ﻿using Magicnote.Domain;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Magicnote.ViewModel
 {
@@ -12,7 +13,7 @@ namespace Magicnote.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public <List<Note> 
+        //public List<Note> 
         public List<MainLegalArea> MainLegalAreas { get; }
         public List<SubLegalArea> SubLegalAreas
         {
