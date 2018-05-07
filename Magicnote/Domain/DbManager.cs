@@ -56,6 +56,7 @@ namespace Magicnote.Domain
                 {
                     return subLegalAreas;
                 }
+
                 while (reader.Read())
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
@@ -67,6 +68,7 @@ namespace Magicnote.Domain
                     subLegalAreas.Add(subLegalArea);
                 }
             }
+
             return subLegalAreas;
         }
 
@@ -131,3 +133,4 @@ namespace Magicnote.Domain
             }
         }
     }
+}
