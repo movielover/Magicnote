@@ -75,3 +75,11 @@ AS BEGIN
 	FROM	Note
 	WHERE FK_P_ID = @PK_N_ID
 END
+
+CREATE PROCEDURE [dbo].[SP_AddNote]
+  @NoteText,
+  @NoteDate
+AS BEGIN
+  INSERT [dbo].[Note] (NoteText, NoteDate)
+  VALUES (@NoteText, @NoteDate)
+END
