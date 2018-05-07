@@ -6,6 +6,7 @@ namespace Magicnote.Domain
 {
     public class DbManager
     {
+        public List<SubLegalArea> SubLegal = new List<SubLegalArea>();
         internal MainLegalArea MainLegalArea = new MainLegalArea();
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
@@ -35,9 +36,9 @@ namespace Magicnote.Domain
             }
         }
 
-        public List<SubLegalArea> GetSubAreas(int number)
+        public void GetSubAreas(int number)
         {
-            List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
+            //List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -48,10 +49,10 @@ namespace Magicnote.Domain
                 };
                 cmd.Parameters.Add(new SqlParameter("@FK_MA_ID", number));
                 SqlDataReader reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
-                {
-                    return subLegalAreas;
-                }
+                //if (!reader.HasRows)
+                //{
+                //    return subLegalAreas;
+                //}
                 while (reader.Read())
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
@@ -60,10 +61,11 @@ namespace Magicnote.Domain
                         Title = (string)reader["SA_Title"]
                     };
 
-                    subLegalAreas.Add(subLegalArea);
+                    //subLegalAreas.Add(subLegalArea);
+                    SubLegal.Add(subLegalArea);
                 }
             }
-            return subLegalAreas;
+            //return subLegalAreas;
         }
         public List<Paragraph> GetParagraphs(int number)
         {

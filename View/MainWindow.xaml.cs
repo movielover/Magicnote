@@ -17,8 +17,8 @@ namespace View
 
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {
-            CreateNoteView createNoteView = new CreateNoteView();
-            createNoteView.Show();
+            CreateParagraph CreateParagraph = new CreateParagraph();
+            CreateParagraph.Show();
             this.Close();
         }
 
