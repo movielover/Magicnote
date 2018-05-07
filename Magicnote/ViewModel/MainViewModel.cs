@@ -12,7 +12,8 @@ namespace Magicnote.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         public List<MainLegalArea> MainLegalAreas { get; }
-        public List<SubLegalArea> SubLegalAreas {
+        public List<SubLegalArea> SubLegalAreas
+        {
             get
             {
                 return _subLegalAreas;
@@ -31,11 +32,7 @@ namespace Magicnote.ViewModel
         }
         public void GetSubLegalArea(int number)
         {
-            //SubLegalAreas = DbManager.GetSubAreas(number); 
-            SubLegalAreas = new List<SubLegalArea>()
-            {
-                new SubLegalArea()
-            };
+            SubLegalAreas = DbManager.GetSubAreas(number);
         }
 
         protected void OnPropertyChanged(string propertyName)
