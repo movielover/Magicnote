@@ -8,6 +8,7 @@ namespace Magicnote.Domain
     public class DbManager
     {
         internal MainLegalArea MainLegalArea = new MainLegalArea();
+        internal Note note = new Note();
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
@@ -66,6 +67,7 @@ namespace Magicnote.Domain
             }
             return subLegalAreas;
         }
+
         public List<Paragraph> GetParagraphs(int number)
         {
             List<Paragraph> paragraphs = new List<Paragraph>();
@@ -83,6 +85,7 @@ namespace Magicnote.Domain
                 {
                     return paragraphs;
                 }
+
                 while (reader.Read())
                 {
                     Paragraph paragraph = new Paragraph
@@ -96,6 +99,33 @@ namespace Magicnote.Domain
                 }
             }
             return paragraphs;
+        }
+
+        public List<Note> GetNote(int number)
+        {
+            List<Note> Note = new List<Note>();
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.SP_GetNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@PK_N_ID", number));
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Note note = new Note()
+                    {
+                        NoteText = (string) reader["NoteText"],
+                        NoteDate = (DateTime) reader["NoteDate"]
+                    };
+                    Note.Add(note);
+                }
+
+                return Note;
+            }
         }
 
         public void AddNote(string noteText, DateTime dateTime)

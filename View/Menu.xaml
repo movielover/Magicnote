@@ -14,14 +14,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
+        <ListView ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Tag="{Binding Id}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Back_Button_Click"/>
+        <Button Name="test_btton"  Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Back_Button_Click"/>
 
     </Grid>
 </Window>
