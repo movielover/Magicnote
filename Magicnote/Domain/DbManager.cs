@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -95,6 +96,23 @@ namespace Magicnote.Domain
                 }
             }
             return paragraphs;
+        }
+
+        public void AddNote(string noteText, DateTime dateTime)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_AddNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
+                cmd.Parameters.Add(new SqlParameter("@NoteDate", dateTime));
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
