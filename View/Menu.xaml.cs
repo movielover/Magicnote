@@ -1,14 +1,8 @@
 ﻿using Magicnote.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using DevExpress.Mvvm.Native;
-using Magicnote.Domain;
-
 
 
 namespace View
@@ -26,29 +20,28 @@ namespace View
             DataContext = new MainViewModel();
         }
 
-        private void Label_MainArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Label label = (Label) sender;
-            int subAreaId = Convert.ToInt32(label.Tag);
-            _mainViewModel.GetSubLegalArea(subAreaId);
-
-        }
+        //private void Label_MainArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    Label label = (Label) sender;
+        //    int subAreaId = Convert.ToInt32(label.Tag);
+        //    _mainViewModel.GetSubLegalArea(subAreaId);
+        //}
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Close();
+            //    Label label = (Label)sender;
+            //    int subAreaId = Convert.ToInt16(label.Tag);
+            //    _mainViewModel.GetSubLegalArea(subAreaId);
+            //    MainWindow mainWindow = new MainWindow();
+            //    mainWindow.Show();
+            //    Close();
         }
 
-        private void Label_SubArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Label label = (Label) sender;
-            int paragraphId = Convert.ToInt32(label.Tag);
-            _mainViewModel.GetParagraph(paragraphId);
+            Button button = (Button)sender;
+            int subAreaId = Convert.ToInt32(button.Tag);
+            _mainViewModel.GetSubLegalArea(subAreaId);
         }
-
-
     }
 }
-
