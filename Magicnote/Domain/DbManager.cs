@@ -10,7 +10,6 @@ namespace Magicnote.Domain
     {
         internal MainLegalArea MainLegalArea = new MainLegalArea();
         internal Note note = new Note();
-
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
@@ -35,7 +34,6 @@ namespace Magicnote.Domain
                     };
                     mainLegalAreas.Add(MainLegalArea);
                 }
-
                 return mainLegalAreas;
             }
         }
@@ -101,13 +99,12 @@ namespace Magicnote.Domain
                     paragraphs.Add(paragraph);
                 }
             }
-
             return paragraphs;
         }
 
         public List<Note> GetNote(int number)
         {
-            List<Note> _note = new List<Note>();
+            List<Note> notes = new List<Note>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -120,15 +117,32 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Note Note = new Note()
+                    Note noteNew = new Note
                     {
                         NoteText = (string)reader["NoteText"],
                         NoteDate = (DateTime)reader["NoteDate"]
                     };
-                    _note.Add(note);
+                    notes.Add(noteNew);
                 }
 
-                return _note;
+                return notes;
+            }
+        }
+
+        public void AddNote(string noteText, DateTime dateTime)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_AddNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
+                cmd.Parameters.Add(new SqlParameter("@NoteDate", dateTime));
+
+                cmd.ExecuteNonQuery();
             }
         }
     }

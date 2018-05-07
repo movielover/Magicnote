@@ -28,12 +28,9 @@ namespace View
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            //    Label label = (Label)sender;
-            //    int subAreaId = Convert.ToInt16(label.Tag);
-            //    _mainViewModel.GetSubLegalArea(subAreaId);
-            //    MainWindow mainWindow = new MainWindow();
-            //    mainWindow.Show();
-            //    Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -41,13 +38,14 @@ namespace View
             Button button = (Button)sender;
             int subAreaId = Convert.ToInt32(button.Tag);
             _mainViewModel.GetSubLegalArea(subAreaId);
+            Sub_List_View.Items.Refresh();
         }
 
-        private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            int paragraphId = Convert.ToInt32(button.Tag);
-            _mainViewModel.GetParagraphs(paragraphId);
-        }
+        //private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    Button button = (Button)sender;
+        //    int paragraphId = Convert.ToInt32(button.Tag);
+        //    _mainViewModel.GetParagraphs(paragraphId);
+        //}
     }
 }
