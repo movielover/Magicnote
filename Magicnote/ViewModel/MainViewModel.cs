@@ -20,8 +20,7 @@ namespace Magicnote.ViewModel
 
         public void GetSubLegalArea(int number)
         {
-            List<SubLegalArea> localList = DbManager.GetSubAreas(number);
-            SubLegalAreas = localList;
+            SubLegalAreas = DbManager.GetSubAreas(number);
         }
 
         public void GetParagraph(int paragraphId)
