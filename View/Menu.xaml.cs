@@ -40,11 +40,11 @@ namespace View
             _mainViewModel.GetSubLegalArea(subAreaId);
         }
 
-        private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            int paragraphId = Convert.ToInt32(button.Tag);
-            _mainViewModel.GetParagraphs(paragraphId);
-        }
+        //private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    Button button = (Button)sender;
+        //    int paragraphId = Convert.ToInt32(button.Tag);
+        //    _mainViewModel.GetParagraphs(paragraphId);
+        //}
     }
 }
