@@ -11,6 +11,7 @@ namespace Magicnote.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public <List<Note> 
         public List<MainLegalArea> MainLegalAreas { get; }
         public List<SubLegalArea> SubLegalAreas {
             get

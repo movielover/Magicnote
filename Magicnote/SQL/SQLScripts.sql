@@ -11,9 +11,9 @@ CREATE TABLE [dbo].[MainArea] (
 
 CREATE TABLE [dbo].[Note] (
     [PK_N_ID] INT            NOT NULL,
-    [Text]    NVARCHAR (MAX) NOT NULL,
+    [NoteText]    NVARCHAR (MAX) NOT NULL,
     [FK_P_ID] INT            NOT NULL,
-    [Date]    DATETIME       NOT NULL,
+    [NoteDate]    DATETIME       NOT NULL,
     PRIMARY KEY CLUSTERED ([PK_N_ID] ASC)
 );
 
@@ -66,4 +66,12 @@ AS BEGIN
 	FROM SubArea
 	WHERE FK_MA_ID = @FK_MA_ID
 	ORDER BY SA_Title ASC
+END
+
+CREATE PROCEDURE [dbo].[SP_GetNote]
+	@PK_N_ID int
+AS BEGIN
+	SELECT NoteText, NoteDate
+	FROM	Note
+	WHERE FK_P_ID = @PK_N_ID
 END
