@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,7 +8,7 @@ namespace Magicnote.Domain
     public class DbManager
     {
         internal MainLegalArea MainLegalArea = new MainLegalArea();
-        internal Note note = new Note();
+        internal Note Note = new Note();
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
@@ -38,9 +37,10 @@ namespace Magicnote.Domain
             }
         }
 
-        public List<SubLegalArea> GetSubAreas(int number)
+        public void GetSubAreas(int number)
         {
             List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
+            SubLegalArea subLegalArea = new SubLegalArea();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -53,20 +53,21 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    return subLegalAreas;
+                    //return subLegalAreas;
                 }
                 while (reader.Read())
                 {
-                    SubLegalArea subLegalArea = new SubLegalArea
+                    SubLegalArea sublegalArea = new SubLegalArea
                     {
                         Id = (int)reader["PK_SA_ID"],
                         Title = (string)reader["SA_Title"]
                     };
 
-                    subLegalAreas.Add(subLegalArea);
+                    sublegalArea.SubLegalAreas.Add(sublegalArea);
+                    //subLegalAreas.Add(subLegalArea);
                 }
             }
-            return subLegalAreas;
+            //return subLegalAreas;
         }
 
         public List<Paragraph> GetParagraphs(int number)
@@ -104,7 +105,7 @@ namespace Magicnote.Domain
 
         public List<Note> GetNote(int number)
         {
-            List<Note> Note = new List<Note>();
+            List<Note> notes = new List<Note>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -117,15 +118,15 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Note note = new Note()
+                    Note noteNew = new Note
                     {
-                        NoteText = (string) reader["NoteText"],
-                        NoteDate = (DateTime) reader["NoteDate"]
+                        NoteText = (string)reader["NoteText"],
+                        NoteDate = (DateTime)reader["NoteDate"]
                     };
-                    Note.Add(note);
+                    notes.Add(noteNew);
                 }
 
-                return Note;
+                return notes;
             }
         }
 
