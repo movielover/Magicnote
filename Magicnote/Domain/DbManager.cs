@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -6,8 +7,9 @@ namespace Magicnote.Domain
 {
     public class DbManager
     {
-        public List<SubLegalArea> SubLegal = new List<SubLegalArea>();
         internal MainLegalArea MainLegalArea = new MainLegalArea();
+        internal Note note = new Note();
+
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
@@ -27,11 +29,12 @@ namespace Magicnote.Domain
                 {
                     MainLegalArea = new MainLegalArea
                     {
-                        Id = (int)reader["PK_MA_ID"],
-                        Title = (string)reader["MA_Title"]
+                        Id = (int) reader["PK_MA_ID"],
+                        Title = (string) reader["MA_Title"]
                     };
                     mainLegalAreas.Add(MainLegalArea);
                 }
+
                 return mainLegalAreas;
             }
         }
@@ -57,16 +60,18 @@ namespace Magicnote.Domain
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        Id = (int)reader["PK_SA_ID"],
-                        Title = (string)reader["SA_Title"]
+                        Id = (int) reader["PK_SA_ID"],
+                        Title = (string) reader["SA_Title"]
                     };
 
                     //subLegalAreas.Add(subLegalArea);
-                    SubLegal.Add(subLegalArea);
+                    SubL.Add(subLegalArea);
                 }
             }
+
             //return subLegalAreas;
         }
+
         public List<Paragraph> GetParagraphs(int number)
         {
             List<Paragraph> paragraphs = new List<Paragraph>();
@@ -84,6 +89,7 @@ namespace Magicnote.Domain
                 {
                     return paragraphs;
                 }
+
                 while (reader.Read())
                 {
                     Paragraph paragraph = new Paragraph
@@ -96,7 +102,34 @@ namespace Magicnote.Domain
                     paragraphs.Add(paragraph);
                 }
             }
+
             return paragraphs;
         }
+
+        public List<Note> GetNote(int number)
+        {
+            List<Note> _note = new List<Note>();
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("dbo.SP_GetNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@PK_N_ID", number));
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Note Note = new Note()
+                    {
+                        NoteText = (string) reader["NoteText"],
+                        NoteDate = (DateTime) reader["NoteDate"]
+                    };
+                    _note.Add(note);
+                }
+
+                return _note;
+            }
+        }
     }
-}
