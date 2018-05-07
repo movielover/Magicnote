@@ -6,6 +6,7 @@ namespace Magicnote.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        public List<Paragraph> Paragraphs;
         private List<SubLegalArea> _subLegalAreas;
         public DbManager DbManager;
 
@@ -38,7 +39,11 @@ namespace Magicnote.ViewModel
                 new SubLegalArea()
             };
         }
-
+        
+        public void GetParagraphs(int i)
+        {
+            Paragraphs = DbManager.GetParagraphs(i);
+        }
         protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
