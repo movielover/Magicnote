@@ -1,7 +1,6 @@
 ﻿using Magicnote.Domain;
-using System;
-using System.Collections.Generic;
 using Magicnote.ViewModel;
+using System;
 
 namespace Magicnote
 {
@@ -11,19 +10,16 @@ namespace Magicnote
         static MainViewModel MVM = new MainViewModel();
         private static void Main()
         {
+            MVM.GetParagraphs(1);
+            string text = MVM.Paragraphs[0].Lawtext;
 
-            //string text = "hej";
-
-            //MVM.GetParagraphs(1);
-            //text = MVM.Paragraphs[0].Lawtext;
-
-            //Console.WriteLine(text);
-            //Console.ReadLine();
+            Console.WriteLine(text);
+            Console.ReadLine();
 
         }
 
-        
-        
+
+
 
         //private static void Run()
         //{
@@ -33,7 +29,7 @@ namespace Magicnote
         //    {
         //        Console.WriteLine(SubLegalArea.Title); 
         //    }
-            
+
     }
 }
 
