@@ -20,6 +20,7 @@ namespace View
     /// </summary>
     public partial class ParagraphView : Window
     {
+        MainViewModel _mainViewModel = new MainViewModel();
         public ParagraphView()
         {
             InitializeComponent();
@@ -38,7 +39,10 @@ namespace View
 
             // The Text property on a TextRange object returns a string
             // representing the plain text content of the TextRange.
+            var noteText = textRange.Text;
+            _mainViewModel.SaveNoteToDB(noteText);
             return textRange.Text;
+            
         }
     }
 }

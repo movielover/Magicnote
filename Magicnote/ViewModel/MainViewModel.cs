@@ -44,5 +44,11 @@ namespace Magicnote.ViewModel
             }
         }
 
+        public void SaveNoteToDB(string noteText)
+        {
+            DbManager.AddNote(noteText);
+
+        }
+
     }
 }
