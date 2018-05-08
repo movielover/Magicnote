@@ -130,7 +130,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public void AddNote(string noteText, DateTime dateTime)
+        public void AddNote(string noteText, int paragraphId, DateTime dateTime)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -142,6 +142,7 @@ namespace Magicnote.Domain
                 };
                 cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
                 cmd.Parameters.Add(new SqlParameter("@NoteDate", dateTime));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", paragraphId));
 
                 cmd.ExecuteNonQuery();
             }

@@ -1,4 +1,5 @@
 ﻿using Magicnote.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -35,6 +36,13 @@ namespace Magicnote.ViewModel
         {
             Paragraphs = DbManager.GetParagraphs(i);
         }
+
+        public void AddNote(string noteText, int paragraphId, DateTime dateTime)
+        {
+            DbManager.AddNote(noteText, paragraphId, dateTime);
+        }
+
+
         protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
