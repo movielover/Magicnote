@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace Magicnote.Domain
 {
@@ -92,9 +93,9 @@ namespace Magicnote.Domain
                 {
                     Paragraph paragraph = new Paragraph
                     {
-                        ParagraphNumber = (int) reader["ParagraphNumber"],
+                        ParagraphNumber = (int)reader["ParagraphNumber"],
                         Headline = reader["Headline"] as string,
-                        Lawtext = (string) reader["Lawtext"]
+                        Lawtext = (string)reader["Lawtext"]
                     };
 
                     paragraphs.Add(paragraph);

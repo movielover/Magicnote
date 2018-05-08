@@ -10,7 +10,7 @@
         <Label Content="Opret Note til Paragraf" HorizontalAlignment="Center" Margin="329,10,326,0" VerticalAlignment="Top" Height="33" Width="139"/>
         <TextBox HorizontalAlignment="Left" Height="32" Margin="74,342,0,0" TextWrapping="Wrap" Text="Indtast Overskrift" VerticalAlignment="Top" Width="332"/>
         <TextBox HorizontalAlignment="Left" Height="153" Margin="74,393,0,0" TextWrapping="Wrap" Text="Indtast Lovtekst" VerticalAlignment="Top" Width="503"/>
-        <ComboBox Text="test" Margin="64,108,504,434" ItemsSource="{Binding MainLegalAreas}">
+        <ComboBox Text="test" Margin="64,108,504,434" ItemsSource="{Binding MainLegalAreas}" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="False"/>

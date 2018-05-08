@@ -20,11 +20,19 @@ namespace View
     /// </summary>
     public partial class CreateParagraph : Window
     {
+        MainViewModel _mainViewModel = new MainViewModel();
         public CreateParagraph()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new MainViewModel();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox button = (ComboBox)sender;
+            int subAreaId = Convert.ToInt32(button.Tag);
+            _mainViewModel.GetSubLegalArea(1);
         }
     }
 }
