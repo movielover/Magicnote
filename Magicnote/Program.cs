@@ -1,6 +1,5 @@
 ﻿using Magicnote.Domain;
 using Magicnote.ViewModel;
-using System;
 
 namespace Magicnote
 {
@@ -10,16 +9,18 @@ namespace Magicnote
         static MainViewModel MVM = new MainViewModel();
         private static void Main()
         {
-            MVM.GetParagraphs(1);
-            string text = MVM.Paragraphs[0].Lawtext;
+            //MVM.GetParagraphs(2);
+            //string text = MVM.Paragraphs[0].Lawtext;
 
-            Console.WriteLine(text);
-            Console.ReadLine();
-
+            //Console.WriteLine(text);
+            //Console.WriteLine();
+            //foreach (Paragraph mvmParagraph in MVM.Paragraphs)
+            //{
+            //    Console.WriteLine(mvmParagraph.Headline);
+            //    Console.WriteLine(mvmParagraph.Lawtext);
+            //}
+            //Console.ReadLine();
         }
-
-
-
 
         //private static void Run()
         //{
