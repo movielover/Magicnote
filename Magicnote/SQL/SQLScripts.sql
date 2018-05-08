@@ -77,8 +77,8 @@ AS BEGIN
 END
 
 CREATE PROCEDURE [dbo].[SP_AddNote]
-  @NoteText,
-  @NoteDate
+  @NoteText NVarchar,  
+  @NoteDate Datetime
 AS BEGIN
   INSERT [dbo].[Note] (NoteText, NoteDate)
   VALUES (@NoteText, @NoteDate)
