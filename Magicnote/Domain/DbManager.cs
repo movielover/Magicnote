@@ -129,7 +129,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public void AddNote(string noteText)
+        public void AddNote(string noteText, int id)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -139,6 +139,7 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
                 cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
                 
 
