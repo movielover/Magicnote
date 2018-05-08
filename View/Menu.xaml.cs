@@ -1,7 +1,5 @@
 ﻿using Magicnote.ViewModel;
-using System;
 using System.Windows;
-using System.Windows.Controls;
 
 
 namespace View
@@ -35,10 +33,15 @@ namespace View
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-            int subAreaId = Convert.ToInt32(button.Tag);
-            _mainViewModel.GetSubLegalArea(subAreaId);
-            Sub_List_View.Items.Refresh();
+
+            SubMenu subMenu = new SubMenu();
+            subMenu.Show();
+            Close();
+
+            //Button button = (Button)sender;
+            //int subAreaId = Convert.ToInt32(button.Tag);
+            //_mainViewModel.GetSubLegalArea(subAreaId);
+            //Sub_List_View.Items.Refresh();
         }
 
         //private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)

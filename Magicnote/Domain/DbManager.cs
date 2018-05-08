@@ -9,7 +9,7 @@ namespace Magicnote.Domain
     public class DbManager
     {
         internal MainLegalArea MainLegalArea = new MainLegalArea();
-        internal Note note = new Note();
+        internal Note Note = new Note();
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
@@ -38,9 +38,10 @@ namespace Magicnote.Domain
             }
         }
 
-        public List<SubLegalArea> GetSubAreas(int number)
+        public void GetSubAreas(int number)
         {
             List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
+            SubLegalArea subLegalArea = new SubLegalArea();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -53,20 +54,21 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    return subLegalAreas;
+                    //return subLegalAreas;
                 }
                 while (reader.Read())
                 {
-                    SubLegalArea subLegalArea = new SubLegalArea
+                    SubLegalArea sublegalArea = new SubLegalArea
                     {
                         Id = (int)reader["PK_SA_ID"],
                         Title = (string)reader["SA_Title"]
                     };
 
-                    subLegalAreas.Add(subLegalArea);
+                    sublegalArea.SubLegalAreas.Add(sublegalArea);
+                    //subLegalAreas.Add(subLegalArea);
                 }
             }
-            return subLegalAreas;
+            //return subLegalAreas;
         }
 
         public List<Paragraph> GetParagraphs(int number)
@@ -129,7 +131,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public void AddNote(string noteText, DateTime dateTime)
+        public void AddNote(string noteText, int paragraphId, DateTime dateTime)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -141,6 +143,7 @@ namespace Magicnote.Domain
                 };
                 cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
                 cmd.Parameters.Add(new SqlParameter("@NoteDate", dateTime));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", paragraphId));
 
                 cmd.ExecuteNonQuery();
             }
