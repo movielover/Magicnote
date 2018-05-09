@@ -31,5 +31,10 @@ namespace View
             // representing the plain text content of the TextRange.
             return textRange.Text;
         }
+
+        private void ParagraphEdit_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
