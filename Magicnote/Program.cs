@@ -1,17 +1,20 @@
-﻿namespace Magicnote
+﻿using Magicnote.Domain;
+using Magicnote.ViewModel;
+
+namespace Magicnote
 {
     internal class Program
     {
-        //private static readonly MainViewModel Mvm = new MainViewModel();
-
+        static Paragraph para = new Paragraph();
+        static MainViewModel MVM = new MainViewModel();
         private static void Main()
         {
-            //Mvm.GetParagraphs(1);
+            //MVM.GetParagraphs(2);
             //string text = MVM.Paragraphs[0].Lawtext;
 
             //Console.WriteLine(text);
             //Console.WriteLine();
-            //foreach (Paragraph mvmParagraph in Mvm.Paragraphs)
+            //foreach (Paragraph mvmParagraph in MVM.Paragraphs)
             //{
             //    Console.WriteLine(mvmParagraph.Headline);
             //    Console.WriteLine(mvmParagraph.Lawtext);
@@ -27,5 +30,6 @@
         //    {
         //        Console.WriteLine(SubLegalArea.Title); 
         //    }
+
     }
 }
