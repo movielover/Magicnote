@@ -14,7 +14,7 @@ namespace Magicnote.ViewModel
 
         public List<Note> Notes { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
-        public List<SubLegalArea> SubLegalAreas { get; set; }
+        public List<SubLegalArea> SubLegalAreas { get; set; }  
         public List<Paragraph> Paragraphs { get; set; }
 
 
