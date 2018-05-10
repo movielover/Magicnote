@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Collections.ObjectModel;
 
 namespace Magicnote.Domain
 {
@@ -38,10 +37,9 @@ namespace Magicnote.Domain
             }
         }
 
-        public void GetSubAreas(int number)
+        public List<SubLegalArea> GetSubAreas(int number)
         {
             List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
-            SubLegalArea subLegalArea = new SubLegalArea();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -64,11 +62,10 @@ namespace Magicnote.Domain
                         Title = (string)reader["SA_Title"]
                     };
 
-                    sublegalArea.SubLegalAreas.Add(sublegalArea);
-                    //subLegalAreas.Add(subLegalArea);
+                    subLegalAreas.Add(sublegalArea);
                 }
             }
-            //return subLegalAreas;
+            return subLegalAreas;
         }
 
         public List<Paragraph> GetParagraphs(int number)
@@ -147,6 +144,11 @@ namespace Magicnote.Domain
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public void SaveNote(string noteText, int paragraphNumber)
+        {
+            throw new NotImplementedException();
         }
     }
 }

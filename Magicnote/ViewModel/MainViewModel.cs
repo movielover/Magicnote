@@ -56,10 +56,10 @@ namespace Magicnote.ViewModel
 
         }
 
-        public void SaveNoteToDB(string noteText)
+        public void SaveNoteToDB(string noteText, int paragraphNumber)
         {
             int id;
-            DbManager.AddNote(noteText, id);
+            DbManager.SaveNote(noteText, paragraphNumber);
         }
 
     }
