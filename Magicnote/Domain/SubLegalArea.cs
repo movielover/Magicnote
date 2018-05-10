@@ -1,4 +1,6 @@
-﻿namespace Magicnote.Domain
+﻿using System.Collections.Generic;
+
+namespace Magicnote.Domain
 {
     public class SubLegalArea
     {
@@ -6,6 +8,6 @@
 
         public string Title { get; set; }
 
-        
+        public List<SubLegalArea> SubLegalAreas = new List<SubLegalArea>();
     }
 }
