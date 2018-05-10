@@ -35,5 +35,10 @@ namespace View
             return textRange.Text;
             
         }
+
+        private void ParagraphEdit_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -3,24 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="ParagraphView" Height="800" Width="800">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="567"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="470" VerticalAlignment="Top" Width="567" Margin="0,104,0,0">
-            <RichTextBox Margin="0.2,-0.8,-0.4,-0.4"  >
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="567" >
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="567" Margin="0,71,0,0">
+            <RichTextBox  >
                 <FlowDocument>
                     <Paragraph>
-                        <Run Text="RichTextBox"/>
+                        <Run Name="NoteTextArea" Text="RichTextBox"/>
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
-
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="699" VerticalAlignment="Top" Width="217" Margin="567,71,0,0"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="699" VerticalAlignment="Top" Width="226" Margin="567,71,0,0"/>
         <Image HorizontalAlignment="Left" Height="61" Margin="572,0,0,699.4" VerticalAlignment="Bottom" Width="212" RenderTransformOrigin="0.127,0.246" Source="C:\Users\lappy\source\repos\Magicnote\View\beta.png" />
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="572" Margin="-5,574,0,0"/>
-
     </Grid>
 </Window>

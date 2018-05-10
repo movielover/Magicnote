@@ -58,8 +58,7 @@ namespace Magicnote.ViewModel
 
         public void SaveNoteToDB(string noteText)
         {
-            int id;
-            DbManager.AddNote(noteText, id);
+            
         }
 
     }

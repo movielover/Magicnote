@@ -71,15 +71,18 @@ END
 CREATE PROCEDURE [dbo].[SP_GetNote]
 	@PK_N_ID int
 AS BEGIN
-	SELECT NoteText, NoteDate
+	SELECT NoteText, NoteDate, PK_N_ID
 	FROM	Note
 	WHERE FK_P_ID = @PK_N_ID
 END
 
+
 CREATE PROCEDURE [dbo].[SP_AddNote]
-  @NoteText NVarchar,  
-  @NoteDate Datetime
+ @NoteText NVarchar,  
+ @NoteDate Datetime,
+ @FK_P_ID int 
 AS BEGIN
-  INSERT [dbo].[Note] (NoteText, NoteDate)
-  VALUES (@NoteText, @NoteDate)
+UPDATE Note
+SET NoteText = @NoteText, NoteDate = @NoteDate
+WHERE FK_P_ID = @FK_P_ID
 END
