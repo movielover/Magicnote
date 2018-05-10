@@ -21,18 +21,10 @@ namespace View
 
         private string StringFromRichTextBox(RichTextBox rtb)
         {
-            TextRange textRange = new TextRange(
-                // TextPointer to the start of content in the RichTextBox.
-                rtb.Document.ContentStart,
-                // TextPointer to the end of content in the RichTextBox.
-                rtb.Document.ContentEnd
-            );
-
-            // The Text property on a TextRange object returns a string
-            // representing the plain text content of the TextRange.
-            string noteText = textRange.Text;
+            TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+            //string noteText = textRange.Text;
             int paragraphNumber = 1;
-            MainViewModel.SaveNoteToDB(noteText, paragraphNumber);
+            MainViewModel.SaveNoteToDB(textRange.Text, paragraphNumber);
             return textRange.Text;
 
         }

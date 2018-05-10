@@ -123,7 +123,6 @@ namespace Magicnote.Domain
                     };
                     notes.Add(noteNew);
                 }
-
                 return notes;
             }
         }
