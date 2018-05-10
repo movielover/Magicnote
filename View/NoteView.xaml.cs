@@ -10,7 +10,7 @@ namespace View
     /// </summary>
     public partial class ParagraphView : Window
     {
-        MainViewModel _mainViewModel = new MainViewModel();
+        public readonly MainViewModel MainViewModel = new MainViewModel();
         public ParagraphView()
         {
             InitializeComponent();
@@ -30,10 +30,11 @@ namespace View
 
             // The Text property on a TextRange object returns a string
             // representing the plain text content of the TextRange.
-            var noteText = textRange.Text;
-            _mainViewModel.SaveNoteToDB(noteText);
+            string noteText = textRange.Text;
+            int paragraphNumber = 1;
+            MainViewModel.SaveNoteToDB(noteText, paragraphNumber);
             return textRange.Text;
-            
+
         }
 
         private void ParagraphEdit_OnClick(object sender, RoutedEventArgs e)
