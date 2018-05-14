@@ -148,7 +148,19 @@ namespace Magicnote.Domain
 
         public void SaveNote(string noteText, int paragraphNumber)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_SaveNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", paragraphNumber));
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
