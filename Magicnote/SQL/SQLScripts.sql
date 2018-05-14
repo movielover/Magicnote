@@ -83,3 +83,12 @@ AS BEGIN
   INSERT [dbo].[Note] (NoteText, NoteDate)
   VALUES (@NoteText, @NoteDate)
 END
+
+CREATE PROCEDURE [dbo].[SP_SaveNote]
+	@NoteText NVarchar,
+	@FK_P_ID int
+AS BEGIN
+	UPDATE [dbo].[Note]
+	SET NoteText = @NoteText
+	WHERE FK_P_ID = @FK_P_ID
+END

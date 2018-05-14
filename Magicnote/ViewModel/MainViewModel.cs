@@ -29,7 +29,7 @@ namespace Magicnote.ViewModel
         public void GetSubLegalArea(int number)
         {
             DbManager.GetSubAreas(number);
-            SubLegalAreas = SubLegalArea.SubLegalAreas;
+            SubLegalAreas = DbManager.GetSubAreas(1);
         }
 
         public void GetParagraphs(int i)
@@ -57,6 +57,17 @@ namespace Magicnote.ViewModel
         public void CreateNote(string NoteText, DateTime NoteDate, int FK_P_ID)
         {
             DbManager.CreateNote(NoteText, NoteDate, FK_P_ID);
+        }
+
+        public void GetNoteDB(int id)
+        {
+
+        }
+
+        public void SaveNoteToDB(string noteText, int paragraphNumber)
+        {
+            int id;
+            DbManager.SaveNote(noteText, paragraphNumber);
         }
 
     }
