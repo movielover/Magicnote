@@ -14,7 +14,7 @@ namespace Magicnote.ViewModel
 
         public List<Note> Notes { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
-        public List<SubLegalArea> SubLegalAreas { get; set; }  
+        public List<SubLegalArea> SubLegalAreas { get; set; }
         public List<Paragraph> Paragraphs { get; set; }
 
 
@@ -29,7 +29,7 @@ namespace Magicnote.ViewModel
         public void GetSubLegalArea(int number)
         {
             DbManager.GetSubAreas(number);
-            SubLegalAreas = SubLegalArea.SubLegalAreas;
+            SubLegalAreas = DbManager.GetSubAreas(1);
         }
 
         public void GetParagraphs(int i)
