@@ -148,5 +148,40 @@ namespace Magicnote.Domain
                 cmd.ExecuteNonQuery();
             }
         }
+        public void CreateParagraph(int ParagraphNumber, string HeadLine, string Lawtext, int FK_SA_ID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_CreateParagraph", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", ParagraphNumber));
+                cmd.Parameters.Add(new SqlParameter("@HeadLine", HeadLine));
+                cmd.Parameters.Add(new SqlParameter("@Lawtext", Lawtext));
+                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", FK_SA_ID));
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void CreateNote(string NoteText, DateTime NoteDate, int FK_P_ID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_CreateNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@NoteText", NoteText));
+                cmd.Parameters.Add(new SqlParameter("@NoteDate", NoteDate));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", FK_P_ID));
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

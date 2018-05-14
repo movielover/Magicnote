@@ -50,6 +50,14 @@ namespace Magicnote.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        public void CreateParagraph(int ParagraphNumber, string Headline, string Lawtext, int FK_SA_ID)
+        {
+            DbManager.CreateParagraph(ParagraphNumber, Headline, Lawtext, FK_SA_ID);
+        }
+        public void CreateNote(string NoteText, DateTime NoteDate, int FK_P_ID)
+        {
+            DbManager.CreateNote(NoteText, NoteDate, FK_P_ID);
+        }
 
     }
 }

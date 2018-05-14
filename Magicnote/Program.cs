@@ -9,16 +9,34 @@ namespace Magicnote
     {
         static Paragraph para = new Paragraph();
         static MainViewModel MVM = new MainViewModel();
+        static DbManager DBM = new DbManager();
+        static public List<MainLegalArea> MainLegalAreas { get; set; }
         private static void Main()
         {
 
             //string text = "hej";
+
+            //MainLegalAreas = DBM.GetMainLegalAreas();
+
+            //foreach (object MainLegalArea in MainLegalAreas)
+            //{
+            //    Console.WriteLine(MainLegalArea.ToString());
+            //}
+            //Console.ReadLine();
+
+
 
             //MVM.GetParagraphs(1);
             //text = MVM.Paragraphs[0].Lawtext;
 
             //Console.WriteLine(text);
             //Console.ReadLine();
+
+            void createNote(int ParagraphNumber, string Headline, string Lawtext, int FK_SA_ID)
+            {
+                MVM.CreateParagraph(ParagraphNumber, Headline, Lawtext, FK_SA_ID);
+                MVM.GetParagraphs.
+            }
 
         }
 

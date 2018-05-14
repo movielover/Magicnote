@@ -22,5 +22,12 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Name="test_btton"  Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Back_Button_Click"/>
+        <ListView x:Name="Paragraph_View" ItemsSource="{Binding Paragraph}" HorizontalAlignment="Left" Height="455" Margin="538,52,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="Paragraph_View_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Tag="{Binding Id}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

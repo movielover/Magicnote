@@ -44,6 +44,11 @@ namespace View
             //Sub_List_View.Items.Refresh();
         }
 
+        private void Paragraph_View_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            
+        }
+
         //private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
         //{
         //    Button button = (Button)sender;
