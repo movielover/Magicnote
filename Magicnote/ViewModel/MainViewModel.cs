@@ -15,13 +15,15 @@ namespace Magicnote.ViewModel
         public string Note { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
 
+        private List<SubLegalArea> _subLegalAreas;
+
         public List<SubLegalArea> SubLegalAreas
         {
-            get => SubLegalAreas;
+            get => _subLegalAreas;
 
             set
             {
-                SubLegalAreas = value;
+                _subLegalAreas = value;
                 OnPropertyChanged("SubLegalAreas");
             }
         }
@@ -34,6 +36,7 @@ namespace Magicnote.ViewModel
             DbManager = new DbManager();
             SubLegalArea = new SubLegalArea();
             MainLegalAreas = DbManager.GetMainLegalAreas();
+            _subLegalAreas = new List<SubLegalArea>();
 
         }
 
