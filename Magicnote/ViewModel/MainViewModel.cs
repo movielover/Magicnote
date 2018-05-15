@@ -55,7 +55,7 @@ namespace Magicnote.ViewModel
             DbManager.CreateNote(noteText, paragraphId);
         }
 
-        public void GetNoteDb(int paragraphNumber)
+        public void GetNote(int paragraphNumber)
         {
             Note = DbManager.GetNote(paragraphNumber);
         }
