@@ -71,17 +71,16 @@ END
 CREATE PROCEDURE [dbo].[SP_GetNote]
 	@FK_P_ID int
 AS BEGIN
-	SELECT NoteText, NoteDate
+	SELECT NoteText
 	FROM	Note
 	WHERE FK_P_ID = @FK_P_ID
 END
 
 CREATE PROCEDURE [dbo].[SP_AddNote]
-  @NoteText NVarchar,  
-  @NoteDate Datetime
+  @NoteText NVarchar
 AS BEGIN
-  INSERT [dbo].[Note] (NoteText, NoteDate)
-  VALUES (@NoteText, @NoteDate)
+  INSERT [dbo].[Note] (NoteText)
+  VALUES (@NoteText)
 END
 
 CREATE PROCEDURE [dbo].[SP_SaveNote]

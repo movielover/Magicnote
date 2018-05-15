@@ -118,7 +118,6 @@ namespace Magicnote.Domain
                     Note noteNew = new Note
                     {
                         NoteText = (string)reader["NoteText"],
-                        NoteDate = (DateTime)reader["NoteDate"]
                     };
                     notes.Add(noteNew);
                 }
