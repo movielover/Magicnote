@@ -8,7 +8,6 @@ namespace Magicnote.Domain
     public class DbManager
     {
         internal MainLegalArea MainLegalArea = new MainLegalArea();
-        internal Note Note = new Note();
 
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
@@ -86,7 +85,6 @@ namespace Magicnote.Domain
                 {
                     return paragraphs;
                 }
-
                 while (reader.Read())
                 {
                     Paragraph paragraph = new Paragraph
@@ -102,9 +100,9 @@ namespace Magicnote.Domain
             return paragraphs;
         }
 
-        public List<Note> GetNote(int number)
+        public string GetNote(int number)
         {
-            List<Note> notes = new List<Note>();
+            string noteText = ""; 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -117,33 +115,10 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Note noteNew = new Note
-                    {
-                        NoteText = (string) reader["NoteText"],
-                        NoteDate = (DateTime) reader["NoteDate"]
-                    };
-                    notes.Add(noteNew);
+                    noteText = (string)reader["NoteText"];
                 }
 
-                return notes;
-            }
-        }
-
-        public void AddNote(string noteText, int paragraphId, DateTime dateTime)
-        {
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand("SP_AddNote", conn)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
-                cmd.Parameters.Add(new SqlParameter("@NoteDate", dateTime));
-                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", paragraphId));
-
-                cmd.ExecuteNonQuery();
+                return noteText;
             }
         }
 
@@ -166,7 +141,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public void CreateNote(string noteText, DateTime noteDate, int fkPId)
+        public void CreateNote(string noteText, int fkPId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -177,7 +152,6 @@ namespace Magicnote.Domain
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
-                cmd.Parameters.Add(new SqlParameter("@NoteDate", noteDate));
                 cmd.Parameters.Add(new SqlParameter("@FK_P_ID", fkPId));
 
                 cmd.ExecuteNonQuery();

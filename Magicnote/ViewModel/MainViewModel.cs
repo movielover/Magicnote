@@ -1,5 +1,4 @@
 ﻿using Magicnote.Domain;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,16 +12,18 @@ namespace Magicnote.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<Note> Notes { get; set; }
+        public string Note { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
+
+        private List<SubLegalArea> _subLegalAreas;
 
         public List<SubLegalArea> SubLegalAreas
         {
-            get => SubLegalAreas;
+            get => _subLegalAreas;
 
             set
             {
-                SubLegalAreas = value;
+                _subLegalAreas = value;
                 OnPropertyChanged("SubLegalAreas");
             }
         }
@@ -35,39 +36,31 @@ namespace Magicnote.ViewModel
             DbManager = new DbManager();
             SubLegalArea = new SubLegalArea();
             MainLegalAreas = DbManager.GetMainLegalAreas();
-            //SubLegalAreas = DbManager.GetSubAreas(1);
+            _subLegalAreas = new List<SubLegalArea>();
 
         }
+
         public void GetSubLegalArea(int number)
         {
             SubLegalAreas = DbManager.GetSubAreas(number).ToList();
         }
 
-        public void GetParagraphs(int i)
+        public void GetParagraphs(int paragraphNumber)
         {
-            Paragraphs = DbManager.GetParagraphs(i);
+            Paragraphs = DbManager.GetParagraphs(paragraphNumber);
         }
 
-        public void AddNote(string noteText, int paragraphId, DateTime dateTime)
+        public void AddNote(string noteText, int paragraphId)
         {
-            DbManager.AddNote(noteText, paragraphId, dateTime);
+            DbManager.CreateNote(noteText, paragraphId);
         }
 
-
-        protected void OnPropertyChanged(string propertyName)
+        public void GetNoteDb(int paragraphNumber)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            Note = DbManager.GetNote(paragraphNumber);
         }
 
-        public void GetNoteDB(int id)
-        {
-
-        }
-
-        public void SaveNoteToDB(string noteText, int paragraphNumber)
+        public void SaveNoteToDb(string noteText, int paragraphNumber)
         {
             DbManager.SaveNote(noteText, paragraphNumber);
         }

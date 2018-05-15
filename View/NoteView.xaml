@@ -9,10 +9,10 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="567" >
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="567" Margin="0,71,0,0">
-            <RichTextBox  >
+            <RichTextBox>
                 <FlowDocument>
                     <Paragraph>
-                        <Run Name="NoteTextArea" Text="RichTextBox"/>
+                        <Run Name="NoteTextArea" Text="{Binding Note}" />
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
