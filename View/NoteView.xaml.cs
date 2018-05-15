@@ -24,7 +24,7 @@ namespace View
             TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
             //string noteText = textRange.Text;
             int paragraphNumber = 1;
-            MainViewModel.SaveNoteToDB(textRange.Text, paragraphNumber);
+            MainViewModel.SaveNoteToDb(textRange.Text, paragraphNumber);
             return textRange.Text;
 
         }
