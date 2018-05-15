@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Magicnote.ViewModel
 {
@@ -14,7 +15,18 @@ namespace Magicnote.ViewModel
 
         public List<Note> Notes { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
-        public List<SubLegalArea> SubLegalAreas { get; set; }
+
+        public List<SubLegalArea> SubLegalAreas
+        {
+            get => SubLegalAreas;
+
+            set
+            {
+                SubLegalAreas = value;
+                OnPropertyChanged("SubLegalAreas");
+            }
+        }
+
         public List<Paragraph> Paragraphs { get; set; }
 
 
@@ -28,8 +40,7 @@ namespace Magicnote.ViewModel
         }
         public void GetSubLegalArea(int number)
         {
-            DbManager.GetSubAreas(number);
-            SubLegalAreas = DbManager.GetSubAreas(1);
+            SubLegalAreas = DbManager.GetSubAreas(number).ToList();
         }
 
         public void GetParagraphs(int i)
@@ -40,15 +51,6 @@ namespace Magicnote.ViewModel
         public void AddNote(string noteText, int paragraphId, DateTime dateTime)
         {
             DbManager.AddNote(noteText, paragraphId, dateTime);
-        }
-
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
 
         public void GetNoteDB(int id)
@@ -62,5 +64,12 @@ namespace Magicnote.ViewModel
             DbManager.SaveNote(noteText, paragraphNumber);
         }
 
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

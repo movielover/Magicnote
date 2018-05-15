@@ -1,5 +1,9 @@
-﻿using Magicnote.ViewModel;
+﻿using Magicnote.Domain;
+using Magicnote.ViewModel;
+using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 
 namespace View
@@ -10,19 +14,14 @@ namespace View
     public partial class Menu
     {
         private readonly MainViewModel _mainViewModel = new MainViewModel();
+        public List<SubLegalArea> SubLegalAreas { get; set; }
+
         public Menu()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new MainViewModel();
         }
-
-        //private void Label_MainArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    Label label = (Label) sender;
-        //    int subAreaId = Convert.ToInt32(label.Tag);
-        //    _mainViewModel.GetSubLegalArea(subAreaId);
-        //}
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -33,22 +32,24 @@ namespace View
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            SubListView.ItemsSource = null;
 
-            SubMenu subMenu = new SubMenu();
-            subMenu.Show();
-            Close();
+            Button button = (Button)sender;
+            int subAreaId = Convert.ToInt32(button.Tag);
 
-            //Button button = (Button)sender;
-            //int subAreaId = Convert.ToInt32(button.Tag);
-            //_mainViewModel.GetSubLegalArea(subAreaId);
-            //Sub_List_View.Items.Refresh();
+
+
+            _mainViewModel.GetSubLegalArea(subAreaId);
+
+
+            SubListView.Items.Refresh();
         }
 
-        //private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
-        //{
-        //    Button button = (Button)sender;
-        //    int paragraphId = Convert.ToInt32(button.Tag);
-        //    _mainViewModel.GetParagraphs(paragraphId);
-        //}
+        private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            int paragraphId = Convert.ToInt32(button.Tag);
+            _mainViewModel.GetParagraphs(paragraphId);
+        }
     }
 }
