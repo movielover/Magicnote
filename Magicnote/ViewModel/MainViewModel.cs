@@ -12,7 +12,7 @@ namespace Magicnote.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<Note> Notes { get; set; }
+        public string Note { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
 
         public List<SubLegalArea> SubLegalAreas

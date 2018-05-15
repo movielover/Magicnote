@@ -12,7 +12,7 @@
             <RichTextBox>
                 <FlowDocument>
                     <Paragraph>
-                        <Run Name="NoteTextArea" Text="{Binding Notes}" />
+                        <Run Name="NoteTextArea" Text="{Binding Note}" />
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
