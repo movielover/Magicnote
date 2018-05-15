@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace MainViewModel
+namespace ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {

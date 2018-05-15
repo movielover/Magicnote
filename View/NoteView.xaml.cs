@@ -1,7 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using MainViewModel;
+using ViewModel;
+
 
 namespace View
 {
@@ -10,12 +11,12 @@ namespace View
     /// </summary>
     public partial class NoteView : Window
     {
-        public readonly MainViewModel.MainViewModel MainViewModel = new MainViewModel.MainViewModel();
+        public readonly MainViewModel MainViewModel = new MainViewModel();
         public NoteView()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel.MainViewModel();
+            DataContext = new MainViewModel();
 
 
         }
