@@ -1,7 +1,7 @@
-﻿using Magicnote.ViewModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using MainViewModel;
 
 namespace View
 {
@@ -10,12 +10,12 @@ namespace View
     /// </summary>
     public partial class NoteView : Window
     {
-        public readonly MainViewModel MainViewModel = new MainViewModel();
+        public readonly MainViewModel.MainViewModel MainViewModel = new MainViewModel.MainViewModel();
         public NoteView()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel();
+            DataContext = new MainViewModel.MainViewModel();
 
 
         }

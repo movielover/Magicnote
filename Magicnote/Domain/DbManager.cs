@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -102,7 +101,7 @@ namespace Magicnote.Domain
 
         public string GetNote(int number)
         {
-            string noteText = ""; 
+            string noteText = "";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
