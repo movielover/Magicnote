@@ -32,11 +32,7 @@ namespace Magicnote
             //Console.WriteLine(text);
             //Console.ReadLine();
 
-            void createNote(int ParagraphNumber, string Headline, string Lawtext, int FK_SA_ID)
-            {
-                MVM.CreateParagraph(ParagraphNumber, Headline, Lawtext, FK_SA_ID);
-                MVM.GetParagraphs.
-            }
+            
 
         }
 
