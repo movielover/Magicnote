@@ -53,6 +53,15 @@ namespace Magicnote.ViewModel
             DbManager.AddNote(noteText, paragraphId, dateTime);
         }
 
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         public void GetNoteDB(int id)
         {
 

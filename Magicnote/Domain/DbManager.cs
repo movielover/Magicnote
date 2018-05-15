@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace Magicnote.Domain
 {
@@ -19,7 +20,7 @@ namespace Magicnote.Domain
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetMainLegalAreas", conn)
+                SqlCommand cmd = new SqlCommand("dbo.SP_GetMainLegalAreas", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -37,9 +38,10 @@ namespace Magicnote.Domain
             }
         }
 
-        public List<SubLegalArea> GetSubAreas(int number)
+        public void GetSubAreas(int number)
         {
             List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
+            SubLegalArea subLegalArea = new SubLegalArea();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -62,10 +64,11 @@ namespace Magicnote.Domain
                         Title = (string)reader["SA_Title"]
                     };
 
-                    subLegalAreas.Add(sublegalArea);
+                    sublegalArea.SubLegalAreas.Add(sublegalArea);
+                    //subLegalAreas.Add(subLegalArea);
                 }
             }
-            return subLegalAreas;
+            //return subLegalAreas;
         }
 
         public List<Paragraph> GetParagraphs(int number)
@@ -108,7 +111,7 @@ namespace Magicnote.Domain
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetNote", conn)
+                SqlCommand cmd = new SqlCommand("dbo.SP_GetNote", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -123,6 +126,7 @@ namespace Magicnote.Domain
                     };
                     notes.Add(noteNew);
                 }
+
                 return notes;
             }
         }
@@ -144,19 +148,37 @@ namespace Magicnote.Domain
                 cmd.ExecuteNonQuery();
             }
         }
-
-        public void SaveNote(string noteText, int paragraphNumber)
+        public void CreateParagraph(int ParagraphNumber, string HeadLine, string Lawtext, int FK_SA_ID)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_SaveNote", conn)
+                SqlCommand cmd = new SqlCommand("SP_CreateParagraph", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
-                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", paragraphNumber));
+                cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", ParagraphNumber));
+                cmd.Parameters.Add(new SqlParameter("@HeadLine", HeadLine));
+                cmd.Parameters.Add(new SqlParameter("@Lawtext", Lawtext));
+                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", FK_SA_ID));
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void CreateNote(string NoteText, DateTime NoteDate, int FK_P_ID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_CreateNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@NoteText", NoteText));
+                cmd.Parameters.Add(new SqlParameter("@NoteDate", NoteDate));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", FK_P_ID));
 
                 cmd.ExecuteNonQuery();
             }

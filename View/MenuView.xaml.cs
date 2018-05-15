@@ -14,8 +14,6 @@ namespace View
     public partial class Menu
     {
         private readonly MainViewModel _mainViewModel = new MainViewModel();
-        public List<SubLegalArea> SubLegalAreas { get; set; }
-
         public Menu()
         {
             InitializeComponent();

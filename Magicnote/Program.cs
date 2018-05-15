@@ -1,4 +1,6 @@
 ﻿using Magicnote.Domain;
+using System;
+using System.Collections.Generic;
 using Magicnote.ViewModel;
 
 namespace Magicnote
@@ -7,20 +9,39 @@ namespace Magicnote
     {
         static Paragraph para = new Paragraph();
         static MainViewModel MVM = new MainViewModel();
+        static DbManager DBM = new DbManager();
+        static public List<MainLegalArea> MainLegalAreas { get; set; }
         private static void Main()
         {
-            //MVM.GetParagraphs(2);
-            //string text = MVM.Paragraphs[0].Lawtext;
 
-            //Console.WriteLine(text);
-            //Console.WriteLine();
-            //foreach (Paragraph mvmParagraph in MVM.Paragraphs)
+            //string text = "hej";
+
+            //MainLegalAreas = DBM.GetMainLegalAreas();
+
+            //foreach (object MainLegalArea in MainLegalAreas)
             //{
-            //    Console.WriteLine(mvmParagraph.Headline);
-            //    Console.WriteLine(mvmParagraph.Lawtext);
+            //    Console.WriteLine(MainLegalArea.ToString());
             //}
             //Console.ReadLine();
+
+
+
+            //MVM.GetParagraphs(1);
+            //text = MVM.Paragraphs[0].Lawtext;
+
+            //Console.WriteLine(text);
+            //Console.ReadLine();
+
+            void createNote(int ParagraphNumber, string Headline, string Lawtext, int FK_SA_ID)
+            {
+                MVM.CreateParagraph(ParagraphNumber, Headline, Lawtext, FK_SA_ID);
+                MVM.GetParagraphs.
+            }
+
         }
+
+        
+        
 
         //private static void Run()
         //{
@@ -30,6 +51,7 @@ namespace Magicnote
         //    {
         //        Console.WriteLine(SubLegalArea.Title); 
         //    }
-
+            
     }
 }
+
