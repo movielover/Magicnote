@@ -3,7 +3,7 @@ CREATE TABLE [dbo].[Conviction] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-CREATE TABLE [dbo].[MainArea] (
+CREATE TABLE [dbo].[MainLegalArea] (
     [PK_MA_ID] INT            NOT NULL,
     [MA_Title] NVARCHAR (MAX) NOT NULL,
     PRIMARY KEY CLUSTERED ([PK_MA_ID] ASC)
@@ -19,7 +19,6 @@ CREATE TABLE [dbo].[Note] (
 
 CREATE TABLE [dbo].[Paragraph] (
     [PK_P_ID]         INT            NOT NULL,
-    [FK_SA_ID]        INT            NOT NULL,
     [ParagraphNumber] INT            NULL,
     [HeadLine]        NVARCHAR (MAX) NULL,
     [Lawtext]         NVARCHAR (MAX) NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE [dbo].[Paragraph] (
     CONSTRAINT [FK_Paragraph_SubArea] FOREIGN KEY ([FK_SA_ID]) REFERENCES [dbo].[SubArea] ([PK_SA_ID])
 );
 
-CREATE TABLE [dbo].[SubArea] (
+CREATE TABLE [dbo].[SubLegalArea] (
     [PK_SA_ID] INT            NOT NULL,
     [FK_MA_ID] INT            NOT NULL,
     [SA_Title] NVARCHAR (MAX) NOT NULL,
@@ -35,12 +34,12 @@ CREATE TABLE [dbo].[SubArea] (
     CONSTRAINT [FK_SubArea_MainArea] FOREIGN KEY ([FK_MA_ID]) REFERENCES [dbo].[MainArea] ([PK_MA_ID])
 );
 
-CREATE TABLE [dbo].[SubAreaParagraph] (
+CREATE TABLE [dbo].[SubLegalAreaParagraph] (
     [FK_SA_ID] INT NOT NULL,
     [FK_P_ID]  INT NOT NULL,
     PRIMARY KEY CLUSTERED ([FK_SA_ID] ASC, [FK_P_ID] ASC),
-    CONSTRAINT [FK_SubAreaParagraph_SubArea] FOREIGN KEY ([FK_SA_ID]) REFERENCES [dbo].[SubArea] ([PK_SA_ID]),
-    CONSTRAINT [FK_SubAreaParagraph_Paragraph] FOREIGN KEY ([FK_P_ID]) REFERENCES [dbo].[Paragraph] ([PK_P_ID])
+    CONSTRAINT [FK_SubLegalAreaParagraph_SubLegalArea] FOREIGN KEY ([FK_SA_ID]) REFERENCES [dbo].[SubLegalArea] ([PK_SA_ID]),
+    CONSTRAINT [FK_SubLegalAreaParagraph_Paragraph] FOREIGN KEY ([FK_P_ID]) REFERENCES [dbo].[Paragraph] ([PK_P_ID])
 );
 
 CREATE PROCEDURE [dbo].[SP_GetMainLegalAreas]
