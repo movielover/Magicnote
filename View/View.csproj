@@ -137,9 +137,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\MainViewModel\MainViewModel.csproj">
       <Project>{2e931ccc-ff4f-4e83-93f3-7c6111ba0e74}</Project>
       <Name>MainViewModel</Name>
