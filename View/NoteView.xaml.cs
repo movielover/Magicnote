@@ -8,14 +8,16 @@ namespace View
     /// <summary>
     /// Interaction logic for ParagraphView.xaml
     /// </summary>
-    public partial class ParagraphView : Window
+    public partial class NoteView : Window
     {
         public readonly MainViewModel MainViewModel = new MainViewModel();
-        public ParagraphView()
+        public NoteView()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new MainViewModel();
+
+
         }
 
 
