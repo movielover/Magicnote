@@ -1,5 +1,4 @@
 ﻿using Magicnote.Domain;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -35,7 +34,6 @@ namespace Magicnote.ViewModel
             DbManager = new DbManager();
             SubLegalArea = new SubLegalArea();
             MainLegalAreas = DbManager.GetMainLegalAreas();
-            //SubLegalAreas = DbManager.GetSubAreas(1);
 
         }
         public void GetSubLegalArea(int number)
@@ -43,31 +41,22 @@ namespace Magicnote.ViewModel
             SubLegalAreas = DbManager.GetSubAreas(number).ToList();
         }
 
-        public void GetParagraphs(int i)
+        public void GetParagraphs(int paragraphNumber)
         {
-            Paragraphs = DbManager.GetParagraphs(i);
+            Paragraphs = DbManager.GetParagraphs(paragraphNumber);
         }
 
-        public void AddNote(string noteText, int paragraphId, DateTime dateTime)
+        public void AddNote(string noteText, int paragraphId)
         {
-            DbManager.AddNote(noteText, paragraphId, dateTime);
+            DbManager.CreateNote(noteText, paragraphId);
         }
 
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        public void GetNoteDB(int id)
+        public void GetNoteDb(int id)
         {
 
         }
 
-        public void SaveNoteToDB(string noteText, int paragraphNumber)
+        public void SaveNoteToDb(string noteText, int paragraphNumber)
         {
             DbManager.SaveNote(noteText, paragraphNumber);
         }
