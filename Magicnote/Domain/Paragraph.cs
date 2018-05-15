@@ -13,5 +13,6 @@ namespace Magicnote.Domain
         public string Headline { get; set; }
 
         public string Lawtext { get; set; }
+ 
     }
 }

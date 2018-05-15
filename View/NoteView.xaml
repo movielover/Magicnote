@@ -18,7 +18,7 @@
             </RichTextBox>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="699" VerticalAlignment="Top" Width="226" Margin="567,71,0,0"/>
-        <Image HorizontalAlignment="Left" Height="61" Margin="572,0,0,699.4" VerticalAlignment="Bottom" Width="212" RenderTransformOrigin="0.127,0.246" Source="C:\Users\lappy\source\repos\Magicnote\View\beta.png" />
+        <Image HorizontalAlignment="Left" Height="61" Margin="572,0,0,699.4" VerticalAlignment="Bottom" Width="212" RenderTransformOrigin="0.127,0.246" />
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="572" Margin="-5,574,0,0"/>
     </Grid>
 </Window>
