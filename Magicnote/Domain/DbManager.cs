@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Collections.ObjectModel;
 
 namespace Magicnote.Domain
 {
@@ -10,6 +9,7 @@ namespace Magicnote.Domain
     {
         internal MainLegalArea MainLegalArea = new MainLegalArea();
         internal Note Note = new Note();
+
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
 
@@ -38,10 +38,9 @@ namespace Magicnote.Domain
             }
         }
 
-        public void GetSubAreas(int number)
+        public List<SubLegalArea> GetSubAreas(int number)
         {
             List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
-            SubLegalArea subLegalArea = new SubLegalArea();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -54,21 +53,20 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    //return subLegalAreas;
+                    return subLegalAreas;
                 }
                 while (reader.Read())
                 {
-                    SubLegalArea sublegalArea = new SubLegalArea
+                    SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        Id = (int)reader["PK_SA_ID"],
-                        Title = (string)reader["SA_Title"]
+                        Id = (int) reader["PK_SA_ID"],
+                        Title = (string) reader["SA_Title"]
                     };
 
-                    sublegalArea.SubLegalAreas.Add(sublegalArea);
-                    //subLegalAreas.Add(subLegalArea);
+                    subLegalAreas.Add(subLegalArea);
                 }
             }
-            //return subLegalAreas;
+            return subLegalAreas;
         }
 
         public List<Paragraph> GetParagraphs(int number)
@@ -93,9 +91,9 @@ namespace Magicnote.Domain
                 {
                     Paragraph paragraph = new Paragraph
                     {
-                        ParagraphNumber = (int)reader["ParagraphNumber"],
-                        Headline = reader["Headline"] as string,
-                        Lawtext = (string)reader["Lawtext"]
+                        ParagraphNumber = (int) reader["ParagraphNumber"],
+                        Headline = (string) reader["Headline"],
+                        Lawtext = (string) reader["Lawtext"]
                     };
 
                     paragraphs.Add(paragraph);
@@ -121,8 +119,8 @@ namespace Magicnote.Domain
                 {
                     Note noteNew = new Note
                     {
-                        NoteText = (string)reader["NoteText"],
-                        NoteDate = (DateTime)reader["NoteDate"]
+                        NoteText = (string) reader["NoteText"],
+                        NoteDate = (DateTime) reader["NoteDate"]
                     };
                     notes.Add(noteNew);
                 }
@@ -148,7 +146,8 @@ namespace Magicnote.Domain
                 cmd.ExecuteNonQuery();
             }
         }
-        public void CreateParagraph(int ParagraphNumber, string HeadLine, string Lawtext, int FK_SA_ID)
+
+        public void CreateParagraph(int paragraphNumber, string headLine, string lawtext, int fkSaId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -158,15 +157,16 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", ParagraphNumber));
-                cmd.Parameters.Add(new SqlParameter("@HeadLine", HeadLine));
-                cmd.Parameters.Add(new SqlParameter("@Lawtext", Lawtext));
-                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", FK_SA_ID));
+                cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", paragraphNumber));
+                cmd.Parameters.Add(new SqlParameter("@HeadLine", headLine));
+                cmd.Parameters.Add(new SqlParameter("@Lawtext", lawtext));
+                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", fkSaId));
 
                 cmd.ExecuteNonQuery();
             }
         }
-        public void CreateNote(string NoteText, DateTime NoteDate, int FK_P_ID)
+
+        public void CreateNote(string noteText, DateTime noteDate, int fkPId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -176,9 +176,26 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@NoteText", NoteText));
-                cmd.Parameters.Add(new SqlParameter("@NoteDate", NoteDate));
-                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", FK_P_ID));
+                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
+                cmd.Parameters.Add(new SqlParameter("@NoteDate", noteDate));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", fkPId));
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void SaveNote(string noteText, int paragraphNumber)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_SaveNote", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", paragraphNumber));
 
                 cmd.ExecuteNonQuery();
             }

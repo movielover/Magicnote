@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Magicnote.ViewModel
 {
@@ -14,7 +15,18 @@ namespace Magicnote.ViewModel
 
         public List<Note> Notes { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
-        public List<SubLegalArea> SubLegalAreas { get; set; }
+
+        public List<SubLegalArea> SubLegalAreas
+        {
+            get => SubLegalAreas;
+
+            set
+            {
+                SubLegalAreas = value;
+                OnPropertyChanged("SubLegalAreas");
+            }
+        }
+
         public List<Paragraph> Paragraphs { get; set; }
 
 
@@ -28,8 +40,7 @@ namespace Magicnote.ViewModel
         }
         public void GetSubLegalArea(int number)
         {
-            DbManager.GetSubAreas(number);
-            SubLegalAreas = DbManager.GetSubAreas(1);
+            SubLegalAreas = DbManager.GetSubAreas(number).ToList();
         }
 
         public void GetParagraphs(int i)
@@ -50,14 +61,6 @@ namespace Magicnote.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        public void CreateParagraph(int ParagraphNumber, string Headline, string Lawtext, int FK_SA_ID)
-        {
-            DbManager.CreateParagraph(ParagraphNumber, Headline, Lawtext, FK_SA_ID);
-        }
-        public void CreateNote(string NoteText, DateTime NoteDate, int FK_P_ID)
-        {
-            DbManager.CreateNote(NoteText, NoteDate, FK_P_ID);
-        }
 
         public void GetNoteDB(int id)
         {
@@ -66,9 +69,15 @@ namespace Magicnote.ViewModel
 
         public void SaveNoteToDB(string noteText, int paragraphNumber)
         {
-            int id;
             DbManager.SaveNote(noteText, paragraphNumber);
         }
 
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

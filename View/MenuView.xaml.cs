@@ -1,5 +1,9 @@
-﻿using Magicnote.ViewModel;
+﻿using Magicnote.Domain;
+using Magicnote.ViewModel;
+using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 
 namespace View
@@ -17,13 +21,6 @@ namespace View
             DataContext = new MainViewModel();
         }
 
-        //private void Label_MainArea_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    Label label = (Label) sender;
-        //    int subAreaId = Convert.ToInt32(label.Tag);
-        //    _mainViewModel.GetSubLegalArea(subAreaId);
-        //}
-
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -33,27 +30,24 @@ namespace View
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            SubListView.ItemsSource = null;
 
-            SubMenu subMenu = new SubMenu();
-            subMenu.Show();
-            Close();
+            Button button = (Button)sender;
+            int subAreaId = Convert.ToInt32(button.Tag);
 
-            //Button button = (Button)sender;
-            //int subAreaId = Convert.ToInt32(button.Tag);
-            //_mainViewModel.GetSubLegalArea(subAreaId);
-            //Sub_List_View.Items.Refresh();
+
+
+            _mainViewModel.GetSubLegalArea(subAreaId);
+
+
+            SubListView.Items.Refresh();
         }
 
-        private void Paragraph_View_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            Button button = (Button)sender;
+            int paragraphId = Convert.ToInt32(button.Tag);
+            _mainViewModel.GetParagraphs(paragraphId);
         }
-
-        //private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
-        //{
-        //    Button button = (Button)sender;
-        //    int paragraphId = Convert.ToInt32(button.Tag);
-        //    _mainViewModel.GetParagraphs(paragraphId);
-        //}
     }
 }

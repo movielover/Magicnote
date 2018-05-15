@@ -6,18 +6,17 @@
         mc:Ignorable="d"
         Title="Menu" Height="600" Width="800">
     <Grid>
-        <ListView x:Name="Main_List_View"  ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
+        <ListView x:Name="MainListView"  ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick">
-                    </Button>
+                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView x:Name="Sub_List_View" ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
+        <ListView x:Name="SubListView" ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Tag="{Binding Id}" />
+                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase1_OnClick" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
