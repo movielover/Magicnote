@@ -100,9 +100,9 @@ namespace Magicnote.Domain
             return paragraphs;
         }
 
-        public List<Note> GetNote(int number)
+        public string GetNote(int number)
         {
-            List<Note> notes = new List<Note>();
+            string noteText = ""; 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -115,15 +115,10 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Note noteNew = new Note
-                    {
-                        NoteText = (string)reader["NoteText"],
-                        NoteDate = (DateTime)reader["NoteDate"]
-                    };
-                    notes.Add(noteNew);
+                    noteText = (string)reader["NoteText"];
                 }
 
-                return notes;
+                return noteText;
             }
         }
 
