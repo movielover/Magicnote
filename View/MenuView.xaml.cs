@@ -1,9 +1,8 @@
 ﻿using ViewModel;
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 
 namespace View
@@ -18,10 +17,10 @@ namespace View
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel();
+            DataContext = _mainViewModel;
         }
 
-        private void Back_Button_Click(object sender, RoutedEventArgs e)
+        private void Back_Button_Click(object sender, RoutedEventArgs e) 
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
@@ -30,14 +29,12 @@ namespace View
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            SubListView.ItemsSource = null;
-
             Button button = (Button)sender;
-            int subAreaId = 0;
-            Int32.TryParse(button.Tag.ToString(), out subAreaId);
+            int subAreaId = Convert.ToInt32(button.Tag);
 
 
             _mainViewModel.GetSubLegalArea(subAreaId);
+
 
 
             SubListView.Items.Refresh();

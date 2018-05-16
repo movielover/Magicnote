@@ -1,6 +1,5 @@
 ﻿using Magicnote.Domain;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
@@ -18,7 +17,6 @@ namespace ViewModel
 
         private List<SubLegalArea> _subLegalAreas;
 
-
         public List<SubLegalArea> SubLegalAreas
         {
             get => _subLegalAreas;
@@ -26,7 +24,7 @@ namespace ViewModel
             set
             {
                 _subLegalAreas = value;
-                OnPropertyChanged("SubLegalAreas");
+                OnPropertyChanged(nameof(SubLegalAreas));
             }
         }
 
@@ -47,7 +45,8 @@ namespace ViewModel
 
         public void GetSubLegalArea(int number)
         {
-            SubLegalAreas = new List<SubLegalArea>(DbManager.GetSubAreas(number).ToList());
+            SubLegalAreas = DbManager.GetSubAreas(number);
+            
         }
 
         public void GetParagraphs(int paragraphNumber)
@@ -95,7 +94,7 @@ namespace ViewModel
 
             for (int i = 0; i < selection.Count; i++) //forbvinder noten med alle valgte underområder i mange til mange tabellen i databasen - SubAreaParagrph tabellen
             {
-                DbManager.InsertSubLegalAreaParagraph(PK_P, selection[i].Id);
+                DbManager.InsertSubLegalAreaParagraph(PK_P, selection[i].ID);
             }
             DbManager.CreateNote(PK_P); //laver en note hvor foreign key er paragraffens primary key
         }

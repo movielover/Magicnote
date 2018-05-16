@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using DevExpress.Mvvm.POCO;
 using ViewModel;
 
 
@@ -12,7 +11,7 @@ namespace View
     /// </summary>
     public partial class CreateParagraph
     {
-        private readonly MainViewModel _mainViewModel = new MainViewModel();
+        public MainViewModel _mainViewModel;
 
         public CreateParagraph()
         {
@@ -26,12 +25,6 @@ namespace View
             ComboBox button = (ComboBox)sender;
             int subAreaId = Convert.ToInt32(button.Tag);
             _mainViewModel.GetSubLegalArea(subAreaId);
-            
-        }
-
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

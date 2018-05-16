@@ -1,17 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Magicnote.Annotations;
 
 namespace Magicnote.Domain
 {
     public class SubLegalArea : INotifyPropertyChanged
     {
-        public int Id { get; set; }
+        public int ID;
 
-        public string Title { get; set; }
+        public string Title;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        public SubLegalArea()
+        {
+
+        }
+
+        public SubLegalArea(int value)
+        {
+            this.ID = value;
+        }
+        public SubLegalArea(string value)
+        {
+            this.Title = value;
+        }
+        
+        public int SubLegalAreaID
+        {
+            get { return ID; }
+            set { ID = value;
+                OnPropertyChanged(nameof(SubLegalArea));
+                    }
+        }
+
+        private void OnPropertyChanged(string v)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
+        }
+
+        //public int Id { get; set; }
+
+        //public string Title { get; set; }
+
+
     }
-    
 }
