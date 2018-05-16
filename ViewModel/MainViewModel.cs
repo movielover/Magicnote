@@ -16,10 +16,10 @@ namespace ViewModel
         public string Note { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
 
-        //private List<SubLegalArea> _subLegalAreas;
-        private ObservableCollection<SubLegalArea> _subLegalAreas;
+        private List<SubLegalArea> _subLegalAreas;
 
-        public ObservableCollection<SubLegalArea> SubLegalAreas
+
+        public List<SubLegalArea> SubLegalAreas
         {
             get => _subLegalAreas;
 
@@ -38,7 +38,7 @@ namespace ViewModel
             DbManager = new DbManager();
             SubLegalArea = new SubLegalArea();
             MainLegalAreas = DbManager.GetMainLegalAreas();
-            _subLegalAreas = new ObservableCollection<SubLegalArea>();
+            _subLegalAreas = new List<SubLegalArea>();
 
             GetParagraphs(1);
             GetNote(1);
@@ -47,7 +47,7 @@ namespace ViewModel
 
         public void GetSubLegalArea(int number)
         {
-            SubLegalAreas = new ObservableCollection<SubLegalArea>(DbManager.GetSubAreas(number).ToList());
+            SubLegalAreas = new List<SubLegalArea>(DbManager.GetSubAreas(number).ToList());
         }
 
         public void GetParagraphs(int paragraphNumber)
