@@ -1,5 +1,7 @@
-﻿using Magicnote.ViewModel;
+﻿using ViewModel;
 using System.Windows;
+
+
 
 namespace View
 {
@@ -17,8 +19,8 @@ namespace View
 
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {
-            CreateParagraph CreateParagraph = new CreateParagraph();
-            CreateParagraph.Show();
+            CreateParagraph createParagraph = new CreateParagraph();
+            createParagraph.Show();
             this.Close();
         }
 
