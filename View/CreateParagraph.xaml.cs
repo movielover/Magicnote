@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using ViewModel;
+
 
 namespace View
 {
@@ -9,13 +11,13 @@ namespace View
     /// </summary>
     public partial class CreateParagraph
     {
-        private MainViewModel.MainViewModel _mainViewModel;
+        private MainViewModel _mainViewModel;
 
         public CreateParagraph()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel.MainViewModel();
+            DataContext = new MainViewModel();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

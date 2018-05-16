@@ -1,5 +1,6 @@
-﻿using Magicnote.ViewModel;
+﻿using ViewModel;
 using System.Windows;
+
 
 namespace View
 {
