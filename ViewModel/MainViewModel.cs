@@ -53,10 +53,10 @@ namespace ViewModel
             Paragraphs = DbManager.GetParagraphs(paragraphNumber);
         }
 
-        public void AddNote(string noteText, int paragraphId)
-        {
-            DbManager.CreateNote(noteText, paragraphId);
-        }
+        //public void AddNote(string noteText, int paragraphId)
+        //{
+        //    DbManager.CreateNote(noteText, paragraphId);
+        //}
 
         public void GetNote(int paragraphNumber)
         {

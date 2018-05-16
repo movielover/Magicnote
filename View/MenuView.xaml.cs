@@ -1,5 +1,4 @@
-﻿using Magicnote.Domain;
-using Magicnote.ViewModel;
+﻿using ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Windows;
