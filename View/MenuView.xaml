@@ -6,6 +6,10 @@
         mc:Ignorable="d"
         Title="Menu" Height="600" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="215*"/>
+        </Grid.ColumnDefinitions>
         <ListView x:Name="MainListView"  ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -13,13 +17,21 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView x:Name="SubListView" ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191">
+
+        <Button Name="test_btton"  Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Back_Button_Click"/>
+        <ListView x:Name="SubListView"  ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase1_OnClick" />
+                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Name="test_btton"  Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Back_Button_Click"/>
+        <ListView x:Name="ParagraphView"  ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="175.523,52,0,0" VerticalAlignment="Top" Width="191" Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

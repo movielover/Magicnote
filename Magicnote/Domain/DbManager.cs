@@ -38,9 +38,9 @@ namespace Magicnote.Domain
         }
 
         //public List<SubLegalArea> GetSubAreas(int number)
-        public ObservableCollection<SubLegalArea> GetSubAreas(int number)
+        public List<SubLegalArea> GetSubAreas(int number)
         {
-            ObservableCollection<SubLegalArea> subLegalAreas = new ObservableCollection<SubLegalArea>();
+            List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();

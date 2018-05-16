@@ -26,5 +26,10 @@ namespace View
             int subAreaId = Convert.ToInt32(button.Tag);
             _mainViewModel.GetSubLegalArea(subAreaId);
         }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
