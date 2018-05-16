@@ -32,7 +32,36 @@ namespace Magicnote
             //Console.WriteLine(text);
             //Console.ReadLine();
 
-            
+            void createparagraphandnote()
+            {
+                createparagraph();
+
+                paragraph = getparagraph()
+
+                foreach (choice in subarea)
+                {
+                     innerjoin(SA, paragraph)
+                }
+            createnote (paragraph)
+            }
+
+
+            void createparagraph()
+            {
+
+            }
+
+            void innerjoin()
+            {
+
+            }
+
+            void createNote(int ParagraphNumber, string Headline, string Lawtext, int FK_SA_ID)
+            {
+                MVM.CreateParagraph(ParagraphNumber, Headline, Lawtext, FK_SA_ID);
+                MVM.GetParagraphs.
+            }
+
 
         }
 

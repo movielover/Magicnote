@@ -58,8 +58,8 @@ namespace Magicnote.Domain
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        Id = (int) reader["PK_SA_ID"],
-                        Title = (string) reader["SA_Title"]
+                        Id = (int)reader["PK_SA_ID"],
+                        Title = (string)reader["SA_Title"]
                     };
 
                     subLegalAreas.Add(subLegalArea);
@@ -89,9 +89,9 @@ namespace Magicnote.Domain
                 {
                     Paragraph paragraph = new Paragraph
                     {
-                        ParagraphNumber = (int) reader["ParagraphNumber"],
-                        Headline = (string) reader["Headline"],
-                        Lawtext = (string) reader["Lawtext"]
+                        ParagraphNumber = (int)reader["ParagraphNumber"],
+                        Headline = (string)reader["Headline"],
+                        Lawtext = (string)reader["Lawtext"]
                     };
 
                     paragraphs.Add(paragraph);
@@ -102,7 +102,7 @@ namespace Magicnote.Domain
 
         public string GetNote(int number)
         {
-            string noteText = ""; 
+            string noteText = "";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -122,7 +122,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public void CreateParagraph(int paragraphNumber, string headLine, string lawtext, int fkSaId)
+        public void CreateParagraph(int paragraphNumber, string headLine, string lawtext)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -135,13 +135,13 @@ namespace Magicnote.Domain
                 cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", paragraphNumber));
                 cmd.Parameters.Add(new SqlParameter("@HeadLine", headLine));
                 cmd.Parameters.Add(new SqlParameter("@Lawtext", lawtext));
-                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", fkSaId));
+
 
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public void CreateNote(string noteText, int fkPId)
+        public void CreateNote(int fkPId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -151,7 +151,6 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@NoteText", noteText));
                 cmd.Parameters.Add(new SqlParameter("@FK_P_ID", fkPId));
 
                 cmd.ExecuteNonQuery();
@@ -174,5 +173,46 @@ namespace Magicnote.Domain
                 cmd.ExecuteNonQuery();
             }
         }
+        public int GetRecentParagraph()
+        {
+            int PK_P_ID = 0;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_GetRecentParagraph", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    PK_P_ID = (int)reader["PK_P_ID"];
+                }
+
+                return PK_P_ID;
+            }
+
+        }
+        public void InsertSubLegalAreaParagraph(int PK_P_ID, int PK_SA_ID)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_Insert_SubLegalArea_Paragraph", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", PK_P_ID));
+                cmd.Parameters.Add(new SqlParameter("@ FK_SA_ID", PK_SA_ID));
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }

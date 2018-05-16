@@ -13,7 +13,6 @@ CREATE TABLE [dbo].[Note] (
     [PK_N_ID] INT            NOT NULL,
     [NoteText]    NVARCHAR (MAX) NOT NULL,
     [FK_P_ID] INT            NOT NULL,
-    [NoteDate]    DATETIME       NOT NULL,
     PRIMARY KEY CLUSTERED ([PK_N_ID] ASC)
 );
 
@@ -70,7 +69,7 @@ END
 CREATE PROCEDURE [dbo].[SP_GetNote]
 	@PK_N_ID int
 AS BEGIN
-	SELECT NoteText, NoteDate, PK_N_ID
+	SELECT NoteText, PK_N_ID
 	FROM	Note
 	WHERE FK_P_ID = @PK_N_ID
 END
@@ -78,11 +77,10 @@ END
 
 CREATE PROCEDURE [dbo].[SP_AddNote]
  @NoteText NVarchar,  
- @NoteDate Datetime,
  @FK_P_ID int 
 AS BEGIN
 UPDATE Note
-SET NoteText = @NoteText, NoteDate = @NoteDate
+SET NoteText = @NoteText
 WHERE FK_P_ID = @FK_P_ID
 END
 
@@ -94,3 +92,42 @@ AS BEGIN
 	SET NoteText = @NoteText
 	WHERE FK_P_ID = @FK_P_ID
 END
+
+Create procedure [dbo].[SP_CreateNote]
+as begin
+
+declare @FK_P_ID int
+
+insert into dbo.Note (NoteText,  FK_P_ID)
+values ('', @FK_P_ID)
+end
+
+create procedure SP_Insert_SubLegalArea_Paragraph
+as
+begin
+
+declare @PK_P_ID int, @PK_SA_ID int
+
+insert into dbo.SubLegalAreaParagraph (FK_P_ID, FK_SA_ID)
+values (@PK_P_ID, @PK_SA_ID)
+end
+
+create procedure [dbo].[SP_GetRecentParagraph] --single newest paragraph
+
+as
+begin
+
+select max(PK_P_ID)
+from dbo.Paragraph
+
+end
+
+create procedure [dbo].[SP_CreateParagraph]
+as
+begin
+
+declare @ParagraphNumber NVarchar, @Headline NVarchar, @Lawtext NVarchar 
+
+insert into dbo.Paragraph (ParagraphNumber, HeadLine, Lawtext)
+values (@ParagraphNumber, @Headline, @Lawtext)
+end
