@@ -57,13 +57,14 @@ namespace Magicnote.Domain
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        Id = (int)reader["PK_SA_ID"],
+                        ID = (int)reader["PK_SA_ID"],
                         Title = (string)reader["SA_Title"]
                     };
 
                     subLegalAreas.Add(subLegalArea);
                 }
-            }
+            }   
+            
             return subLegalAreas;
         }
 
