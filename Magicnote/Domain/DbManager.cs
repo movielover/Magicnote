@@ -110,7 +110,7 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@PK_N_ID", number));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", number));
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {

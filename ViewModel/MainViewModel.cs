@@ -75,12 +75,9 @@ namespace ViewModel
             DbManager.SaveNote(noteText, paragraphNumber);
         }
 
-        protected void OnPropertyChanged(string propertyName)
+        private void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public void CreateParagraphAndNote(List<SubLegalArea> selection, int ParagraphNumber, string headLine, string Lawtext) // laver paragraf, sætter op i SubLegalAreaParagraph tabellen, laver note, forbinder dem
         {

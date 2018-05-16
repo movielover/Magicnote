@@ -11,7 +11,7 @@ namespace View
     /// </summary>
     public partial class CreateParagraph
     {
-        private MainViewModel _mainViewModel;
+        public MainViewModel _mainViewModel;
 
         public CreateParagraph()
         {
