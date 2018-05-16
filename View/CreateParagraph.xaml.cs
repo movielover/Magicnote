@@ -11,7 +11,7 @@ namespace View
     /// </summary>
     public partial class CreateParagraph
     {
-        private MainViewModel _mainViewModel;
+        private readonly MainViewModel _mainViewModel = new MainViewModel();
 
         public CreateParagraph()
         {

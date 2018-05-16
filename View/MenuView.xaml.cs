@@ -1,9 +1,10 @@
 ﻿using ViewModel;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using ViewModel;
+using System.Windows.Data;
+
 
 namespace View
 {
@@ -32,8 +33,8 @@ namespace View
             SubListView.ItemsSource = null;
 
             Button button = (Button)sender;
-            int subAreaId = Convert.ToInt32(button.Tag);
-
+            int subAreaId = 0;
+            Int32.TryParse(button.Tag.ToString(), out subAreaId);
 
 
             _mainViewModel.GetSubLegalArea(subAreaId);

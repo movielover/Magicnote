@@ -1,5 +1,6 @@
 ﻿using Magicnote.Domain;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
@@ -15,9 +16,10 @@ namespace ViewModel
         public string Note { get; set; }
         public List<MainLegalArea> MainLegalAreas { get; }
 
-        private List<SubLegalArea> _subLegalAreas;
+        //private List<SubLegalArea> _subLegalAreas;
+        private ObservableCollection<SubLegalArea> _subLegalAreas;
 
-        public List<SubLegalArea> SubLegalAreas
+        public ObservableCollection<SubLegalArea> SubLegalAreas
         {
             get => _subLegalAreas;
 
@@ -36,7 +38,7 @@ namespace ViewModel
             DbManager = new DbManager();
             SubLegalArea = new SubLegalArea();
             MainLegalAreas = DbManager.GetMainLegalAreas();
-            _subLegalAreas = new List<SubLegalArea>();
+            _subLegalAreas = new ObservableCollection<SubLegalArea>();
 
             GetParagraphs(1);
             GetNote(1);
@@ -45,7 +47,7 @@ namespace ViewModel
 
         public void GetSubLegalArea(int number)
         {
-            SubLegalAreas = DbManager.GetSubAreas(number).ToList();
+            SubLegalAreas = new ObservableCollection<SubLegalArea>(DbManager.GetSubAreas(number).ToList());
         }
 
         public void GetParagraphs(int paragraphNumber)
@@ -75,12 +77,9 @@ namespace ViewModel
             DbManager.SaveNote(noteText, paragraphNumber);
         }
 
-        protected void OnPropertyChanged(string propertyName)
+        private void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public void CreateParagraphAndNote(List<SubLegalArea> selection, int ParagraphNumber, string headLine, string Lawtext) // laver paragraf, sætter op i SubLegalAreaParagraph tabellen, laver note, forbinder dem
         {

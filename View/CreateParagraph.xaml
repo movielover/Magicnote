@@ -13,7 +13,7 @@
         <ComboBox Text="test" Margin="64,108,504,434" ItemsSource="{Binding MainLegalAreas}" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="False"/>
+                    <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="True"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>

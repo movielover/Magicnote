@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -36,9 +37,10 @@ namespace Magicnote.Domain
             }
         }
 
-        public List<SubLegalArea> GetSubAreas(int number)
+        //public List<SubLegalArea> GetSubAreas(int number)
+        public ObservableCollection<SubLegalArea> GetSubAreas(int number)
         {
-            List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
+            ObservableCollection<SubLegalArea> subLegalAreas = new ObservableCollection<SubLegalArea>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -110,7 +112,7 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@PK_N_ID", number));
+                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", number));
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
