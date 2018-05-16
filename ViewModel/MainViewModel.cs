@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Magicnote.ViewModel
+namespace ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
@@ -77,3 +77,4 @@ namespace Magicnote.ViewModel
         }
     }
 }
+
