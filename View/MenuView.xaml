@@ -22,7 +22,7 @@
         <ListView x:Name="SubListView"  ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" Width="100" Height="30" />
+                    <Button Content="{Binding Title}"></Button> <!--<Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" Width="100" Height="30" />-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

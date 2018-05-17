@@ -16,6 +16,7 @@ namespace ViewModel
         public List<MainLegalArea> MainLegalAreas { get; }
 
         private List<SubLegalArea> _subLegalAreas;
+        
 
         public List<SubLegalArea> SubLegalAreas
         {
