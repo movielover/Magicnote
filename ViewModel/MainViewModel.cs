@@ -9,6 +9,7 @@ namespace ViewModel
     {
         public DbManager DbManager;
         public SubLegalArea SubLegalArea;
+        public Paragraph Paragraph;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,7 +30,18 @@ namespace ViewModel
             }
         }
 
-        public List<Paragraph> Paragraphs { get; set; }
+        public List<Paragraph> _Paragraphs { get; set; }
+
+        public List<Paragraph> Paragraphs
+        {
+            get => _Paragraphs;
+
+            set
+            {
+                _Paragraphs = value;
+                OnPropertyChanged(nameof(Paragraphs));
+            }
+        }
 
 
         public MainViewModel()
@@ -37,9 +49,11 @@ namespace ViewModel
             DbManager = new DbManager();
             SubLegalArea = new SubLegalArea();
             MainLegalAreas = DbManager.GetMainLegalAreas();
+            Paragraph = new Paragraph();
             _subLegalAreas = new List<SubLegalArea>();
+            _Paragraphs = new List<Paragraph>();
 
-            GetParagraphs(1);
+            //GetParagraphs(1);
             GetNote(1);
 
         }

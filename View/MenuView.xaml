@@ -22,14 +22,14 @@
         <ListView x:Name="SubListView"  ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Title}"></Button> <!--<Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" Width="100" Height="30" />-->
+                    <Button Content="{Binding Title}" Tag ="{Binding ID}" Click="ButtonBase1_OnClick"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView x:Name="ParagraphView"  ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="175.523,52,0,0" VerticalAlignment="Top" Width="191" Grid.Column="1">
+        <ListView x:Name="ParagraphView"  ItemsSource="{Binding Paragraphs}" HorizontalAlignment="Left" Height="455" Margin="175.523,52,0,0" VerticalAlignment="Top" Width="191" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" />
+                    <Button Content= "{Binding Headline}" Tag="{Binding Id}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

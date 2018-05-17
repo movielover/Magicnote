@@ -45,6 +45,8 @@ namespace View
             Button button = (Button)sender;
             int paragraphId = Convert.ToInt32(button.Tag);
             _mainViewModel.GetParagraphs(paragraphId);
+            ParagraphView.Items.Refresh();
+
         }
     }
 }

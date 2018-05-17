@@ -70,37 +70,72 @@ namespace Magicnote.Domain
             return subLegalAreas;
         }
 
-        public List<Paragraph> GetParagraphs(int number)
-        {
-            List<Paragraph> paragraphs = new List<Paragraph>();
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+        //public List<Paragraph> GetParagraphs(int number)
+        //{
+        //    List<Paragraph> paragraphs = new List<Paragraph>();
+        //    using (SqlConnection conn = new SqlConnection(ConnectionString))
+        //    {
+        //        conn.Open();
+
+        //        SqlCommand cmd = new SqlCommand("SP_GetParagraphs", conn)
+        //        {
+        //            CommandType = CommandType.StoredProcedure
+        //        };
+        //        cmd.Parameters.Add(new SqlParameter("@PK_P_ID", number));
+        //        SqlDataReader reader = cmd.ExecuteReader();
+        //        if (!reader.HasRows)
+        //        {
+        //            return paragraphs;
+        //        }
+        //        while (reader.Read())
+        //        {
+        //            Paragraph paragraph = new Paragraph
+        //            {
+        //                ParagraphNumber = (int)reader["ParagraphNumber"],
+        //                Headline = (string)reader["Headline"],
+        //                Lawtext = (string)reader["Lawtext"]
+        //            };
+
+        //            paragraphs.Add(paragraph);
+        //        }
+        //    }
+        //    return paragraphs;
+
+            public List<Paragraph> GetParagraphs(int number)
             {
-                conn.Open();
+                List<Paragraph> paragraphs = new List<Paragraph>();
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetParagraphs", conn)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.Add(new SqlParameter("@PK_P_ID", number));
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
-                {
-                    return paragraphs;
-                }
-                while (reader.Read())
-                {
-                    Paragraph paragraph = new Paragraph
+                    SqlCommand cmd = new SqlCommand("SP_GetParagraphsFromSubAreaParagraph", conn)
                     {
-                        ParagraphNumber = (int)reader["ParagraphNumber"],
-                        Headline = (string)reader["Headline"],
-                        Lawtext = (string)reader["Lawtext"]
+                        CommandType = CommandType.StoredProcedure
                     };
+                    cmd.Parameters.Add(new SqlParameter("@PK_SA_ID", number));
 
-                    paragraphs.Add(paragraph);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (!reader.HasRows)
+                    {
+                        return paragraphs;
+                    }
+                    while (reader.Read())
+                    {
+                        Paragraph paragraph = new Paragraph
+                       
+                        {                
+                            
+                            ParagraphNumber = (int)reader["ParagraphNumber"],
+                            Headline = (string)reader["Headline"],
+                            Lawtext = (string)reader["Lawtext"]
+                        };
+
+                        paragraphs.Add(paragraph);
+                    }
                 }
+                return paragraphs;
             }
-            return paragraphs;
-        }
 
         public string GetNote(int number)
         {
