@@ -128,7 +128,8 @@ namespace Magicnote.Domain
                             
                             ParagraphNumber = (int)reader["ParagraphNumber"],
                             Headline = (string)reader["Headline"],
-                            Lawtext = (string)reader["Lawtext"]
+                            Lawtext = (string)reader["Lawtext"],
+                            ID = (int)reader["PK_P_ID"]
                         };
 
                         paragraphs.Add(paragraph);

@@ -48,5 +48,11 @@ namespace View
             ParagraphView.Items.Refresh();
 
         }
+        private void ButtonBase2_OnClick(object sender, RoutedEventArgs e)
+        {
+            NoteView noteView = new NoteView();
+            noteView.Show();
+            this.Close();
+        }
     }
 }
