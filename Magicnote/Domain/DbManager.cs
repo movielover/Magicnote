@@ -36,7 +36,7 @@ namespace Magicnote.Domain
             }
         }
 
-        //public List<SubLegalArea> GetSubAreas(int number)
+        
         public List<SubLegalArea> GetSubAreas(int number)
         {
             List<SubLegalArea> subLegalAreas = new List<SubLegalArea>();
@@ -183,7 +183,7 @@ namespace Magicnote.Domain
         }
         public int GetRecentParagraph()
         {
-            int pkPId = 0;
+           int pkPId = 0;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {

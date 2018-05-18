@@ -32,12 +32,12 @@ namespace View
 
 
             _mainViewModel.GetSubLegalArea(mainAreaId);
-            SubAreas.Items.Refresh();
+            SubId.Items.Refresh();
         }
 
-        private void SubAreas_OnDropDownClosed(object sender, EventArgs e)
+        private void SubId_OnDropDownClosed(object sender, EventArgs e)
         {
-            _id = Convert.ToInt32(SubAreas.SelectedValue);
+            _id = Convert.ToInt32(SubId.SelectedValue);
         }
 
         private void Paragraf_Number_OnLostFocus(object sender, RoutedEventArgs e)
