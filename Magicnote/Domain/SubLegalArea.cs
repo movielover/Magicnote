@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-namespace Magicnote.Domain
+﻿namespace Magicnote.Domain
 {
     public class SubLegalArea 
     {

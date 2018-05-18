@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Controls;
 using ViewModel;
-
 
 namespace View
 {
@@ -14,6 +11,12 @@ namespace View
     {
         private readonly MainViewModel _mainViewModel = new MainViewModel();
 
+        public int Id { get; set; }
+
+        public string HeadLine { get; set; }
+
+        public int PNumber { get; set; }
+        public string LawText { get; set; }
 
 
         public CreateParagraph()
@@ -40,7 +43,7 @@ namespace View
             Id = Convert.ToInt32(SubId.SelectedValue);
         }
 
-        public int Id { get; set; }
+
 
         private void Paragraf_Number_OnLostFocus(object sender, RoutedEventArgs e)
         {
@@ -64,13 +67,6 @@ namespace View
         {
             _mainViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, Id);
         }
-
-        
-
-        public string HeadLine { get; set; }
-
-        public int PNumber { get; set; }
-        public string LawText { get; private set; }
 
         private void Videre_OnClick(object sender, RoutedEventArgs e)
         {

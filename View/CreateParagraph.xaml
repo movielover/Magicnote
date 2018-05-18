@@ -8,7 +8,7 @@
         Title="CreateParagraph" Height="600" Width="800">
     <Grid Margin="0,0,-0.4,0.4">
         <Label Content="Opret Note til Paragraf" HorizontalAlignment="Center" Margin="329,10,326,0" VerticalAlignment="Top" Height="33" Width="139"/>
-        <TextBox HorizontalAlignment="Left" Height="32" Margin="74,342,0,0" TextWrapping="Wrap" Text="Indtast Overskrift" VerticalAlignment="Top" Width="332" LostFocus="HeadLine_OnLostFocus" Name="HeadLineTextBox"/>
+        <TextBox HorizontalAlignment="Left"  Height="32" Margin="74,342,0,0" TextWrapping="Wrap" Text="Indtast Overskrift" VerticalAlignment="Top" Width="332" LostFocus="HeadLine_OnLostFocus" Name="HeadLineTextBox"/>
         <TextBox HorizontalAlignment="Left" Height="153" Margin="74,393,0,0" TextWrapping="Wrap" Text="Indtast Lovtekst" VerticalAlignment="Top" Width="503" LostFocus="Lawtext_OnLostFocus" Name="LawTextTextBox"/>
         <TextBox HorizontalAlignment="Left" Height="32" Margin="74,288,0,0" TextWrapping="Wrap" Text="Indtast § Nr." VerticalAlignment="Top" Width="332" LostFocus="Paragraf_Number_OnLostFocus" Name="ParagraphNumberTextBox"/>
 
