@@ -37,8 +37,10 @@ namespace View
 
         private void SubId_OnDropDownClosed(object sender, EventArgs e)
         {
-            _id = Convert.ToInt32(SubId.SelectedValue);
+            Id = Convert.ToInt32(SubId.SelectedValue);
         }
+
+        public int Id { get; set; }
 
         private void Paragraf_Number_OnLostFocus(object sender, RoutedEventArgs e)
         {
@@ -60,10 +62,10 @@ namespace View
 
         private void AddParagraph()
         {
-            _mainViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, _id);
+            _mainViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, Id);
         }
 
-        private int _id;
+        
 
         public string HeadLine { get; set; }
 
