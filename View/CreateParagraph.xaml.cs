@@ -53,6 +53,7 @@ namespace View
         private void Lawtext_OnLostFocus(object sender, RoutedEventArgs e)
         {
             LawText = LawTextTextBox.Text;
+            
         }
 
         public void HeadLine_OnLostFocus(object sender, RoutedEventArgs e)
@@ -75,6 +76,8 @@ namespace View
         private void Videre_OnClick(object sender, RoutedEventArgs e)
         {
             AddParagraph();
+            MainWindow window = new MainWindow();
+            window.Show();
         }
     }
 }
