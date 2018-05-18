@@ -30,15 +30,15 @@ namespace ViewModel
             }
         }
 
-        public List<Paragraph> _Paragraphs { get; set; }
+        private List<Paragraph> _paragraphs { get; set; }
 
         public List<Paragraph> Paragraphs
         {
-            get => _Paragraphs;
+            get => _paragraphs;
 
             set
             {
-                _Paragraphs = value;
+                _paragraphs = value;
                 OnPropertyChanged(nameof(Paragraphs));
             }
         }
@@ -51,7 +51,7 @@ namespace ViewModel
             MainLegalAreas = DbManager.GetMainLegalAreas();
             Paragraph = new Paragraph();
             _subLegalAreas = new List<SubLegalArea>();
-            _Paragraphs = new List<Paragraph>();
+            _paragraphs = new List<Paragraph>();
 
             //GetParagraphs(1);
             GetNote(1);
