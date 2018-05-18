@@ -60,7 +60,7 @@ namespace View
 
         private void AddParagraph()
         {
-             _mainViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText);
+             _mainViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, Id);
         }
 
         public int Id { get; set; }
