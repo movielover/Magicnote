@@ -100,11 +100,11 @@ namespace ViewModel
 
         public void CreateParagraphAndNote(int paragraphNumber, string headLine, string lawtext, int id) // laver paragraf, sætter op i SubLegalAreaParagraph tabellen, laver note, forbinder dem
         {
-            int PK_P;
+            //int PK_P;
             DbManager.CreateParagraph(paragraphNumber, headLine, lawtext, id); //laver paragraf i databasen
-            PK_P = DbManager.GetRecentParagraph(); //henter den seneste paragraph primary key og assigner den til variable
+            //PK_P = DbManager.GetRecentParagraph(); //henter den seneste paragraph primary key og assigner den til variable
 
-            DbManager.CreateNote(PK_P); //laver en note hvor foreign key er paragraffens primary key
+            //DbManager.CreateNote(PK_P); //laver en note hvor foreign key er paragraffens primary key
 
             //public void CreateParagraphAndNote(List<SubLegalArea> selection, int paragraphNumber, string headLine,
             //    string lawtext) // laver paragraf, sætter op i SubLegalAreaParagraph tabellen, laver note, forbinder dem

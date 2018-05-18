@@ -132,9 +132,9 @@ namespace Magicnote.Domain
             }
         }
 
-        public void CreateParagraph(int paragraphNumber, string headLine, string lawText, int id)
+        public void CreateParagraph(int paragraphNumber, string headLine, string lawText, int FK_SA_ID)
         {
-            int pkPId = GetRecentParagraph();
+            //int pkPId = GetRecentParagraph();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -147,7 +147,7 @@ namespace Magicnote.Domain
                 cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", paragraphNumber));
                 cmd.Parameters.Add(new SqlParameter("@HeadLine", headLine));
                 cmd.Parameters.Add(new SqlParameter("@Lawtext", lawText));
-                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", id));
+                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", FK_SA_ID));
 
                 cmd.ExecuteNonQuery();
             }
@@ -186,27 +186,27 @@ namespace Magicnote.Domain
             }
         }
 
-        public int GetRecentParagraph()
-        {
-            int pkPId = 0;
+        //public int GetRecentParagraph()
+        //{
+        //    int pkPId = 0;
 
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
+        //    using (SqlConnection conn = new SqlConnection(ConnectionString))
+        //    {
+        //        conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_GetRecentParagraph", conn)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
+        //        SqlCommand cmd = new SqlCommand("SP_GetRecentParagraph", conn)
+        //        {
+        //            CommandType = CommandType.StoredProcedure
+        //        };
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    pkPId = (int) reader["PK_P_ID"];
-                }
+        //        SqlDataReader reader = cmd.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            pkPId = (int) reader["PK_P_ID"];
+        //        }
 
-                return pkPId;
-            }
+        //        return pkPId;
+        //    }
 
             //}
             //public void InsertSubLegalAreaParagraph(int PK_P_ID, int PK_SA_ID)
@@ -227,5 +227,5 @@ namespace Magicnote.Domain
             //    }
         }
     }
-}
+
   
