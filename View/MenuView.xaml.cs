@@ -1,6 +1,5 @@
 ﻿using ViewModel;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -27,7 +26,7 @@ namespace View
             Close();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void GetSubArea_OnClick(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             int subAreaId = Convert.ToInt32(button.Tag);
