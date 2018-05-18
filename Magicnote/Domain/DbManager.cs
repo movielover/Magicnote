@@ -128,7 +128,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public void CreateParagraph(int paragraphNumber, string headLine, string lawText)
+        public void CreateParagraph(int paragraphNumber, string headLine, string lawText, int id)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -141,7 +141,7 @@ namespace Magicnote.Domain
                 cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", paragraphNumber));
                 cmd.Parameters.Add(new SqlParameter("@HeadLine", headLine));
                 cmd.Parameters.Add(new SqlParameter("@Lawtext", lawText));
-                
+                cmd.Parameters.Add(new SqlParameter("@FK_SA_ID", id));
 
                 cmd.ExecuteNonQuery();
             }
