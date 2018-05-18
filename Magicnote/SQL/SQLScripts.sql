@@ -17,12 +17,12 @@ CREATE TABLE [dbo].[Note] (
 );
 
 CREATE TABLE [dbo].[Paragraph] (
-    [PK_P_ID]         INT            NOT NULL,
+    [PK_P_ID]         INT   IDENTITY(1,1) NOT NULL,
     [ParagraphNumber] INT            NULL,
     [HeadLine]        NVARCHAR (MAX) NULL,
     [Lawtext]         NVARCHAR (MAX) NOT NULL,
-    PRIMARY KEY CLUSTERED ([PK_P_ID] ASC),
-    CONSTRAINT [FK_Paragraph_SubArea] FOREIGN KEY ([FK_SA_ID]) REFERENCES [dbo].[SubArea] ([PK_SA_ID])
+    PRIMARY KEY CLUSTERED  ([PK_P_ID] ASC),
+    
 );
 
 CREATE TABLE [dbo].[SubLegalArea] (
