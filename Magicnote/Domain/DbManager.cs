@@ -69,37 +69,6 @@ namespace Magicnote.Domain
             return subLegalAreas;
         }
 
-        //public List<Paragraph> GetParagraphs(int number)
-        //{
-        //    List<Paragraph> paragraphs = new List<Paragraph>();
-        //    using (SqlConnection conn = new SqlConnection(ConnectionString))
-        //    {
-        //        conn.Open();
-
-        //        SqlCommand cmd = new SqlCommand("SP_GetParagraphs", conn)
-        //        {
-        //            CommandType = CommandType.StoredProcedure
-        //        };
-        //        cmd.Parameters.Add(new SqlParameter("@PK_P_ID", number));
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        if (!reader.HasRows)
-        //        {
-        //            return paragraphs;
-        //        }
-        //        while (reader.Read())
-        //        {
-        //            Paragraph paragraph = new Paragraph
-        //            {
-        //                ParagraphNumber = (int)reader["ParagraphNumber"],
-        //                Headline = (string)reader["Headline"],
-        //                Lawtext = (string)reader["Lawtext"]
-        //            };
-
-        //            paragraphs.Add(paragraph);
-        //        }
-        //    }
-        //    return paragraphs;
-
             public List<Paragraph> GetParagraphs(int number)
             {
                 List<Paragraph> paragraphs = new List<Paragraph>();
@@ -159,7 +128,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public void CreateParagraph(int paragraphNumber, string headLine, string lawtext)
+        public void CreateParagraph(int paragraphNumber, string headLine, string lawText)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
@@ -171,8 +140,8 @@ namespace Magicnote.Domain
                 };
                 cmd.Parameters.Add(new SqlParameter("@ParagraphNumber", paragraphNumber));
                 cmd.Parameters.Add(new SqlParameter("@HeadLine", headLine));
-                cmd.Parameters.Add(new SqlParameter("@Lawtext", lawtext));
-
+                cmd.Parameters.Add(new SqlParameter("@Lawtext", lawText));
+                
 
                 cmd.ExecuteNonQuery();
             }
@@ -233,23 +202,22 @@ namespace Magicnote.Domain
             }
 
         }
-        public void InsertSubLegalAreaParagraph(int PK_P_ID, int PK_SA_ID)
-        {
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
+        //public void InsertSubLegalAreaParagraph(int PK_P_ID, int PK_SA_ID)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(ConnectionString))
+        //    {
+        //        conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SP_Insert_SubLegalArea_Paragraph", conn)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
+        //        SqlCommand cmd = new SqlCommand("SP_Insert_SubLegalArea_Paragraph", conn)
+        //        {
+        //            CommandType = CommandType.StoredProcedure
+        //        };
 
-                cmd.Parameters.Add(new SqlParameter("@FK_P_ID", PK_P_ID));
-                cmd.Parameters.Add(new SqlParameter("@ FK_SA_ID", PK_SA_ID));
+        //        cmd.Parameters.Add(new SqlParameter("@FK_P_ID", PK_P_ID));
+        //        cmd.Parameters.Add(new SqlParameter("@ FK_SA_ID", PK_SA_ID));
 
-                cmd.ExecuteNonQuery();
-            }
+        //        cmd.ExecuteNonQuery();
+        //    }
         }
 
     }
-}
