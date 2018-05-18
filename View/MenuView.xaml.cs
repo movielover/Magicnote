@@ -40,7 +40,7 @@ namespace View
             SubListView.Items.Refresh();
         }
 
-        private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
+        private void GetParagraphs_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             int paragraphId = Convert.ToInt32(button.Tag);
@@ -48,7 +48,7 @@ namespace View
             ParagraphView.Items.Refresh();
 
         }
-        private void ButtonBase2_OnClick(object sender, RoutedEventArgs e)
+        private void GetToNote_Click(object sender, RoutedEventArgs e)
         {
             NoteView noteView = new NoteView();
             noteView.Show();
