@@ -19,6 +19,7 @@
         </ListView>
 
         <Button Name="test_btton"  Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Back_Button_Click"/>
+        
         <ListView x:Name="SubListView"  ItemsSource="{Binding SubLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="347,52,0,0" VerticalAlignment="Top" Width="191" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>

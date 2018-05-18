@@ -95,7 +95,7 @@ namespace ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public void CreateParagraphAndNote(List<SubLegalArea> selection, int ParagraphNumber, string headLine, string Lawtext) // laver paragraf, sætter op i SubLegalAreaParagraph tabellen, laver note, forbinder dem
+        public void CreateParagraphAndNote(List<SubLegalArea> selection, int paragraphNumber, string headLine, string lawtext) // laver paragraf, sætter op i SubLegalAreaParagraph tabellen, laver note, forbinder dem
         {
 
             if (selection.Count == 0) // stopper hvis der ikke er valgt underområde
@@ -104,7 +104,7 @@ namespace ViewModel
             }
 
             int PK_P;
-            DbManager.CreateParagraph(ParagraphNumber, headLine, Lawtext); //laver paragraf i databasen
+            DbManager.CreateParagraph(paragraphNumber, headLine, lawtext); //laver paragraf i databasen
             PK_P = DbManager.GetRecentParagraph(); //henter den seneste paragraph primary key og assigner den til variable
 
             for (int i = 0; i < selection.Count; i++) //forbvinder noten med alle valgte underområder i mange til mange tabellen i databasen - SubAreaParagrph tabellen
