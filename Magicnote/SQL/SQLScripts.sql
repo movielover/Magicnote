@@ -131,3 +131,17 @@ declare @ParagraphNumber NVarchar, @Headline NVarchar, @Lawtext NVarchar
 insert into dbo.Paragraph (ParagraphNumber, HeadLine, Lawtext)
 values (@ParagraphNumber, @Headline, @Lawtext)
 end
+
+create procedure [dbo].[SP_GetParagraphsFromSubAreaParagraph]
+
+@PK_SA_ID int
+as
+begin
+
+select Paragraph.ParagraphNumber as ParagraphNumber ,Paragraph.HeadLine as HeadLine, Paragraph.Lawtext as Lawtext , Paragraph.PK_P_ID as PK_P_ID
+from dbo.Paragraph
+Inner join dbo.SubLegalAreaParagraph on SubLegalAreaParagraph.FK_P_ID = dbo.Paragraph.PK_P_ID
+where dbo.SubLegalAreaParagraph.FK_SA_ID = @PK_SA_ID
+ORDER BY ParagraphNumber ASC
+
+end
