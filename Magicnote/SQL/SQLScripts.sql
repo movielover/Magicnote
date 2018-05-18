@@ -126,8 +126,10 @@ create procedure [dbo].[SP_CreateParagraph]
 as
 begin
 
-declare @ParagraphNumber NVarchar, @Headline NVarchar, @Lawtext NVarchar 
+declare @ParagraphNumber NVarchar, @Headline NVarchar, @Lawtext NVarchar, @FK_P_ID int
 
 insert into dbo.Paragraph (ParagraphNumber, HeadLine, Lawtext)
 values (@ParagraphNumber, @Headline, @Lawtext)
+insert into dbo.Note (NoteText,  FK_P_ID)
+values ('', @FK_P_ID)
 end

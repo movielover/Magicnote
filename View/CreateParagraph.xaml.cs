@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using ViewModel;
@@ -31,14 +32,10 @@ namespace View
 
 
             _mainViewModel.GetSubLegalArea(subAreaId);
-            SubAreas.Items.Refresh();
+            SubId.Items.Refresh();
         }
 
-        private void SubAreas_OnDropDownClosed(object sender, EventArgs e)
-        {
-            int sArea = Convert.ToInt32(SubAreas.SelectedValue);
-            Id = sArea;
-        }
+       
 
         private void Paragraf_Number_OnLostFocus(object sender, RoutedEventArgs e)
         {
@@ -76,7 +73,11 @@ namespace View
         }
 
 
-        
+        private void SubId_OnDropDownClosed(object sender, EventArgs e)
+        {
+            int subId = Convert.ToInt32(SubId.SelectedValue);
+            Id = subId;
+        }
     }
 
         
