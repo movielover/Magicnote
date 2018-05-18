@@ -60,7 +60,7 @@ namespace Magicnote.Domain
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        ID = (int) reader["PK_SA_ID"],
+                        Id = (int) reader["PK_SA_ID"],
                         Title = (string) reader["SA_Title"]
                     };
 
