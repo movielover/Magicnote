@@ -14,7 +14,7 @@ namespace View
     {
         private readonly MainViewModel _mainViewModel = new MainViewModel();
 
-        
+
 
         public CreateParagraph()
         {
@@ -23,25 +23,28 @@ namespace View
             DataContext = _mainViewModel;
         }
 
-        
+
         private void MainAreas_OnDropDownClosed(object sender, EventArgs e)
         {
-            
-            
-            int subAreaId = Convert.ToInt32(MainAreas.SelectedValue);
 
 
-            _mainViewModel.GetSubLegalArea(subAreaId);
-            SubId.Items.Refresh();
+            int mainAreaId = Convert.ToInt32(MainAreas.SelectedValue);
+
+
+            _mainViewModel.GetSubLegalArea(mainAreaId);
+            SubAreas.Items.Refresh();
         }
 
-       
+        private void SubAreas_OnDropDownClosed(object sender, EventArgs e)
+        {
+            _id = Convert.ToInt32(SubAreas.SelectedValue);
+        }
 
         private void Paragraf_Number_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            
+
             PNumber = Convert.ToInt32(ParagraphNumberTextBox.Text);
-            
+
 
         }
 
@@ -57,10 +60,10 @@ namespace View
 
         private void AddParagraph()
         {
-             _mainViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, Id);
+            _mainViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, _id);
         }
 
-        public int Id { get; set; }
+        private int _id;
 
         public string HeadLine { get; set; }
 
@@ -71,14 +74,5 @@ namespace View
         {
             AddParagraph();
         }
-
-
-        private void SubId_OnDropDownClosed(object sender, EventArgs e)
-        {
-            int subId = Convert.ToInt32(SubId.SelectedValue);
-            Id = subId;
-        }
     }
-
-        
-    }
+}
