@@ -13,7 +13,7 @@
         <ListView x:Name="MainListView"  ItemsSource="{Binding MainLegalAreas}" HorizontalAlignment="Left" Height="455" Margin="156,52,0,0" VerticalAlignment="Top" Width="191">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="ButtonBase_OnClick" />
+                    <Button Content="{Binding Title}" Tag="{Binding Id}" Click="GetSubArea_OnClick" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

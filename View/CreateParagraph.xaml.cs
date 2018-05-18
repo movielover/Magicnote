@@ -11,25 +11,34 @@ namespace View
     /// </summary>
     public partial class CreateParagraph
     {
-        public MainViewModel _mainViewModel;
+        private readonly MainViewModel _mainViewModel = new MainViewModel();
 
         public CreateParagraph()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel();
+            DataContext = _mainViewModel;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Select_SubArea_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            throw new NotImplementedException();
+        }
+
+        private void MainAreas_OnDropDownClosed(object sender, EventArgs e)
+        {
+            
             ComboBox button = (ComboBox)sender;
-            int subAreaId = Convert.ToInt32(button.Tag);
+            int subAreaId = Convert.ToInt32(MainAreas.SelectedValue);
+
+
             _mainViewModel.GetSubLegalArea(subAreaId);
-        }
 
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
 
+
+            SubAreas.Items.Refresh();
         }
     }
-}
+
+        
+    }

@@ -17,6 +17,8 @@ namespace View
             DataContext = new MainViewModel();
         }
 
+        
+
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {
             CreateParagraph createParagraph = new CreateParagraph();

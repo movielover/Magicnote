@@ -10,22 +10,18 @@
         <Label Content="Opret Note til Paragraf" HorizontalAlignment="Center" Margin="329,10,326,0" VerticalAlignment="Top" Height="33" Width="139"/>
         <TextBox HorizontalAlignment="Left" Height="32" Margin="74,342,0,0" TextWrapping="Wrap" Text="Indtast Overskrift" VerticalAlignment="Top" Width="332"/>
         <TextBox HorizontalAlignment="Left" Height="153" Margin="74,393,0,0" TextWrapping="Wrap" Text="Indtast Lovtekst" VerticalAlignment="Top" Width="503"/>
-        <ComboBox Text="test" Margin="64,108,504,434" ItemsSource="{Binding MainLegalAreas}" SelectionChanged="ComboBox_SelectionChanged">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="True"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <ComboBox Text="Vælg Under område" Margin="64,164,504,379" ItemsSource="{Binding SubLegalAreas}" SelectionChanged="ComboBox_SelectionChanged_1">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <CheckBox Content="{Binding Title}" Tag="{Binding Id}" IsChecked="False" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
         <TextBox HorizontalAlignment="Left" Height="32" Margin="74,288,0,0" TextWrapping="Wrap" Text="Indtast § Nr." VerticalAlignment="Top" Width="332"/>
         
         
+        <ComboBox ItemsSource="{Binding Path=MainLegalAreas}"
+                  DisplayMemberPath="Title" Tag="{Binding Id}" DropDownClosed="MainAreas_OnDropDownClosed"
+                  SelectedValuePath="Id"
+                  SelectedValue="{Binding Path=Id}" Margin="73,107,466,429" Text="Vælg HovedOmråde"  Name="MainAreas"/>
+        
+        <ComboBox ItemsSource="{Binding SubLegalAreas}"
+            DisplayMemberPath="Title"
+            SelectedValuePath="Title"
+            SelectedValue="{Binding Id}" Margin="74,193,466,343" Text="Vælg Under Område"  Name="SubAreas"/>
+
     </Grid>
 </Window>
