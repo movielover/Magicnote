@@ -60,7 +60,7 @@ namespace Magicnote.Domain
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
                     {
-                        ID = (int) reader["PK_SA_ID"],
+                        Id = (int) reader["PK_SA_ID"],
                         Title = (string) reader["SA_Title"]
                     };
 
@@ -202,7 +202,7 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    pkPId = (int) reader["PK_P_ID"];
+                    pkPId = (int)reader["PK_P_ID"];
                 }
 
                 return pkPId;
