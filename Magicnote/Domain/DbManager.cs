@@ -84,10 +84,10 @@ namespace Magicnote.Domain
                 {
                     Paragraph paragraph = new Paragraph
                     {
+                        Id = (int) reader["PK_P_ID"],
                         ParagraphNumber = (int) reader["ParagraphNumber"],
                         Headline = (string) reader["Headline"],
-                        Lawtext = (string) reader["Lawtext"],
-                        ID = (int) reader["PK_P_ID"]
+                        Lawtext = (string) reader["Lawtext"]
                     };
                     paragraphs.Add(paragraph);
                 }
@@ -178,7 +178,7 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    pkPId = (int) reader["PK_P_ID"];
+                    pkPId = (int)reader["PK_P_ID"];
                 }
 
                 return pkPId;

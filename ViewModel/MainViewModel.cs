@@ -26,7 +26,7 @@ namespace ViewModel
             }
         }
 
-        private List<Paragraph> _paragraphs { get; set; }
+        private List<Paragraph> _paragraphs;
 
         public List<Paragraph> Paragraphs
         {
@@ -46,7 +46,7 @@ namespace ViewModel
             _subLegalAreas = new List<SubLegalArea>();
             _paragraphs = new List<Paragraph>();
 
-           
+
 
         }
 
