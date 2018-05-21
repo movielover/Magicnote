@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="CreateParagraphViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="MenuViewModel.cs" />
     <Compile Include="NoteViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

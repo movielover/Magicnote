@@ -6,17 +6,14 @@ using ViewModel;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for Menu.xaml
-    /// </summary>
-    public partial class Menu
+    public partial class MenuView
     {
-        private readonly MainViewModel _mainViewModel = new MainViewModel();
-        public Menu()
+        private readonly MenuViewModel _menuViewModel = new MenuViewModel();
+        public MenuView()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = _mainViewModel;
+            DataContext = _menuViewModel;
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
@@ -30,12 +27,7 @@ namespace View
         {
             Button button = (Button)sender;
             int subAreaId = Convert.ToInt32(button.Tag);
-
-
-            _mainViewModel.GetSubLegalArea(subAreaId);
-
-
-
+            _menuViewModel.GetSubLegalArea(subAreaId);
             SubListView.Items.Refresh();
         }
 
@@ -43,7 +35,7 @@ namespace View
         {
             Button button = (Button)sender;
             int paragraphId = Convert.ToInt32(button.Tag);
-            _mainViewModel.GetParagraphs(paragraphId);
+            _menuViewModel.GetParagraphs(paragraphId);
             ParagraphView.Items.Refresh();
 
         }
@@ -51,7 +43,7 @@ namespace View
         {
             NoteView noteView = new NoteView();
             noteView.Show();
-            this.Close();
+            Close();
         }
     }
 }
