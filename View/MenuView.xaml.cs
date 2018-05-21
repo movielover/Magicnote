@@ -26,16 +26,16 @@ namespace View
         private void GetSubArea_OnClick(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            int subAreaId = Convert.ToInt32(button.Tag);
-            _menuViewModel.GetSubLegalArea(subAreaId);
+            int mainAreaId = Convert.ToInt32(button.Tag);
+            _menuViewModel.GetSubLegalArea(mainAreaId);
             SubListView.Items.Refresh();
         }
 
         private void GetParagraphs_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            int paragraphId = Convert.ToInt32(button.Tag);
-            _menuViewModel.GetParagraphs(paragraphId);
+            int subAreaId = Convert.ToInt32(button.Tag);
+            _menuViewModel.GetParagraphs(subAreaId);
             ParagraphView.Items.Refresh();
 
         }
