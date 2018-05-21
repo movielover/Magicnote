@@ -9,9 +9,9 @@ namespace ViewModel
 {
     public class CreateParagraphViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public DbManager DbManager;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public List<MainLegalArea> MainLegalAreas { get; }
 
