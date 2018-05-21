@@ -11,6 +11,8 @@ namespace ViewModel
     {
         public DbManager DbManager;
 
+        public List<MainLegalArea> MainLegalAreas { get; }
+
         private List<SubLegalArea> _subLegalAreas;
 
         public List<SubLegalArea> SubLegalAreas
@@ -22,6 +24,14 @@ namespace ViewModel
                 _subLegalAreas = value;
                 OnPropertyChanged("SubLegalAreas");
             }
+        }
+
+        public CreateParagraphViewModel()
+        {
+            DbManager = new DbManager();
+            SubLegalAreas = new List<SubLegalArea>();
+            MainLegalAreas = DbManager.GetMainLegalAreas();
+            _subLegalAreas = new List<SubLegalArea>();
         }
 
         public void GetSubLegalArea(int subAreaId)

@@ -10,14 +10,13 @@ namespace View
     /// </summary>
     public partial class CreateParagraphView
     {
-        private readonly CreateParagraphViewModel _createParagraphViewModel;
+        private readonly CreateParagraphViewModel _createParagraphViewModel = new CreateParagraphViewModel();
 
-        public CreateParagraphView(CreateParagraphViewModel createParagraphViewModel)
+        public CreateParagraphView()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new CreateParagraphViewModel();
-            _createParagraphViewModel = createParagraphViewModel;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

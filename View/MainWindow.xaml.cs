@@ -1,5 +1,5 @@
-﻿using Magicnote.ViewModel;
-using System.Windows;
+﻿using System.Windows;
+using ViewModel;
 
 namespace View
 {
@@ -17,9 +17,9 @@ namespace View
 
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {
-            CreateParagraph CreateParagraph = new CreateParagraph();
-            CreateParagraph.Show();
-            this.Close();
+            CreateParagraphView createParagraphView = new CreateParagraphView();
+            createParagraphView.Show();
+            Close();
         }
 
 
@@ -27,7 +27,7 @@ namespace View
         {
             Menu menu = new Menu();
             menu.Show();
-            this.Close();
+            Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
