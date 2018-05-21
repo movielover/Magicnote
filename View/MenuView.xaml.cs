@@ -1,6 +1,4 @@
-﻿using Magicnote.Domain;
-using Magicnote.ViewModel;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using ViewModel;
@@ -21,7 +19,7 @@ namespace View
             DataContext = _mainViewModel;
         }
 
-        private void Back_Button_Click(object sender, RoutedEventArgs e) 
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();

@@ -9,6 +9,8 @@ namespace ViewModel
 {
     public class CreateParagraphViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public DbManager DbManager;
 
         public List<MainLegalArea> MainLegalAreas { get; }
@@ -39,7 +41,10 @@ namespace ViewModel
             SubLegalAreas = DbManager.GetSubAreas(subAreaId).ToList();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public void CreateParagraphAndNote(int paragraphNumber, string headLine, string lawtext, int id)
+        {
+            DbManager.CreateParagraph(paragraphNumber, headLine, lawtext, id);
+        }
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

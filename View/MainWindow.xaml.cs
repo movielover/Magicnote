@@ -1,5 +1,4 @@
-﻿using Magicnote.ViewModel;
-using System.Windows;
+﻿using System.Windows;
 using ViewModel;
 
 
@@ -18,7 +17,7 @@ namespace View
             DataContext = new MainViewModel();
         }
 
-        
+
 
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {

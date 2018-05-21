@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateNoteViewModel.cs" />
     <Compile Include="CreateParagraphViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
