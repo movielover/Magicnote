@@ -1,8 +1,6 @@
 ﻿using Magicnote.Domain;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace ViewModel
 {
@@ -44,7 +42,6 @@ namespace ViewModel
             }
         }
 
-
         public MainViewModel()
         {
             DbManager = new DbManager();
@@ -61,7 +58,6 @@ namespace ViewModel
         public void GetSubLegalArea(int number)
         {
             SubLegalAreas = DbManager.GetSubAreas(number);
-
         }
 
         public void GetParagraphs(int paragraphNumber)
