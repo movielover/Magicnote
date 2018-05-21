@@ -44,6 +44,8 @@ namespace ViewModel
         public void CreateParagraphAndNote(int paragraphNumber, string headLine, string lawtext, int id)
         {
             DbManager.CreateParagraph(paragraphNumber, headLine, lawtext, id);
+            int PKPID = DbManager.GetRecentParagraph();
+            DbManager.CreateNote(PKPID);
         }
 
         [NotifyPropertyChangedInvocator]
