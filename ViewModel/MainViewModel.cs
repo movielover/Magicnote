@@ -51,8 +51,8 @@ namespace ViewModel
             _subLegalAreas = new List<SubLegalArea>();
             _paragraphs = new List<Paragraph>();
 
-            //GetParagraphs(1);
-            GetNote(1);
+           
+
         }
 
         public void GetSubLegalArea(int number)
@@ -71,22 +71,13 @@ namespace ViewModel
         //    DbManager.CreateNote(noteText, paragraphId);
         //}
 
-        public void SaveNote(string noteText, int paragraphId)
-        {
-            DbManager.SaveNote(noteText, paragraphId);
-        }
+       
 
 
 
-        public void GetNote(int paragraphNumber)
-        {
-            Note = DbManager.GetNote(paragraphNumber);
-        }
+        
 
-        public void SaveNoteToDb(string noteText, int paragraphNumber)
-        {
-            DbManager.SaveNote(noteText, paragraphNumber);
-        }
+       
 
         private void OnPropertyChanged(string propertyName)
         {
