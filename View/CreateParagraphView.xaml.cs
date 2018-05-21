@@ -46,11 +46,13 @@ namespace View
         private void Videre_OnClick(object sender, RoutedEventArgs e)
         {
             AddParagraph();
+            
         }
 
         private void LawTextTextBox_OnLostFocus(object sender, RoutedEventArgs e)
         {
             LawText = LawTextTextBox.Text;
+            
         }
 
         private void HeadLineTextBox_OnLostFocus(object sender, RoutedEventArgs e)
