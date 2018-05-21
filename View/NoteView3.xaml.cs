@@ -1,7 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using ViewModel;
 
 
 namespace View
@@ -9,7 +6,7 @@ namespace View
     /// <summary>
     /// Interaction logic for ParagraphView.xaml
     /// </summary>
-    public partial class NoteVie3 : Window
+    public partial class NoteView3 : Window
     {
         //public readonly MainViewModel MainViewModel = new MainViewModel();
         //public NoteView3)
@@ -30,8 +27,8 @@ namespace View
         //    MainViewModel.SaveNoteToDb(textRange.Text, paragraphNumber);
         //    return textRange.Text;
 
-        }
-
-        
     }
+
+
+}
 

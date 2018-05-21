@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Magicnote.Domain;
 using System.ComponentModel;
-using Magicnote.Domain;
 
 namespace ViewModel
 {
@@ -66,7 +65,7 @@ namespace ViewModel
 
         public static void SaveNoteToDb(string textRangeText, int paragraphNumber)
         {
-            string noteText;
+            string noteText = "";
             DbManager.SaveNote(noteText, paragraphNumber);
         }
         public void GetNote(int paragraphNumber)
@@ -79,8 +78,8 @@ namespace ViewModel
             ParagraphNumber = DbManager.GetRecentParagraph();
             NoteText = DbManager.GetNote(ParagraphNumber);
         }
-        
-        }
 
     }
+
+}
 
