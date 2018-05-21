@@ -8,12 +8,18 @@ namespace View
 {
     public partial class MenuView
     {
-        private readonly MenuViewModel _menuViewModel;
-        public MenuView()
+        private MenuViewModel _menuViewModel = new MenuViewModel();
+
+        public MenuView(object menuViewModel)
         {
+            
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = _menuViewModel;
+        }
+
+        public MenuView()
+        {
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
