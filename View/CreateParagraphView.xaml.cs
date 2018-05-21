@@ -22,14 +22,12 @@ namespace View
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new CreateParagraphViewModel();
+            DataContext = _createParagraphViewModel;
         }
 
         private void MainAreas_OnDropDownClosed(object sender, EventArgs e)
         {
             int mainAreaId = Convert.ToInt32(MainAreas.SelectedValue);
-
-
             _createParagraphViewModel.GetSubLegalArea(mainAreaId);
             SubId.Items.Refresh();
         }
