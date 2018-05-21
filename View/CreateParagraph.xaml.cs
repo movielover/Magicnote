@@ -52,12 +52,13 @@ namespace View
 
         private void Lawtext_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            LawText = LawTextTextBox.Text;
+            //LawText = LawTextTextBox.Text.ToString();
+            string LawText = txtLawText.text;
         }
 
         public void HeadLine_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            HeadLine = HeadLineTextBox.Text;
+            HeadLine = HeadLineTextBox.Text.ToString();
         }
 
         private void AddParagraph()

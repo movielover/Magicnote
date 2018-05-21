@@ -199,11 +199,11 @@ namespace Magicnote.Domain
         //            CommandType = CommandType.StoredProcedure
         //        };
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    pkPId = (int)reader["PK_P_ID"];
-                }
+                //SqlDataReader reader = cmd.ExecuteReader();
+                //while (reader.Read())
+                //{
+                //    pkPId = (int)reader["PK_P_ID"];
+                //}
 
         //        return pkPId;
         //    }
