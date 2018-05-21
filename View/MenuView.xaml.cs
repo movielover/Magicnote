@@ -8,7 +8,7 @@ namespace View
 {
     public partial class MenuView
     {
-        private readonly MenuViewModel _menuViewModel = new MenuViewModel();
+        private readonly MenuViewModel _menuViewModel;
         public MenuView()
         {
             InitializeComponent();

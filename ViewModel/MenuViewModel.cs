@@ -45,14 +45,6 @@ namespace ViewModel
             }
         }
 
-        public MenuViewModel()
-        {
-            DbManager = new DbManager();
-            MainLegalAreas = DbManager.GetMainLegalAreas();
-            _subLegalAreas = new List<SubLegalArea>();
-            _paragraphs = new List<Paragraph>();
-        }
-
         public void GetSubLegalArea(int mainAreaId)
         {
             SubLegalAreas = DbManager.GetSubAreas(mainAreaId);
