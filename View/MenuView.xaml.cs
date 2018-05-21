@@ -1,26 +1,24 @@
-﻿using ViewModel;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using ViewModel;
 
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for Menu.xaml
-    /// </summary>
-    public partial class Menu
+    public partial class MenuView
     {
-        private readonly MainViewModel _mainViewModel = new MainViewModel();
-        public Menu()
+        private readonly MenuViewModel _menuViewModel = new MenuViewModel();
+        public MenuView()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = _mainViewModel;
+            DataContext = _menuViewModel;
         }
 
-        private void Back_Button_Click(object sender, RoutedEventArgs e) 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
@@ -29,21 +27,16 @@ namespace View
         private void GetSubArea_OnClick(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            int subAreaId = Convert.ToInt32(button.Tag);
-
-
-            _mainViewModel.GetSubLegalArea(subAreaId);
-
-
-
+            int mainAreaId = Convert.ToInt32(button.Tag);
+            _menuViewModel.GetSubLegalArea(mainAreaId);
             SubListView.Items.Refresh();
         }
 
         private void GetParagraphs_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            int paragraphId = Convert.ToInt32(button.Tag);
-            _mainViewModel.GetParagraphs(paragraphId);
+            int subAreaId = Convert.ToInt32(button.Tag);
+            _menuViewModel.GetParagraphs(subAreaId);
             ParagraphView.Items.Refresh();
 
         }
@@ -51,7 +44,7 @@ namespace View
         {
             NoteView noteView = new NoteView();
             noteView.Show();
-            this.Close();
+            Close();
         }
     }
 }

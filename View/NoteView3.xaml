@@ -1,0 +1,28 @@
+﻿<Window x:Class="View.NoteView3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="NoteView3" Height="800" Width="800">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="567" >
+            <ListView ItemsSource="{Binding Paragraphs}">
+                <TextBox Text="{Binding Headline}"/>
+                <TextBox Text="{Binding Lawtext}"/>
+            </ListView>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="567" Margin="0,71,0,0">
+            <RichTextBox >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Name="NoteTextArea" Text="{Binding Note}" />
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="699" VerticalAlignment="Top" Width="226" Margin="567,71,0,0"/>
+        <Image HorizontalAlignment="Left" Height="71" Margin="572,0,0,699.4" VerticalAlignment="Bottom" Width="212" RenderTransformOrigin="0.127,0.246" />
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="572" Margin="-5,574,0,0"/>
+    </Grid>
+</Window>

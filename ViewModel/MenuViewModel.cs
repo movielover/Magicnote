@@ -1,25 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using Magicnote.Domain;
+using System.Collections.Generic;
 using System.ComponentModel;
-using Magicnote.Domain;
 
 namespace ViewModel
 {
-    public class ParagraphViewModel : INotifyPropertyChanged
+    public class MenuViewModel : INotifyPropertyChanged
     {
-        public SubLegalArea SubLegalArea;
-        public Paragraph Paragraph;
+        public DbManager DbManager;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public List<MainLegalArea> MainLegalAreas { get; }
 
         private List<SubLegalArea> _subLegalAreas;
-
-        public ParagraphViewModel(List<MainLegalArea> mainLegalAreas)
-        {
-            MainLegalAreas = mainLegalAreas;
-        }
-
 
         public List<SubLegalArea> SubLegalAreas
         {
@@ -43,6 +36,23 @@ namespace ViewModel
                 _paragraphs = value;
                 OnPropertyChanged(nameof(Paragraphs));
             }
+        }
+
+        public MenuViewModel()
+        {
+            DbManager = new DbManager();
+            MainLegalAreas = DbManager.GetMainLegalAreas();
+        }
+
+        public void GetSubLegalArea(int number)
+        {
+            SubLegalAreas = DbManager.GetSubAreas(number);
+
+        }
+
+        public void GetParagraphs(int paragraphNumber)
+        {
+            Paragraphs = DbManager.GetParagraphs(paragraphNumber);
         }
         private void OnPropertyChanged(string propertyName)
         {

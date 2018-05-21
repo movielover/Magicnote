@@ -1,42 +1,28 @@
-﻿using ViewModel;
-using System.Windows;
-
+﻿using System.Windows;
 
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel();
         }
-
-        
 
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {
-            CreateParagraph createParagraph = new CreateParagraph();
-            createParagraph.Show();
-            this.Close();
+            CreateParagraphView createParagraphView = new CreateParagraphView();
+            createParagraphView.Show();
+            Close();
         }
-
 
         private void GetToMenu_Click(object sender, RoutedEventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
-            this.Close();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
+            MenuView menuView = new MenuView();
+            menuView.Show();
+            Close();
         }
     }
 }
