@@ -40,8 +40,9 @@ namespace ViewModel
                 _paragraphs = value;
                 OnPropertyChanged(nameof(Paragraphs));
             }
-            
-       
+
+        }
+
         public void GetSubLegalArea(int number)
         {
             SubLegalAreas = DbManager.GetSubAreas(number);
