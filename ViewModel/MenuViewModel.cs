@@ -7,7 +7,7 @@ namespace ViewModel
     public class MenuViewModel : INotifyPropertyChanged
     {
         public DbManager DbManager;
-
+        public event PropertyChangedEventHandler PropertyChanged;
         public MenuViewModel()
         {
             DbManager = new DbManager();
@@ -15,7 +15,7 @@ namespace ViewModel
             _subLegalAreas = new List<SubLegalArea>();
             _paragraphs = new List<Paragraph>();
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+
 
         public List<MainLegalArea> MainLegalAreas { get; }
 
