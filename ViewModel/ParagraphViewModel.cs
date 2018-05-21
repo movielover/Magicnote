@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Magicnote.Domain;
 
 namespace ViewModel
 {
     public class ParagraphViewModel : INotifyPropertyChanged
     {
-
-        DbManager DbManager;
         public SubLegalArea SubLegalArea;
         public Paragraph Paragraph;
 
@@ -20,6 +14,11 @@ namespace ViewModel
         public List<MainLegalArea> MainLegalAreas { get; }
 
         private List<SubLegalArea> _subLegalAreas;
+
+        public ParagraphViewModel(List<MainLegalArea> mainLegalAreas)
+        {
+            MainLegalAreas = mainLegalAreas;
+        }
 
 
         public List<SubLegalArea> SubLegalAreas
@@ -49,8 +48,5 @@ namespace ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
-
     }
 }
