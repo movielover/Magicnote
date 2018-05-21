@@ -8,9 +8,9 @@ namespace View
 {
     public partial class MenuView
     {
-        private MenuViewModel _menuViewModel = new MenuViewModel();
+        private readonly MenuViewModel _menuViewModel = new MenuViewModel();
 
-        public MenuView(object menuViewModel)
+        public MenuView()
         {
             
             InitializeComponent();
@@ -18,9 +18,7 @@ namespace View
             DataContext = _menuViewModel;
         }
 
-        public MenuView()
-        {
-        }
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
