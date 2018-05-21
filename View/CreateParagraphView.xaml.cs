@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using ViewModel;
 
 namespace View
 {
     /// <summary>
     /// Interaction logic for OpretParagraf.xaml
     /// </summary>
-    public partial class CreateParagraph
+    public partial class CreateParagraphView
     {
-        private MainViewModel.MainViewModel _mainViewModel;
+        private MainViewModel _mainViewModel;
 
-        public CreateParagraph()
+        public CreateParagraphView()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel.MainViewModel();
+            DataContext = new MainViewModel();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
