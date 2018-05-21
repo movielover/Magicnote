@@ -13,7 +13,7 @@
             </ListView>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="567" Margin="0,71,0,0">
-            <RichTextBox TextChanged="RichTextBox_TextChanged">
+            <RichTextBox >
                 <FlowDocument>
                     <Paragraph>
                         <Run Name="NoteTextArea" Text="{Binding Note}" />

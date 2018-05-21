@@ -66,7 +66,7 @@ namespace ViewModel
 
         public static void SaveNoteToDb(string textRangeText, int paragraphNumber)
         {
-            string noteText;
+            string noteText = null;
             DbManager.SaveNote(noteText, paragraphNumber);
         }
         public void GetNote(int paragraphNumber)

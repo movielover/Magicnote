@@ -10,7 +10,13 @@ namespace ViewModel
         public SubLegalArea SubLegalArea;
         public Paragraph Paragraph;
 
-
+        public MenuViewModel()
+        {
+            DbManager = new DbManager();
+            MainLegalAreas = DbManager.GetMainLegalAreas();
+            _subLegalAreas = new List<SubLegalArea>();
+            _paragraphs = new List<Paragraph>();
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         public List<MainLegalArea> MainLegalAreas { get; }
