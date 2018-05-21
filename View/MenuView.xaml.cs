@@ -1,6 +1,4 @@
-﻿
-using Magicnote.ViewModel;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using ViewModel;
@@ -13,16 +11,17 @@ namespace View
     /// </summary>
     public partial class Menu
     {
-        private readonly MainViewModel _mainViewModel = new MainViewModel();
+        private readonly MenuViewModel _menuViewModel = new MenuViewModel();
         public Menu()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = _mainViewModel;
+            DataContext = _menuViewModel;
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e) 
         {
+            
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
@@ -34,7 +33,7 @@ namespace View
             int subAreaId = Convert.ToInt32(button.Tag);
 
 
-            _mainViewModel.GetSubLegalArea(subAreaId);
+            _menuViewModel.GetSubLegalArea(subAreaId);
 
 
 
@@ -45,7 +44,7 @@ namespace View
         {
             Button button = (Button)sender;
             int paragraphId = Convert.ToInt32(button.Tag);
-            _mainViewModel.GetParagraphs(paragraphId);
+            _menuViewModel.GetParagraphs(paragraphId);
             ParagraphView.Items.Refresh();
 
         }

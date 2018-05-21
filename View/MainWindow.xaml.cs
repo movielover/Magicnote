@@ -1,5 +1,4 @@
-﻿using Magicnote.ViewModel;
-using System.Windows;
+﻿using System.Windows;
 using ViewModel;
 
 
@@ -15,7 +14,7 @@ namespace View
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel();
+            DataContext = new MainWindowViewModel();
         }
 
         
