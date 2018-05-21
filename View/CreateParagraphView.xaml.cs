@@ -10,20 +10,21 @@ namespace View
     /// </summary>
     public partial class CreateParagraphView
     {
-        private MainViewModel _mainViewModel;
+        private readonly CreateParagraphViewModel _createParagraphViewModel;
 
-        public CreateParagraphView()
+        public CreateParagraphView(CreateParagraphViewModel createParagraphViewModel)
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new MainViewModel();
+            DataContext = new CreateParagraphViewModel();
+            _createParagraphViewModel = createParagraphViewModel;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox button = (ComboBox)sender;
-            int subAreaId = Convert.ToInt32(button.Tag);
-            _mainViewModel.GetSubLegalArea(subAreaId);
+            ComboBox comboBox = (ComboBox)sender;
+            int subAreaId = Convert.ToInt32(comboBox.Tag);
+            _createParagraphViewModel.GetSubLegalArea(subAreaId);
         }
     }
 }
