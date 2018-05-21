@@ -1,4 +1,4 @@
-﻿using Magicnote.Domain;
+﻿
 using Magicnote.ViewModel;
 using System;
 using System.Windows;

@@ -66,16 +66,21 @@ namespace ViewModel
 
         public static void SaveNoteToDb(string textRangeText, int paragraphNumber)
         {
+            string noteText;
             DbManager.SaveNote(noteText, paragraphNumber);
         }
         public void GetNote(int paragraphNumber)
         {
             NoteText = DbManager.GetNote(paragraphNumber);
         }
-        public void SaveNote(string noteText, int paragraphId)
+
+        public void GetPForView()
         {
-            DbManager.SaveNote(noteText, paragraphId);
+            ParagraphNumber = DbManager.GetRecentParagraph();
+            NoteText = DbManager.GetNote(ParagraphNumber);
+        }
+        
         }
 
     }
-}
+
