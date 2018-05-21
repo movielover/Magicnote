@@ -76,17 +76,11 @@ namespace ViewModel
         //    DbManager.CreateNote(noteText, paragraphId);
         //}
 
-        public void SaveNote(string noteText, int paragraphId)
-        {
-            DbManager.SaveNote(noteText, paragraphId);
-        }
+       
 
 
 
-        public void GetNote(int paragraphNumber)
-        {
-            Note = DbManager.GetNote(paragraphNumber);
-        }
+        
 
        
 

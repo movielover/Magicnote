@@ -17,7 +17,14 @@ namespace ViewModel
         {
             DbManager.SaveNote(NoteText, paragraphNumber);
         }
+        public void GetNote(int paragraphNumber)
+        {
+            NoteText = DbManager.GetNote(paragraphNumber);
+        }
+        public void SaveNote(string noteText, int paragraphId)
+        {
+            DbManager.SaveNote(noteText, paragraphId);
+        }
 
-        
     }
 }
