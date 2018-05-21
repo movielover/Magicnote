@@ -7,7 +7,7 @@
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <StackPanel Margin="30,157,549.6,238.4"/>
-        <Button Content="Se Note/Menu" Margin="416,157,163.6,238.4" x:Name="GetToMenu" Click="GetToMenu_Click"/>
+        <Button Content="Se Note/Menu" Margin="416,157,163.6,238.4" x:Name="GetToMenu" Click="GetToMenu_OnClick"/>
         <Button Content="Opret Note til Paragraf" Margin="124,157,455.6,238.4" x:Name="MakeNoteClick" Click="MakeNote_OnClick"/>
 
     </Grid>
