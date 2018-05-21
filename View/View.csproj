@@ -58,7 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="window.cs" />
+    <Page Include="CreateNoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,7 +78,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateParagraph.xaml">
+    <Page Include="CreateParagraphView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,8 +95,8 @@
     <Compile Include="MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateParagraph.xaml.cs">
-      <DependentUpon>CreateParagraph.xaml</DependentUpon>
+    <Compile Include="CreateParagraphView.xaml.cs">
+      <DependentUpon>CreateParagraphView.xaml</DependentUpon>
     </Compile>
     <Compile Include="NoteView3.xaml.cs">
       <DependentUpon>NoteView3.xaml</DependentUpon>

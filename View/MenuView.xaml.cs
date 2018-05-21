@@ -1,7 +1,9 @@
-﻿using ViewModel;
+﻿using Magicnote.Domain;
+using Magicnote.ViewModel;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using ViewModel;
 
 
 namespace View
