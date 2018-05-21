@@ -1,9 +1,15 @@
-﻿namespace Magicnote.Domain
+﻿using System;
+using System.ComponentModel;
+
+namespace Magicnote.Domain
 {
-    public class SubLegalArea
+    public class SubLegalArea 
     {
         public int Id { get; set; }
 
         public string Title { get; set; }
+        
+
+
     }
 }

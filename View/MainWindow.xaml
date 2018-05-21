@@ -6,12 +6,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
-        <StackPanel Margin="30,157,549.6,238.4">
-            <Button Content="Opret Note til Paragraf" Height="175" Margin="0,0,0.4,0" x:Name="MakeNote" Click="MakeNote_OnClick"/>
-
-        </StackPanel>
-        <Button Content="Se Note/Menu" Margin="297,157,282.6,238.4" x:Name="GetToMenu" Click="GetToMenu_Click"/>
-        <Button Content="Maybe" Margin="551,157,28.6,238.4" Click="Button_Click_2"/>
+        <StackPanel Margin="30,157,549.6,238.4"/>
+        <Button Content="Se Note/Menu" Margin="416,157,163.6,238.4" x:Name="GetToMenu" Click="GetToMenu_Click"/>
+        <Button Content="Opret Note til Paragraf" Margin="124,157,455.6,238.4" x:Name="MakeNote_click" Click="MakeNote_OnClick"/>
 
     </Grid>
 </Window>

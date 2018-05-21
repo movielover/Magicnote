@@ -36,5 +36,10 @@ namespace View
         {
             throw new System.NotImplementedException();
         }
+
+        private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

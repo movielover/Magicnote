@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using Magicnote.ViewModel;
+using System.Windows;
 using ViewModel;
+
+
 
 namespace View
 {
@@ -14,6 +17,8 @@ namespace View
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new MainViewModel();
         }
+
+        
 
         private void MakeNote_OnClick(object sender, RoutedEventArgs e)
         {
