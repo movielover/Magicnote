@@ -25,7 +25,7 @@ namespace ViewModel
             }
         }
 
-        private List<Paragraph> _paragraphs { get; set; }
+        private List<Paragraph> _paragraphs;
 
         public List<Paragraph> Paragraphs
         {
@@ -42,17 +42,18 @@ namespace ViewModel
         {
             DbManager = new DbManager();
             MainLegalAreas = DbManager.GetMainLegalAreas();
+            _subLegalAreas = new List<SubLegalArea>();
+            _paragraphs = new List<Paragraph>();
         }
 
-        public void GetSubLegalArea(int number)
+        public void GetSubLegalArea(int mainAreaId)
         {
-            SubLegalAreas = DbManager.GetSubAreas(number);
-
+            SubLegalAreas = DbManager.GetSubAreas(mainAreaId);
         }
 
-        public void GetParagraphs(int paragraphNumber)
+        public void GetParagraphs(int subAreaId)
         {
-            Paragraphs = DbManager.GetParagraphs(paragraphNumber);
+            Paragraphs = DbManager.GetParagraphs(subAreaId);
         }
         private void OnPropertyChanged(string propertyName)
         {
