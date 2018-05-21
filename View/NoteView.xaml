@@ -18,10 +18,10 @@
         </Grid>
         <Grid Margin="0,186,252,202" Name="GridNote">
             <Border BorderBrush="Black" Name="BorderTextField" BorderThickness="1" HorizontalAlignment="Left" Height="581" VerticalAlignment="Top" Width="740"/>
-            <RichTextBox Name="NoteRichTextBox" DataContext="{Binding Note}" AcceptsTab="True"  >
+            <RichTextBox Name="NoteRichTextBox" DataContext="{Binding NoteText}" AcceptsTab="True"  >
                 <FlowDocument>
                     <Paragraph>
-                        <Run Text="Hejsa"/>
+                        
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>

@@ -54,8 +54,7 @@ namespace ViewModel
             _subLegalAreas = new List<SubLegalArea>();
             _paragraphs = new List<Paragraph>();
 
-            //GetParagraphs(1);
-            GetNote(1);
+           
 
         }
 
