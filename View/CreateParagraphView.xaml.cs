@@ -40,24 +40,6 @@ namespace View
             Id = Convert.ToInt32(SubId.SelectedValue);
         }
 
-        private void Paragraf_Number_OnLostFocus(object sender, RoutedEventArgs e)
-        {
-
-            PNumber = Convert.ToInt32(ParagraphNumberTextBox.Text);
-
-
-        }
-
-        private void Lawtext_OnLostFocus(object sender, RoutedEventArgs e)
-        {
-            LawText = LawTextTextBox.Text;
-        }
-
-        public void HeadLine_OnLostFocus(object sender, RoutedEventArgs e)
-        {
-            HeadLine = HeadLineTextBox.Text;
-        }
-
         private void AddParagraph()
         {
             _createParagraphViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, Id);
@@ -66,6 +48,21 @@ namespace View
         private void Videre_OnClick(object sender, RoutedEventArgs e)
         {
             AddParagraph();
+        }
+
+        private void LawTextTextBox_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            LawText = LawTextTextBox.Text;
+        }
+
+        private void HeadLineTextBox_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            HeadLine = HeadLineTextBox.Text;
+        }
+
+        private void ParagraphNumberTextBox_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            PNumber = Convert.ToInt32(ParagraphNumberTextBox.Text);
         }
     }
 }
