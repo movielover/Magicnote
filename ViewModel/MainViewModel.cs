@@ -7,8 +7,6 @@ namespace ViewModel
     public class MainViewModel : INotifyPropertyChanged
     {
         public DbManager DbManager;
-        public SubLegalArea SubLegalArea;
-        public Paragraph Paragraph;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -44,9 +42,7 @@ namespace ViewModel
         public MainViewModel()
         {
             DbManager = new DbManager();
-            SubLegalArea = new SubLegalArea();
             MainLegalAreas = DbManager.GetMainLegalAreas();
-            Paragraph = new Paragraph();
             _subLegalAreas = new List<SubLegalArea>();
             _paragraphs = new List<Paragraph>();
 

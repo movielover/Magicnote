@@ -7,7 +7,6 @@ namespace ViewModel
     public class MenuViewModel : INotifyPropertyChanged
     {
         private readonly DbManager _dbManager;
-        private readonly Paragraph _paragraph;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -18,7 +17,6 @@ namespace ViewModel
         public List<SubLegalArea> SubLegalAreas
         {
             get => _subLegalAreas;
-
             set
             {
                 _subLegalAreas = value;
@@ -31,7 +29,6 @@ namespace ViewModel
         public List<Paragraph> Paragraphs
         {
             get => _paragraphs;
-
             set
             {
                 _paragraphs = value;
@@ -44,7 +41,6 @@ namespace ViewModel
             _dbManager = new DbManager();
             MainLegalAreas = _dbManager.GetMainLegalAreas();
             _subLegalAreas = new List<SubLegalArea>();
-            _paragraph = new Paragraph();
         }
 
         public void GetSubLegalArea(int number)
@@ -52,9 +48,9 @@ namespace ViewModel
             SubLegalAreas = _dbManager.GetSubAreas(number);
         }
 
-        public void GetParagraphs(int paragraphNumber)
+        public void GetParagraphs(int subAreaId)
         {
-            Paragraphs = _dbManager.GetParagraphs(paragraphNumber);
+            Paragraphs = _dbManager.GetParagraphs(subAreaId);
         }
 
         private void OnPropertyChanged(string propertyName)
