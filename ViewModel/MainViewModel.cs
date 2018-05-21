@@ -88,10 +88,7 @@ namespace ViewModel
             Note = DbManager.GetNote(paragraphNumber);
         }
 
-        public void SaveNoteToDb(string noteText, int paragraphNumber)
-        {
-            DbManager.SaveNote(noteText, paragraphNumber);
-        }
+       
 
         private void OnPropertyChanged(string propertyName)
         {
