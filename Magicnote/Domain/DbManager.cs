@@ -218,22 +218,6 @@ namespace Magicnote.Domain
 
 
 
-            //}
-            //public void InsertSubLegalAreaParagraph(int PK_P_ID, int PK_SA_ID)
-            //{
-            //    using (SqlConnection conn = new SqlConnection(ConnectionString))
-            //    {
-            //        conn.Open();
-
-            //        SqlCommand cmd = new SqlCommand("SP_Insert_SubLegalArea_Paragraph", conn)
-            //        {
-            //            CommandType = CommandType.StoredProcedure
-            //        };
-
-            //        cmd.Parameters.Add(new SqlParameter("@FK_P_ID", PK_P_ID));
-            //        cmd.Parameters.Add(new SqlParameter("@ FK_SA_ID", PK_SA_ID));
-
-            //        cmd.ExecuteNonQuery();
         
     }
 }
