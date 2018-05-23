@@ -208,7 +208,8 @@ namespace Magicnote.Domain
                         paragraph.Lawtext = (string)reader["Lawtext"];
                         paragraph.ParagraphNumber = (int)reader["ParagraphNumber"];
                     }
-
+                    paragraphs.Add(paragraph);
+                    Notes.Add(note);
                 }
                
             }
