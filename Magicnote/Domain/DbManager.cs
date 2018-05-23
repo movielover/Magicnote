@@ -87,7 +87,7 @@ namespace Magicnote.Domain
                         Id = (int) reader["PK_P_ID"],
                         ParagraphNumber = (int) reader["ParagraphNumber"],
                         Headline = (string) reader["Headline"],
-                        Lawtext = (string) reader["Lawtext"]
+                        LawText = (string) reader["Lawtext"]
                     };
                     paragraphs.Add(paragraph);
                 }
@@ -186,8 +186,6 @@ namespace Magicnote.Domain
         }
         public void GetNoteData(int pkPId)
         {
-            List<Paragraph> paragraphs = new List<Paragraph>();
-            List<Note> Notes = new List<Note>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -205,11 +203,10 @@ namespace Magicnote.Domain
                     {
                         note.NoteText = (string) reader["NoteText"];
                         paragraph.Headline = (string) reader["Headline"];
-                        paragraph.Lawtext = (string)reader["Lawtext"];
+                        paragraph.LawText = (string)reader["Lawtext"];
                         paragraph.ParagraphNumber = (int)reader["ParagraphNumber"];
                     }
-                    paragraphs.Add(paragraph);
-                    Notes.Add(note);
+                    
                 }
                
             }
