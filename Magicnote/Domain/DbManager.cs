@@ -184,7 +184,7 @@ namespace Magicnote.Domain
                 return pkPId;
             }
         }
-        public void GetNoteData(int id)
+        public void GetNoteData(int pkPId)
         {
             List<Paragraph> paragraphs = new List<Paragraph>();
             List<Note> Notes = new List<Note>();
@@ -195,7 +195,7 @@ namespace Magicnote.Domain
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@PK_P_ID",id));
+                cmd.Parameters.Add(new SqlParameter("@PK_P_ID", pkPId));
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())

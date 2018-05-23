@@ -73,12 +73,16 @@ namespace ViewModel
             NoteText = DbManager.GetNote(paragraphNumber);
         }
 
-        public void GetPForView()
-        {
-            ParagraphNumber = DbManager.GetRecentParagraph();
-            NoteText = DbManager.GetNote(ParagraphNumber);
-        }
+        //public void GetPForView()
+        //{
+        //    ParagraphNumber = DbManager.GetRecentParagraph();
+        //    NoteText = DbManager.GetNote(ParagraphNumber);
+        //}
 
+        public static void GetDateForParagraph(int pkPId)
+        {
+            DbManager.GetNoteData(pkPId);
+        }
     }
 
 }

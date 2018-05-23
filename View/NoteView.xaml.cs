@@ -12,8 +12,9 @@ namespace View
     /// </summary>
     public partial class NoteView : Window
     {
-        public NoteView()
+        public NoteView(int pkPId)
         {
+            NoteViewModel.GetDateForParagraph(pkPId);
             InitializeComponent();
             DataContext = new NoteViewModel();
         }
