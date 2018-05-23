@@ -48,8 +48,8 @@ namespace View
         {
             Button button = (Button) sender;
             int pkPId = Convert.ToInt32(button.Tag);
-            NoteView noteView = new NoteView(pkPId);
-            noteView.Show();
+            NoteView3 noteView3 = new NoteView3(pkPId);
+            noteView3.Show();
             Close();
         }
     }

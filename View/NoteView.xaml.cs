@@ -14,9 +14,9 @@ namespace View
     {
         public NoteView(int pkPId)
         {
-            NoteViewModel.GetDateForParagraph(pkPId);
             InitializeComponent();
             DataContext = new NoteViewModel();
+            NoteViewModel.GetDateForParagraph(pkPId);
         }
 
         private string StringFromRichTextBox(RichTextBox rtb)

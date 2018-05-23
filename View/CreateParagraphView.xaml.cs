@@ -46,7 +46,10 @@ namespace View
         private void Videre_OnClick(object sender, RoutedEventArgs e)
         {
             AddParagraph();
-            
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
+
         }
 
         private void LawTextTextBox_OnLostFocus(object sender, RoutedEventArgs e)
