@@ -33,21 +33,20 @@ namespace ViewModel
             }
         }
 
-        private string _paragraphNumber { get; set; }
-        public string ParagraphNumber
+        private int _paragraphNumber { get; set; }
+        public int ParagraphNumber
         {
             get => _paragraphNumber;
 
             set
             {
                 _paragraphNumber = value;
-                OnPropertyChanged(ParagraphNumber);
+                OnPropertyChanged(ParagraphNumber.ToString());
             }
         }
 
         public NoteViewModel()
         {
-            _paragraph = new Paragraph();
             DbManager = new DbManager();
         }
 

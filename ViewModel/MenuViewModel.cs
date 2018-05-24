@@ -16,7 +16,6 @@ namespace ViewModel
             _paragraphs = new List<Paragraph>();
         }
 
-
         public List<MainLegalArea> MainLegalAreas { get; }
 
         private List<SubLegalArea> _subLegalAreas;
@@ -54,6 +53,7 @@ namespace ViewModel
         {
             Paragraphs = DbManager.GetParagraphs(subAreaId);
         }
+
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
