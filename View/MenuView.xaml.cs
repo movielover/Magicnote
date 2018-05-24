@@ -12,17 +12,15 @@ namespace View
 
         public MenuView()
         {
-            
+
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = _menuViewModel;
         }
 
-
-
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
