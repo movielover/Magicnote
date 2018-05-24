@@ -89,9 +89,9 @@ namespace Magicnote.Domain
                     Paragraph paragraph = new Paragraph
                     {
                         Id = (int) reader["PK_P_ID"],
-                        ParagraphNumber = (int) reader["ParagraphNumber"],
-                        Headline = (string) reader["Headline"],
-                        LawText = (string) reader["Lawtext"]
+                        ParagraphNumber = (string)reader["ParagraphNumber"],
+                        Headline = (string)reader["Headline"],
+                        LawText = (string)reader["Lawtext"]
                     };
                     paragraphs.Add(paragraph);
                 }
@@ -194,8 +194,6 @@ namespace Magicnote.Domain
 
         public Paragraph GetParagraph(int pkPId)
         {
-            List<Paragraph> noteViewParagraphs = new List<Paragraph>();
-
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
