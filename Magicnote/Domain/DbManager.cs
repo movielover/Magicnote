@@ -83,7 +83,6 @@ namespace Magicnote.Domain
                 {
                     return paragraphs;
                 }
-
                 while (reader.Read())
                 {
                     Paragraph paragraph = new Paragraph
@@ -96,7 +95,6 @@ namespace Magicnote.Domain
                     paragraphs.Add(paragraph);
                 }
             }
-
             return paragraphs;
         }
 

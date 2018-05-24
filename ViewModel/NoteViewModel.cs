@@ -58,8 +58,6 @@ namespace ViewModel
             Headline = _paragraph.Headline;
             LawText = _paragraph.LawText;
             ParagraphNumber = _paragraph.ParagraphNumber;
-
-
         }
 
         public void SaveNoteToDb(string noteText, int paragraphNumber)
