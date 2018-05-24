@@ -1,49 +1,33 @@
 ﻿using System.Collections.Generic;
 using Magicnote.Domain;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace ViewModel
 {
     public class NoteViewModel : INotifyPropertyChanged
     {
-        public static DbManager DbManager;
+        public DbManager DbManager;
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public NoteViewModel()
         {
             DbManager = new DbManager();
-            Paragraphs = new List<Paragraph>();
         }
 
-        private string _headLine;
-        private string _lawtext;
-        private int _paragraphnumber;
-        private string _notetext;
-        private List<Paragraph> _paragraphs;
-
-        public List<Paragraph> Paragraphs
-        {
-            get => _paragraphs;
-
-            set
-            {
-                _paragraphs = value;
-                OnPropertyChanged(nameof(Paragraphs));
-            }
-        }
-
-        
-
+        private string _headline { get; set; }
         public string Headline
         {
-            get => _headLine;
+            get => _headline;
 
             set
             {
-                _headLine = value;
-                OnPropertyChanged(nameof(Headline));
+                _headline = value;
+                OnPropertyChanged((Headline));
             }
         }
+        private string _lawtext { get; set; }
         public string LawText
         {
             get => _lawtext;
@@ -51,59 +35,38 @@ namespace ViewModel
             set
             {
                 _lawtext = value;
-                OnPropertyChanged(nameof(LawText));
+                OnPropertyChanged((LawText));
             }
         }
-        public string NoteText
+        private string _paragraphNumber { get; set; }
+        public string ParagraphNumber
         {
-            get => _notetext;
+            get => _paragraphNumber;
 
             set
             {
-                _notetext = value;
-                OnPropertyChanged(nameof(NoteText));
+                _paragraphNumber = value;
+                OnPropertyChanged((ParagraphNumber));
             }
         }
-        public int ParagraphNumber
-        {
-            get => _paragraphnumber;
 
-            set
-            {
-                _paragraphnumber = value;
-                OnPropertyChanged(nameof(ParagraphNumber));
-            }
-        }
+
 
 
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
-        public static void SaveNoteToDb(string textRangeText, int paragraphNumber)
-        {
-            string noteText = "";
-            DbManager.SaveNote(noteText, paragraphNumber);
-        }
-        public void GetNote(int paragraphNumber)
-        {
-            NoteText = DbManager.GetNote(paragraphNumber);
-        }
-
-        //public void GetPForView()
-        //{
-        //    ParagraphNumber = DbManager.GetRecentParagraph();
-        //    NoteText = DbManager.GetNote(ParagraphNumber);
-        //}
-
-        public void GetParagraph(int pkPId)
+         public void GetParagraph(int pkPId)
         {
             DbManager.GetParagraph(pkPId);
         }
 
-        
+
+        public void SaveNoteToDb(string noteText, int paragraphNumber)
+        {
+            DbManager.SaveNote(noteText, paragraphNumber);
+        }
     }
 
 }

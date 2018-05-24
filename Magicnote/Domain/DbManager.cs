@@ -27,11 +27,12 @@ namespace Magicnote.Domain
                 {
                     MainLegalArea = new MainLegalArea
                     {
-                        Id = (int)reader["PK_MA_ID"],
-                        Title = (string)reader["MA_Title"]
+                        Id = (int) reader["PK_MA_ID"],
+                        Title = (string) reader["MA_Title"]
                     };
                     mainLegalAreas.Add(MainLegalArea);
                 }
+
                 return mainLegalAreas;
             }
         }
@@ -52,6 +53,7 @@ namespace Magicnote.Domain
                 {
                     return subLegalAreas;
                 }
+
                 while (reader.Read())
                 {
                     SubLegalArea subLegalArea = new SubLegalArea
@@ -62,6 +64,7 @@ namespace Magicnote.Domain
                     subLegalAreas.Add(subLegalArea);
                 }
             }
+
             return subLegalAreas;
         }
 
@@ -81,6 +84,7 @@ namespace Magicnote.Domain
                 {
                     return paragraphs;
                 }
+
                 while (reader.Read())
                 {
                     Paragraph paragraph = new Paragraph
@@ -93,6 +97,7 @@ namespace Magicnote.Domain
                     paragraphs.Add(paragraph);
                 }
             }
+
             return paragraphs;
         }
 
@@ -110,8 +115,9 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    noteText = (string)reader["NoteText"];
+                    noteText = (string) reader["NoteText"];
                 }
+
                 return noteText;
             }
         }
@@ -180,16 +186,17 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    pkPId = (int)reader["PK_P_ID"];
+                    pkPId = (int) reader["PK_P_ID"];
                 }
 
                 return pkPId;
             }
         }
-          public List<Paragraph> GetParagraph(int pkPId)
+
+        public void GetParagraph(int pkPId)
         {
             List<Paragraph> noteViewParagraphs = new List<Paragraph>();
-            
+
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -203,29 +210,24 @@ namespace Magicnote.Domain
                 while (reader.Read())
                 {
                     Paragraph paragraph = new Paragraph();
-                    Note note = new Note();
+
                     {
-                        
+
                         paragraph.Headline = (string) reader["Headline"];
-                        paragraph.LawText = (string)reader["Lawtext"];
-                        paragraph.ParagraphNumber = (int)reader["ParagraphNumber"];
+                        paragraph.LawText = (string) reader["Lawtext"];
+                        paragraph.ParagraphNumber = (int) reader["ParagraphNumber"];
                     }
-                    noteViewParagraphs.Add(paragraph);
-                    
+
+
+
                 }
-               
+
+
             }
-
-            return noteViewParagraphs;
-
-
         }
-        
-
-
-        
     }
 }
+
 
 
 
