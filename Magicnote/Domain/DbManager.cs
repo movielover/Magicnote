@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Magicnote.Domain
 {
@@ -144,6 +145,7 @@ namespace Magicnote.Domain
                 };
                 cmd.Parameters.Add(new SqlParameter("@FK_P_ID", fkPId));
                 cmd.ExecuteNonQuery();
+
             }
         }
 
@@ -184,12 +186,14 @@ namespace Magicnote.Domain
                 return pkPId;
             }
         }
-        public void GetNoteData(int pkPId)
+          public List<Paragraph> GetParagraph(int pkPId)
         {
+            List<Paragraph> noteViewParagraphs = new List<Paragraph>();
+            
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SP_GetNoteData", conn)
+                SqlCommand cmd = new SqlCommand("SP_GetParagraph", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -201,17 +205,24 @@ namespace Magicnote.Domain
                     Paragraph paragraph = new Paragraph();
                     Note note = new Note();
                     {
-                        note.NoteText = (string) reader["NoteText"];
+                        
                         paragraph.Headline = (string) reader["Headline"];
                         paragraph.LawText = (string)reader["Lawtext"];
                         paragraph.ParagraphNumber = (int)reader["ParagraphNumber"];
                     }
+                    noteViewParagraphs.Add(paragraph);
                     
                 }
                
             }
 
+            return noteViewParagraphs;
+
+
         }
+        
+
+         
 
 
 
@@ -231,8 +242,8 @@ namespace Magicnote.Domain
             //        cmd.Parameters.Add(new SqlParameter("@ FK_SA_ID", PK_SA_ID));
 
             //        cmd.ExecuteNonQuery();
-        
-    }
+
+        }
 }
 
 

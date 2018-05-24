@@ -13,7 +13,7 @@ namespace View
 
         public int Id { get; set; }
 
-        public string HeadLine { get; set; }
+        public string Headline { get; set; }
 
         public int PNumber { get; set; }
         public string LawText { get; set; }
@@ -40,7 +40,7 @@ namespace View
 
         private void AddParagraph()
         {
-            _createParagraphViewModel.CreateParagraphAndNote(PNumber, HeadLine, LawText, Id);
+            _createParagraphViewModel.CreateParagraphAndNote(PNumber, Headline, LawText, Id);
         }
 
         private void Videre_OnClick(object sender, RoutedEventArgs e)
@@ -60,7 +60,7 @@ namespace View
 
         private void HeadLineTextBox_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            HeadLine = HeadLineTextBox.Text;
+            Headline = HeadLineTextBox.Text;
         }
 
         private void ParagraphNumberTextBox_OnLostFocus(object sender, RoutedEventArgs e)

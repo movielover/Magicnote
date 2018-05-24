@@ -9,12 +9,15 @@ namespace View
     /// </summary>
     public partial class NoteView3 : Window
     {
+        private readonly NoteViewModel _noteViewModel = new NoteViewModel();
+
+       
         public NoteView3(int pkPId)
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = new NoteViewModel();
-            NoteViewModel.GetDateForParagraph(pkPId);
+            _noteViewModel.GetParagraph(pkPId);
 
 
         }

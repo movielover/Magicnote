@@ -24,7 +24,7 @@ namespace ViewModel
             set
             {
                 _subLegalAreas = value;
-                OnPropertyChanged("SubLegalAreas");
+                OnPropertyChanged(nameof(SubLegalAreas));
             }
         }
 
@@ -41,9 +41,9 @@ namespace ViewModel
             SubLegalAreas = DbManager.GetSubAreas(subAreaId).ToList();
         }
 
-        public void CreateParagraphAndNote(int paragraphNumber, string headLine, string lawtext, int id)
+        public void CreateParagraphAndNote(int paragraphNumber, string headline, string lawText, int id)
         {
-            DbManager.CreateParagraph(paragraphNumber, headLine, lawtext, id);
+            DbManager.CreateParagraph(paragraphNumber, headline, lawText, id);
             int pkpid = DbManager.GetRecentParagraph();
             DbManager.CreateNote(pkpid);
         }
