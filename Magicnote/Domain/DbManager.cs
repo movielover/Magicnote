@@ -217,6 +217,7 @@ namespace Magicnote.Domain
                         paragraph.LawText = (string) reader["Lawtext"];
                         paragraph.ParagraphNumber = (int) reader["ParagraphNumber"];
                     }
+                    
 
 
 

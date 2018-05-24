@@ -9,6 +9,7 @@ namespace ViewModel
     {
         public DbManager DbManager;
         
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public NoteViewModel()
