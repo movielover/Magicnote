@@ -2,7 +2,7 @@
 {
     public class Paragraph
     {
-        public int ParagraphNumber { get; set; } 
+        public string ParagraphNumber { get; set; }
 
         public string Headline { get; set; }
 
