@@ -144,3 +144,13 @@ from dbo.Paragraph, dbo.Note
 where @PK_P_ID = PK_P_ID and FK_P_ID = @PK_P_ID
 
 end
+
+create procedure SP_GetParagraph
+
+@PK_P_ID int
+
+as begin
+select HeadLine, Lawtext, ParagraphNumber
+from dbo.Paragraph
+where @PK_P_ID = PK_P_ID
+end
