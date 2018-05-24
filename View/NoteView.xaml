@@ -9,20 +9,17 @@
     <Grid>
 
         <Grid Margin="0,0,0,636" Background="Blue">
-            <Label Content="§/Eut nr:" Background="Azure" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="52"/>
+            <Label Content="§/Eut nr:" Background="Azure" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="52"/>
             <Label Content="{Binding Path=ParagraphNumber, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Height="29" Width="52"/>
             <Label Content="{Binding Path=Headline, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Background="Azure" Margin="114,10,0,0" VerticalAlignment="Top" Height="29" Width="521"/>
-            <Label Content="{Binding Lawtext, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="114,39,0,0" VerticalAlignment="Top" Height="93" Width="521"/>
+            <Label Content="{Binding LawText, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="114,39,0,0" VerticalAlignment="Top" Height="93" Width="521"/>
             <Label Content="Placeholder Logo" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Height="122" Width="157"/>
         </Grid>
         <Grid Name="GridRichText" Margin="0,133,0,225">
-            <RichTextBox Name="RichTextBox" DataContext="NoteText" Margin="0,-12,0,0" AcceptsTab="True" BorderBrush="Black" BorderThickness="1"  >
-                <FlowDocument>
-                    <Paragraph>
-                        <InlineUIContainer>
-                            <ToolBar Height="32" Width="787"/>
-                        </InlineUIContainer>
-                    </Paragraph>
+            <RichTextBox  Name="RichTextBox"  Margin="0,-12,0,0" AcceptsTab="True" BorderBrush="Black"  BorderThickness="1"  >
+                <FlowDocument >
+                    
+                    
                 </FlowDocument>
             </RichTextBox>
         </Grid>

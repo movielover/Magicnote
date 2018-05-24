@@ -9,6 +9,7 @@
         public string LawText { get; set; }
 
         public int Id { get; set; }
+        
 
     }
 }

@@ -14,7 +14,7 @@ namespace View
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = _noteViewModel;
-            _noteViewModel.GetParagraph(pkPId);
+            _noteViewModel.GetParagraphsToNote(pkPId);
         }
 
         //private string StringFromRichTextBox(RichTextBox rtb)

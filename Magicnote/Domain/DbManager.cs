@@ -67,7 +67,7 @@ namespace Magicnote.Domain
             return subLegalAreas;
         }
 
-        public List<Paragraph> GetParagraphs(int pkSaId)
+        public List<Paragraph> GetParagraphsToMenu(int pkSaId)
         {
             List<Paragraph> paragraphs = new List<Paragraph>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -190,7 +190,7 @@ namespace Magicnote.Domain
             }
         }
 
-        public Paragraph GetParagraph(int pkPId)
+        public Paragraph GetParagraphsToNote(int pkPId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {

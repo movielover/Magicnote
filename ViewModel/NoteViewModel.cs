@@ -10,6 +10,18 @@ namespace ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private string _noteText { get; set; }
+        public string NoteText
+        {
+            get => _noteText;
+
+            set
+            {
+                _noteText = value;
+                OnPropertyChanged(NoteText);
+            }
+        }
+
         private string _headline { get; set; }
         public string Headline
         {
@@ -52,12 +64,13 @@ namespace ViewModel
 
   
 
-        public void GetParagraph(int pkPId)
+        public void GetParagraphsToNote(int pkPId)
         {
-            _paragraph =DbManager.GetParagraph(pkPId);
+            _paragraph =DbManager.GetParagraphsToNote(pkPId);
             Headline = _paragraph.Headline;
             LawText = _paragraph.LawText;
             ParagraphNumber = _paragraph.ParagraphNumber;
+             
         }
 
         public void SaveNoteToDb(string noteText, int paragraphNumber)

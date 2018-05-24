@@ -40,7 +40,7 @@ namespace View
         {
             Button button = (Button)sender;
             int subAreaId = Convert.ToInt32(button.Tag);
-            _menuViewModel.GetParagraphs(subAreaId);
+            _menuViewModel.GetParagraphsToMenu(subAreaId);
             ParagraphView.Items.Refresh();
 
         }
