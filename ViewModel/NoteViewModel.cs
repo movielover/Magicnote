@@ -1,4 +1,5 @@
-﻿using Magicnote.Domain;
+﻿using System.Collections.Generic;
+using Magicnote.Domain;
 using System.ComponentModel;
 
 namespace ViewModel
@@ -6,14 +7,32 @@ namespace ViewModel
     public class NoteViewModel : INotifyPropertyChanged
     {
         public static DbManager DbManager;
-        public SubLegalArea SubLegalArea;
-        public Paragraph Paragraph;
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public NoteViewModel()
+        {
+            DbManager = new DbManager();
+            Paragraphs = new List<Paragraph>();
+        }
 
         private string _headLine;
         private string _lawtext;
         private int _paragraphnumber;
         private string _notetext;
+        private List<Paragraph> _paragraphs;
+
+        public List<Paragraph> Paragraphs
+        {
+            get => _paragraphs;
+
+            set
+            {
+                _paragraphs = value;
+                OnPropertyChanged(nameof(Paragraphs));
+            }
+        }
+
+        
 
         public string Headline
         {
@@ -73,12 +92,18 @@ namespace ViewModel
             NoteText = DbManager.GetNote(paragraphNumber);
         }
 
-        public void GetPForView()
+        //public void GetPForView()
+        //{
+        //    ParagraphNumber = DbManager.GetRecentParagraph();
+        //    NoteText = DbManager.GetNote(ParagraphNumber);
+        //}
+
+        public void GetParagraph(int pkPId)
         {
-            ParagraphNumber = DbManager.GetRecentParagraph();
-            NoteText = DbManager.GetNote(ParagraphNumber);
+            DbManager.GetParagraph(pkPId);
         }
 
+        
     }
 
 }

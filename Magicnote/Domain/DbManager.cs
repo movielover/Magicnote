@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Magicnote.Domain
 {
@@ -87,7 +88,7 @@ namespace Magicnote.Domain
                         Id = (int) reader["PK_P_ID"],
                         ParagraphNumber = (int) reader["ParagraphNumber"],
                         Headline = (string) reader["Headline"],
-                        Lawtext = (string) reader["Lawtext"]
+                        LawText = (string) reader["Lawtext"]
                     };
                     paragraphs.Add(paragraph);
                 }
@@ -144,6 +145,7 @@ namespace Magicnote.Domain
                 };
                 cmd.Parameters.Add(new SqlParameter("@FK_P_ID", fkPId));
                 cmd.ExecuteNonQuery();
+
             }
         }
 
@@ -183,24 +185,45 @@ namespace Magicnote.Domain
 
                 return pkPId;
             }
-
-            //}
-            //public void InsertSubLegalAreaParagraph(int PK_P_ID, int PK_SA_ID)
-            //{
-            //    using (SqlConnection conn = new SqlConnection(ConnectionString))
-            //    {
-            //        conn.Open();
-
-            //        SqlCommand cmd = new SqlCommand("SP_Insert_SubLegalArea_Paragraph", conn)
-            //        {
-            //            CommandType = CommandType.StoredProcedure
-            //        };
-
-            //        cmd.Parameters.Add(new SqlParameter("@FK_P_ID", PK_P_ID));
-            //        cmd.Parameters.Add(new SqlParameter("@ FK_SA_ID", PK_SA_ID));
-
-            //        cmd.ExecuteNonQuery();
         }
+          public List<Paragraph> GetParagraph(int pkPId)
+        {
+            List<Paragraph> noteViewParagraphs = new List<Paragraph>();
+            
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetParagraph", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@PK_P_ID", pkPId));
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Paragraph paragraph = new Paragraph();
+                    Note note = new Note();
+                    {
+                        
+                        paragraph.Headline = (string) reader["Headline"];
+                        paragraph.LawText = (string)reader["Lawtext"];
+                        paragraph.ParagraphNumber = (int)reader["ParagraphNumber"];
+                    }
+                    noteViewParagraphs.Add(paragraph);
+                    
+                }
+               
+            }
+
+            return noteViewParagraphs;
+
+
+        }
+        
+
+
+        
     }
 }
 

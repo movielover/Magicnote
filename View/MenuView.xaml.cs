@@ -46,8 +46,10 @@ namespace View
         }
         private void GetToNote_Click(object sender, RoutedEventArgs e)
         {
-            NoteView noteView = new NoteView();
-            noteView.Show();
+            Button button = (Button) sender;
+            int pkPId = Convert.ToInt32(button.Tag);
+            TestView testView = new TestView(pkPId);
+            testView.Show();
             Close();
         }
     }
