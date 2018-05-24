@@ -7,8 +7,15 @@ namespace ViewModel
     public class MenuViewModel : INotifyPropertyChanged
     {
         public DbManager DbManager;
-
         public event PropertyChangedEventHandler PropertyChanged;
+        public MenuViewModel()
+        {
+            DbManager = new DbManager();
+            MainLegalAreas = DbManager.GetMainLegalAreas();
+            _subLegalAreas = new List<SubLegalArea>();
+            _paragraphs = new List<Paragraph>();
+        }
+
 
         public List<MainLegalArea> MainLegalAreas { get; }
 
@@ -36,14 +43,6 @@ namespace ViewModel
                 _paragraphs = value;
                 OnPropertyChanged(nameof(Paragraphs));
             }
-        }
-
-        public MenuViewModel()
-        {
-            DbManager = new DbManager();
-            MainLegalAreas = DbManager.GetMainLegalAreas();
-            _subLegalAreas = new List<SubLegalArea>();
-            _paragraphs = new List<Paragraph>();
         }
 
         public void GetSubLegalArea(int mainAreaId)

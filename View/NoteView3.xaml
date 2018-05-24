@@ -7,10 +7,10 @@
         Title="NoteView3" Height="800" Width="800">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="567" >
-            <ListView ItemsSource="{Binding Paragraphs}">
-                <TextBox Text="{Binding Headline}"/>
-                <TextBox Text="{Binding Lawtext}"/>
-            </ListView>
+            <Label Content="§/ EUT nr:"/>
+
+
+
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="567" Margin="0,71,0,0">
             <RichTextBox >

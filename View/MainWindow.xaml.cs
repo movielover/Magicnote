@@ -18,9 +18,10 @@ namespace View
             Close();
         }
 
-        private void GetToMenu_Click(object sender, RoutedEventArgs e)
+
+        private void GetToMenu_OnClick(object sender, RoutedEventArgs e)
         {
-            MenuView menuView = new MenuView();
+            var menuView = new MenuView();
             menuView.Show();
             Close();
         }

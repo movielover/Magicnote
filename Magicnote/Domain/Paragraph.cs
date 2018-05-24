@@ -2,11 +2,11 @@
 {
     public class Paragraph
     {
-        public int ParagraphNumber { get; set; } = 0;
+        public int ParagraphNumber { get; set; } 
 
         public string Headline { get; set; }
 
-        public string Lawtext { get; set; }
+        public string LawText { get; set; }
 
         public int Id { get; set; }
 

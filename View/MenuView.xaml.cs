@@ -9,12 +9,16 @@ namespace View
     public partial class MenuView
     {
         private readonly MenuViewModel _menuViewModel = new MenuViewModel();
+
         public MenuView()
         {
+            
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             DataContext = _menuViewModel;
         }
+
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -42,8 +46,10 @@ namespace View
         }
         private void GetToNote_Click(object sender, RoutedEventArgs e)
         {
-            NoteView noteView = new NoteView();
-            noteView.Show();
+            Button button = (Button) sender;
+            int pkPId = Convert.ToInt32(button.Tag);
+            TestView testView = new TestView(pkPId);
+            testView.Show();
             Close();
         }
     }

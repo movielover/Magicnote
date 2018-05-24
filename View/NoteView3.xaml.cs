@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ViewModel;
 
 
 namespace View
@@ -8,15 +9,18 @@ namespace View
     /// </summary>
     public partial class NoteView3 : Window
     {
-        //public readonly MainViewModel MainViewModel = new MainViewModel();
-        //public NoteView3)
-        //{
-        //    InitializeComponent();
-        //    WindowStartupLocation = WindowStartupLocation.CenterScreen;
-        //    DataContext = new MainViewModel();
+        private readonly NoteViewModel _noteViewModel = new NoteViewModel();
+
+       
+        public NoteView3(int pkPId)
+        {
+            InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            DataContext = new NoteViewModel();
+            _noteViewModel.GetParagraph(pkPId);
 
 
-        //}
+        }
 
 
         //private string StringFromRichTextBox(RichTextBox rtb)
@@ -31,4 +35,5 @@ namespace View
 
 
 }
+
 
