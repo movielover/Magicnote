@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Magicnote.Domain
 {
@@ -27,8 +26,8 @@ namespace Magicnote.Domain
                 {
                     MainLegalArea = new MainLegalArea
                     {
-                        Id = (int) reader["PK_MA_ID"],
-                        Title = (string) reader["MA_Title"]
+                        Id = (int)reader["PK_MA_ID"],
+                        Title = (string)reader["MA_Title"]
                     };
                     mainLegalAreas.Add(MainLegalArea);
                 }
@@ -90,9 +89,9 @@ namespace Magicnote.Domain
                     Paragraph paragraph = new Paragraph
                     {
                         Id = (int) reader["PK_P_ID"],
-                        ParagraphNumber = (int) reader["ParagraphNumber"],
-                        Headline = (string) reader["Headline"],
-                        LawText = (string) reader["Lawtext"]
+                        ParagraphNumber = (string)reader["ParagraphNumber"],
+                        Headline = (string)reader["Headline"],
+                        LawText = (string)reader["Lawtext"]
                     };
                     paragraphs.Add(paragraph);
                 }
@@ -115,7 +114,7 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    noteText = (string) reader["NoteText"];
+                    noteText = (string)reader["NoteText"];
                 }
 
                 return noteText;
@@ -186,17 +185,15 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    pkPId = (int) reader["PK_P_ID"];
+                    pkPId = (int)reader["PK_P_ID"];
                 }
 
                 return pkPId;
             }
         }
 
-        public void GetParagraph(int pkPId)
+        public Paragraph GetParagraph(int pkPId)
         {
-            List<Paragraph> noteViewParagraphs = new List<Paragraph>();
-
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -207,28 +204,18 @@ namespace Magicnote.Domain
                 cmd.Parameters.Add(new SqlParameter("@PK_P_ID", pkPId));
 
                 SqlDataReader reader = cmd.ExecuteReader();
+                Paragraph paragraph = null;
                 while (reader.Read())
                 {
-                    Paragraph paragraph = new Paragraph();
-
+                    paragraph = new Paragraph();
                     {
-
-                        paragraph.Headline = (string) reader["Headline"];
-                        paragraph.LawText = (string) reader["Lawtext"];
-                        paragraph.ParagraphNumber = (int) reader["ParagraphNumber"];
+                        paragraph.Headline = (string)reader["Headline"];
+                        paragraph.LawText = (string)reader["Lawtext"];
+                        paragraph.ParagraphNumber = (string)reader["ParagraphNumber"];
                     }
-                    
-
-
-
                 }
-
-
+                return paragraph;
             }
         }
     }
 }
-
-
-
-

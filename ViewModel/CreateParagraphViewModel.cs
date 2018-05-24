@@ -1,9 +1,7 @@
-﻿using Magicnote.Annotations;
-using Magicnote.Domain;
+﻿using Magicnote.Domain;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace ViewModel
 {
@@ -48,8 +46,7 @@ namespace ViewModel
             DbManager.CreateNote(pkpid);
         }
 
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

@@ -1,21 +1,14 @@
-﻿using System.Collections.Generic;
-using Magicnote.Domain;
+﻿using Magicnote.Domain;
 using System.ComponentModel;
-using System.Runtime.InteropServices;
 
 namespace ViewModel
 {
     public class NoteViewModel : INotifyPropertyChanged
     {
         public DbManager DbManager;
-        
-        
-        public event PropertyChangedEventHandler PropertyChanged;
+        private Paragraph _paragraph;
 
-        public NoteViewModel()
-        {
-            DbManager = new DbManager();
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private string _headline { get; set; }
         public string Headline
@@ -25,7 +18,7 @@ namespace ViewModel
             set
             {
                 _headline = value;
-                OnPropertyChanged((Headline));
+                OnPropertyChanged(Headline);
             }
         }
         private string _lawtext { get; set; }
@@ -36,9 +29,10 @@ namespace ViewModel
             set
             {
                 _lawtext = value;
-                OnPropertyChanged((LawText));
+                OnPropertyChanged(LawText);
             }
         }
+
         private string _paragraphNumber { get; set; }
         public string ParagraphNumber
         {
@@ -47,26 +41,34 @@ namespace ViewModel
             set
             {
                 _paragraphNumber = value;
-                OnPropertyChanged((ParagraphNumber));
+                OnPropertyChanged(ParagraphNumber);
             }
         }
 
-
-
-
-        private void OnPropertyChanged(string propertyName)
+        public NoteViewModel(Paragraph paragraph)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-         public void GetParagraph(int pkPId)
-        {
-            DbManager.GetParagraph(pkPId);
+            _paragraph = paragraph;
+            DbManager = new DbManager();
         }
 
+        public void GetParagraph(int pkPId)
+        {
+            _paragraph = DbManager.GetParagraph(pkPId);
+            Headline = _paragraph.Headline;
+            LawText = _paragraph.LawText;
+            ParagraphNumber = _paragraph.ParagraphNumber;
+
+
+        }
 
         public void SaveNoteToDb(string noteText, int paragraphNumber)
         {
             DbManager.SaveNote(noteText, paragraphNumber);
+        }
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
