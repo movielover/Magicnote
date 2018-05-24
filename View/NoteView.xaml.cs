@@ -1,34 +1,45 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using ViewModel;
 
-
 namespace View
 {
-    ///// <summary>
-    ///// Interaction logic for NoteView2.xaml
-    ///// </summary>
-    //public partial class NoteView : Window
-    //{
-    //    public NoteView(int pkPId)
-    //    {
-    //        InitializeComponent();
-    //        DataContext = new NoteViewModel();
-    //        NoteViewModel.GetDateForParagraph(pkPId);
-    //    }
+    public partial class NoteView
+    {
+        private readonly NoteViewModel _noteViewModel = new NoteViewModel();
 
-    //    private string StringFromRichTextBox(RichTextBox rtb)
-    //    {
-    //        TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-    //        int paragraphNumber = ParagraphNumber;
-    //        NoteViewModel.SaveNoteToDb(textRange.Text, paragraphNumber);
-    //        return textRange.Text;
-    //    }
+        public NoteView(int pkPId)
+        {
+            InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            DataContext = _noteViewModel;
+            _noteViewModel.GetParagraph(pkPId);
+        }
 
-    //    public int ParagraphNumber { get; set; }
+        //private string StringFromRichTextBox(RichTextBox rtb)
+        //{
+        //    TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+        //    //string noteText = textRange.Text;
+        //    int paragraphNumber = 1;
+        //    _noteViewModel.SaveNoteToDb(textRange.Text, paragraphNumber);
+        //    return textRange.Text;
+
+            //    private void RichTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+            //    {
+            //        TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+            //    }
+            //}
+            //private string StringFromRichTextBox(RichTextBox rtb)
+            //    {
+            //        TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+            //        //string noteText = textRange.Text;
+            //        int paragraphNumber = 1;
+            //        _noteViewModel.SaveNoteToDb(textRange.Text, paragraphNumber);
+            //        return textRange.Text;
+        }
 
         
-    }
+        }
+    
 
