@@ -1,16 +1,11 @@
-﻿
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Documents;
 using ViewModel;
 
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for NoteView2.xaml
-    /// </summary>
-    public partial class NoteView : Window
+    public partial class NoteView
     {
         public NoteView()
         {
@@ -28,6 +23,6 @@ namespace View
 
         public int ParagraphNumber { get; set; }
 
-        
+
     }
 }

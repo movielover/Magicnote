@@ -6,7 +6,6 @@ namespace Magicnote.Domain
 {
     public class DbManager
     {
-        internal MainLegalArea MainLegalArea = new MainLegalArea();
 
         private const string ConnectionString =
             "Server=EALSQL1.eal.local; Database=DB2017_B13; User Id=USER_B13; Password=SesamLukOp_13;";
@@ -24,12 +23,12 @@ namespace Magicnote.Domain
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    MainLegalArea = new MainLegalArea
+                    MainLegalArea mainLegalArea = new MainLegalArea
                     {
                         Id = (int)reader["PK_MA_ID"],
                         Title = (string)reader["MA_Title"]
                     };
-                    mainLegalAreas.Add(MainLegalArea);
+                    mainLegalAreas.Add(mainLegalArea);
                 }
                 return mainLegalAreas;
             }
@@ -117,7 +116,6 @@ namespace Magicnote.Domain
 
         public void CreateParagraph(int paragraphNumber, string headLine, string lawText, int fkSaId)
         {
-            //int pkPId = GetRecentParagraph();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -165,11 +163,9 @@ namespace Magicnote.Domain
         public int GetRecentParagraph()
         {
             int pkPId = 0;
-
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-
                 SqlCommand cmd = new SqlCommand("SP_GetRecentParagraph", conn)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -180,29 +176,8 @@ namespace Magicnote.Domain
                 {
                     pkPId = (int)reader["PK_P_ID"];
                 }
-
                 return pkPId;
             }
-
-            //}
-            //public void InsertSubLegalAreaParagraph(int PK_P_ID, int PK_SA_ID)
-            //{
-            //    using (SqlConnection conn = new SqlConnection(ConnectionString))
-            //    {
-            //        conn.Open();
-
-            //        SqlCommand cmd = new SqlCommand("SP_Insert_SubLegalArea_Paragraph", conn)
-            //        {
-            //            CommandType = CommandType.StoredProcedure
-            //        };
-
-            //        cmd.Parameters.Add(new SqlParameter("@FK_P_ID", PK_P_ID));
-            //        cmd.Parameters.Add(new SqlParameter("@ FK_SA_ID", PK_SA_ID));
-
-            //        cmd.ExecuteNonQuery();
         }
     }
 }
-
-
-

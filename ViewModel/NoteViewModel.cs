@@ -6,8 +6,6 @@ namespace ViewModel
     public class NoteViewModel : INotifyPropertyChanged
     {
         public static DbManager DbManager;
-        public SubLegalArea SubLegalArea;
-        public Paragraph Paragraph;
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _headLine;
