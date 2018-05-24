@@ -89,7 +89,7 @@ namespace Magicnote.Domain
                     Paragraph paragraph = new Paragraph
                     {
                         Id = (int) reader["PK_P_ID"],
-                        ParagraphNumber = (string)reader["ParagraphNumber"],
+                        ParagraphNumber = (int)reader["ParagraphNumber"],
                         Headline = (string)reader["Headline"],
                         LawText = (string)reader["Lawtext"]
                     };
@@ -211,7 +211,7 @@ namespace Magicnote.Domain
                     {
                         paragraph.Headline = (string)reader["Headline"];
                         paragraph.LawText = (string)reader["Lawtext"];
-                        paragraph.ParagraphNumber = (string)reader["ParagraphNumber"];
+                        paragraph.ParagraphNumber = (int)reader["ParagraphNumber"];
                     }
                 }
                 return paragraph;

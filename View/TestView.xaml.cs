@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using ViewModel;
 
 namespace View
@@ -12,17 +13,17 @@ namespace View
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            DataContext = new NoteViewModel();
+            DataContext = _noteViewModel;
             _noteViewModel.GetParagraph(pkPId);
         }
 
-        private string StringFromRichTextBox(RichTextBox rtb)
-        {
-            TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-            //string noteText = textRange.Text;
-            int paragraphNumber = 1;
-            _noteViewModel.SaveNoteToDb(textRange.Text, paragraphNumber);
-            return textRange.Text;
+        //private string StringFromRichTextBox(RichTextBox rtb)
+        //{
+        //    TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+        //    //string noteText = textRange.Text;
+        //    int paragraphNumber = 1;
+        //    _noteViewModel.SaveNoteToDb(textRange.Text, paragraphNumber);
+        //    return textRange.Text;
 
             //    private void RichTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
             //    {
@@ -40,5 +41,5 @@ namespace View
 
         
         }
-    }
+    
 

@@ -16,7 +16,7 @@
             <Label Content="Placeholder Logo" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Height="122" Width="157"/>
         </Grid>
         <Grid Name="GridRichText" Margin="0,133,0,225">
-            <RichTextBox Name="RichTextBox" DataContext="NoteText" Margin="0,-12,0,0" AcceptsTab="True" BorderBrush="Black" BorderThickness="1" TextChanged="StringFromRichTextBox" >
+            <RichTextBox Name="RichTextBox" DataContext="NoteText" Margin="0,-12,0,0" AcceptsTab="True" BorderBrush="Black" BorderThickness="1"  >
                 <FlowDocument>
                     <Paragraph>
                         <InlineUIContainer>
