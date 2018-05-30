@@ -81,14 +81,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NoteView3.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="NoteView2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="NoteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,12 +92,6 @@
     </Compile>
     <Compile Include="CreateParagraphView.xaml.cs">
       <DependentUpon>CreateParagraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NoteView3.xaml.cs">
-      <DependentUpon>NoteView3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NoteView2.xaml.cs">
-      <DependentUpon>NoteView2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
