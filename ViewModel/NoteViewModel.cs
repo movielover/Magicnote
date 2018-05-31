@@ -3,60 +3,14 @@ using System.ComponentModel;
 
 namespace ViewModel
 {
-    public class NoteViewModel : INotifyPropertyChanged
+    public class NoteViewModel 
     {
         public DbManager DbManager;
         private Paragraph _paragraph;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private string _noteText;
-        public string NoteText
-        {
-            get => _noteText;
-
-            set
-            {
-                _noteText = value;
-                OnPropertyChanged(NoteText);
-            }
-        }
-
-        private string _headline;
-        public string Headline
-        {
-            get => _headline;
-
-            set
-            {
-                _headline = value;
-                OnPropertyChanged(Headline);
-            }
-        }
-
-        private string _lawtext;
-        public string LawText
-        {
-            get => _lawtext;
-
-            set
-            {
-                _lawtext = value;
-                OnPropertyChanged(LawText);
-            }
-        }
-
-        private int _paragraphNumber;
-        public int ParagraphNumber
-        {
-            get => _paragraphNumber;
-
-            set
-            {
-                _paragraphNumber = value;
-                OnPropertyChanged(ParagraphNumber.ToString());
-            }
-        }
+        public string LawText { get; set; }
+        public string Headline { get; set; }
+        public int ParagraphNumber { get; set; }
+        
 
         public NoteViewModel()
         {
@@ -79,10 +33,7 @@ namespace ViewModel
             DbManager.SaveNote(noteText, paragraphNumber);
         }
 
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
     }
 
 }
