@@ -19,7 +19,7 @@
 
 
 
-        <Button Content="Tag mig væk herfra" HorizontalAlignment="Left" Margin="657,508,0,0" VerticalAlignment="Top" Width="111" RenderTransformOrigin="-0.028,0.364" Click="Videre_OnClick"/>
+        <Button Content="HovedMenu" HorizontalAlignment="Left" Margin="657,508,0,0" VerticalAlignment="Top" Width="111" RenderTransformOrigin="-0.028,0.364" Click="Videre_OnClick"/>
 
         <ComboBox ItemsSource="{Binding Path=SubLegalAreas}"
                   DisplayMemberPath="Title" Tag="{Binding Id}" DropDownClosed="SubId_OnDropDownClosed"

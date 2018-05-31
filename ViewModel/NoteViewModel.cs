@@ -10,7 +10,7 @@ namespace ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string _noteText { get; set; }
+        private string _noteText;
         public string NoteText
         {
             get => _noteText;
@@ -22,7 +22,7 @@ namespace ViewModel
             }
         }
 
-        private string _headline { get; set; }
+        private string _headline;
         public string Headline
         {
             get => _headline;
@@ -33,7 +33,8 @@ namespace ViewModel
                 OnPropertyChanged(Headline);
             }
         }
-        private string _lawtext { get; set; }
+
+        private string _lawtext;
         public string LawText
         {
             get => _lawtext;
@@ -45,7 +46,7 @@ namespace ViewModel
             }
         }
 
-        private int _paragraphNumber { get; set; }
+        private int _paragraphNumber;
         public int ParagraphNumber
         {
             get => _paragraphNumber;
