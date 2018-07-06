@@ -49,9 +49,9 @@ namespace ViewModel
             SubLegalAreas = DbManager.GetSubAreas(mainAreaId);
         }
 
-        public void GetParagraphs(int subAreaId)
+        public void GetParagraphsToMenu(int subAreaId)
         {
-            Paragraphs = DbManager.GetParagraphs(subAreaId);
+            Paragraphs = DbManager.GetParagraphsToMenu(subAreaId);
         }
 
         private void OnPropertyChanged(string propertyName)

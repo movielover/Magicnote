@@ -5,27 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="NoteView" Height="1000" Width="1000">
+        Title="NoteView" Height="800" Width="800">
     <Grid>
-        <Grid Name="TopGrid" Margin="0,0,0,583">
 
-
-            <Label Margin="33,0,909,346" Content="{Binding ParagraphNumber}" ></Label>
-            <Label Margin="0,0,959,346" Content="§ Nr." />
-            <TextBlock Margin="72,0,253,346" Name="TextBlockHeadLine" DataContext="{Binding HeadLine}"></TextBlock>
-            <TextBlock Name="TextBlockLawtext" DataContext="{Binding LawText}" Margin="0,40,253,200"></TextBlock>
+        <Grid Margin="0,0,0,636" Background="Blue">
+            <Label Content="§/Eut nr:" Background="Azure" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="52"/>
+            <Label Content="{Binding Path=ParagraphNumber, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Height="29" Width="52"/>
+            <Label Content="{Binding Path=Headline, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Background="Azure" Margin="114,10,0,0" VerticalAlignment="Top" Height="29" Width="521"/>
+            <Label Content="{Binding LawText, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="114,39,0,0" VerticalAlignment="Top" Height="93" Width="521"/>
+            <Label Content="Placeholder Logo" BorderThickness="1" BorderBrush="Black" Background="Azure" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Height="122" Width="157"/>
         </Grid>
-        <Grid Margin="0,186,252,202" Name="GridNote">
-            <Border BorderBrush="Black" Name="BorderTextField" BorderThickness="1" HorizontalAlignment="Left" Height="581" VerticalAlignment="Top" Width="740"/>
-            <RichTextBox Name="NoteRichTextBox" DataContext="{Binding NoteText}" AcceptsTab="True"  >
-                <FlowDocument>
-                    <Paragraph>
-                        
-                    </Paragraph>
+        <Grid Name="GridRichText" Margin="0,133,0,225">
+            <RichTextBox  Name="RichTextBox"  Margin="0,-12,0,0" AcceptsTab="True" BorderBrush="Black"  BorderThickness="1"  >
+                <FlowDocument >
+                    
+                    
                 </FlowDocument>
             </RichTextBox>
-            </Grid>
-    </Grid>
+        </Grid>
+        <Grid Name="GridRefferences" Margin="0,544,0,0">
+            <Label Content="Place Holder: Comments" HorizontalAlignment="Left" Margin="260,88,0,0" VerticalAlignment="Top" Width="298"/>
 
+
+
+        </Grid>
+    </Grid>
 
 </Window>

@@ -38,7 +38,7 @@ namespace View
         {
             Button button = (Button)sender;
             int subAreaId = Convert.ToInt32(button.Tag);
-            _menuViewModel.GetParagraphs(subAreaId);
+            _menuViewModel.GetParagraphsToMenu(subAreaId);
             ParagraphView.Items.Refresh();
 
         }
@@ -46,8 +46,8 @@ namespace View
         {
             Button button = (Button) sender;
             int pkPId = Convert.ToInt32(button.Tag);
-            TestView testView = new TestView(pkPId);
-            testView.Show();
+            NoteView noteView = new NoteView(pkPId);
+            noteView.Show();
             Close();
         }
     }
