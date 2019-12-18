@@ -70,7 +70,9 @@
     <Compile Include="Domain\DbManager.cs" />
     <Compile Include="Domain\MainLegalArea.cs" />
     <Compile Include="Domain\Note.cs" />
+    <Compile Include="Domain\Notions.cs" />
     <Compile Include="Domain\Paragraph.cs" />
+    <Compile Include="Domain\ParagraphStk.cs" />
     <Compile Include="Domain\SubLegalArea.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Annotations.cs" />
